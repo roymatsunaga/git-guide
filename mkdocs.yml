@@ -1,7 +1,7 @@
 site_name: Comprehensive Git Guide
 site_description: A practical guide to Git from installation through advanced workflows
 site_author: Your Team
-site_url: https://yourusername.github.io/git-guide/
+site_url: https://roymatsunaga.github.io/git-guide/
 
 theme:
   name: material
