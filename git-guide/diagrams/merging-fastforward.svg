@@ -1,0 +1,92 @@
+<svg viewBox="0 0 900 250" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .commit-circle { fill: #FFD700; stroke: #DAA520; stroke-width: 2; }
+      .commit-text { font-family: monospace; font-size: 12px; text-anchor: middle; dominant-baseline: middle; font-weight: bold; }
+      .branch-label { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 13px; font-weight: 600; }
+      .branch-main { fill: #0066CC; }
+      .branch-feature { fill: #22C55E; }
+      .arrow { stroke: #999; stroke-width: 2; fill: none; }
+      .arrow-main { stroke: #0066CC; stroke-width: 2.5; }
+      .arrow-feature { stroke: #22C55E; stroke-width: 2.5; }
+      .label-bg { opacity: 0.15; }
+      .section-title { font-size: 14px; font-weight: bold; font-family: sans-serif; }
+      .label-text { font-size: 11px; fill: #666; font-family: sans-serif; }
+    </style>
+    <marker id="arrowhead-main" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#0066CC" />
+    </marker>
+    <marker id="arrowhead-feature" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#22C55E" />
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="450" y="20" style="font-size: 16px; font-weight: bold; text-anchor: middle; font-family: sans-serif;">Fast-Forward Merge</text>
+
+  <!-- BEFORE section -->
+  <text x="100" y="50" class="section-title">BEFORE: git merge feature/new</text>
+
+  <!-- Main line commits -->
+  <circle cx="80" cy="100" r="16" class="commit-circle"/>
+  <text x="80" y="100" class="commit-text">C1</text>
+
+  <circle cx="180" cy="100" r="16" class="commit-circle"/>
+  <text x="180" y="100" class="commit-text">C2</text>
+
+  <circle cx="280" cy="100" r="16" class="commit-circle"/>
+  <text x="280" y="100" class="commit-text">C3</text>
+
+  <!-- Feature branch commits -->
+  <circle cx="380" cy="100" r="16" class="commit-circle"/>
+  <text x="380" y="100" class="commit-text">C4</text>
+
+  <circle cx="480" cy="100" r="16" class="commit-circle"/>
+  <text x="480" y="100" class="commit-text">C5</text>
+
+  <!-- Arrows -->
+  <path d="M 96 100 L 164 100" class="arrow-main" marker-end="url(#arrowhead-main)"/>
+  <path d="M 196 100 L 264 100" class="arrow-main" marker-end="url(#arrowhead-main)"/>
+  <path d="M 296 100 L 364 100" class="arrow-feature" marker-end="url(#arrowhead-feature)"/>
+  <path d="M 396 100 L 464 100" class="arrow-feature" marker-end="url(#arrowhead-feature)"/>
+
+  <!-- Branch labels -->
+  <rect x="300" y="130" width="60" height="22" rx="3" class="branch-main label-bg"/>
+  <text x="330" y="146" class="branch-label branch-main">main</text>
+
+  <rect x="460" y="130" width="100" height="22" rx="3" class="branch-feature label-bg"/>
+  <text x="510" y="146" class="branch-label branch-feature">feature/new</text>
+
+  <!-- AFTER section -->
+  <text x="100" y="190" class="section-title">AFTER: merge complete</text>
+
+  <!-- Merged line -->
+  <circle cx="80" cy="240" r="16" class="commit-circle"/>
+  <text x="80" y="240" class="commit-text">C1</text>
+
+  <circle cx="180" cy="240" r="16" class="commit-circle"/>
+  <text x="180" y="240" class="commit-text">C2</text>
+
+  <circle cx="280" cy="240" r="16" class="commit-circle"/>
+  <text x="280" y="240" class="commit-text">C3</text>
+
+  <circle cx="380" cy="240" r="16" class="commit-circle"/>
+  <text x="380" y="240" class="commit-text">C4</text>
+
+  <circle cx="480" cy="240" r="16" class="commit-circle"/>
+  <text x="480" y="240" class="commit-text">C5</text>
+
+  <!-- Arrows -->
+  <path d="M 96 240 L 164 240" class="arrow-main" marker-end="url(#arrowhead-main)"/>
+  <path d="M 196 240 L 264 240" class="arrow-main" marker-end="url(#arrowhead-main)"/>
+  <path d="M 296 240 L 364 240" class="arrow-main" marker-end="url(#arrowhead-main)"/>
+  <path d="M 396 240 L 464 240" class="arrow-main" marker-end="url(#arrowhead-main)"/>
+
+  <!-- Branch labels after -->
+  <rect x="460" y="215" width="120" height="22" rx="3" class="branch-main label-bg"/>
+  <text x="520" y="231" class="branch-label branch-main">main, feature/new</text>
+
+  <!-- Annotation -->
+  <text x="600" y="100" class="label-text">No new commits created</text>
+  <text x="600" y="240" class="label-text">main pointer moves forward</text>
+</svg>

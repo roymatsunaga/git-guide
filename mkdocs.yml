@@ -1,0 +1,41 @@
+site_name: Comprehensive Git Guide
+site_description: A practical guide to Git from installation through advanced workflows
+site_author: Your Team
+site_url: https://yourusername.github.io/git-guide/
+
+theme:
+  name: material
+  palette:
+    scheme: light
+    primary: blue
+    accent: green
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - toc.integrate
+    - search.suggest
+    - search.highlight
+
+nav:
+  - Home: index.md
+  - 1. Concepts: git-guide/01-concepts.md
+  - 2. Installation: git-guide/02-installation.md
+  - 3. Basic Workflow: git-guide/03-basics.md
+  - 4. Branching & Merging: git-guide/04-branching.md
+  - 5. Advanced Features: git-guide/05-advanced.md
+  - 6. Collaboration: git-guide/06-collaboration.md
+  - 7. Troubleshooting: git-guide/07-troubleshooting.md
+  - 8. Command Reference: git-guide/08-reference.md
+  - 9. Visual Guide: git-guide/09-visual-guide.md
+
+docs_dir: '.'
+site_dir: 'site'
+
+markdown_extensions:
+  - toc:
+      permalink: true
+  - pymdownx.highlight
+  - pymdownx.superfences
+
+plugins:
+  - search
