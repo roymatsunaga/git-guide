@@ -61,10 +61,10 @@
 
   <!-- Branch labels before -->
   <rect x="400" y="80" width="60" height="22" rx="3" class="branch-main label-bg"/>
-  <text x="430" y="96" class="branch-label branch-main">main</text>
+  <text x="430" y="130" class="branch-label branch-main" text-anchor="middle">main</text>
 
   <rect x="400" y="140" width="100" height="22" rx="3" class="branch-feature label-bg"/>
-  <text x="450" y="156" class="branch-label branch-feature">feature/new</text>
+  <text x="450" y="195" class="branch-label branch-feature" text-anchor="middle">feature/new</text>
 
   <!-- AFTER section -->
   <text x="550" y="55" class="section-title">AFTER: git merge --no-ff</text>
@@ -107,7 +107,7 @@
 
   <!-- Branch label after -->
   <rect x="920" y="150" width="120" height="22" rx="3" class="branch-main label-bg"/>
-  <text x="980" y="166" class="branch-label branch-main">main, feature/new</text>
+  <text x="980" y="166" class="branch-label branch-main" text-anchor="middle">main, feature/new</text>
 
   <!-- Annotation -->
   <text x="550" y="220" class="label-text">Both branches modified files → Merge commit created</text>

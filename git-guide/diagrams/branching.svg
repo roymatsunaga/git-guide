@@ -45,10 +45,10 @@
 
   <!-- Branch labels -->
   <rect x="520" y="60" width="60" height="25" rx="4" class="branch-main label-bg"/>
-  <text x="550" y="78" class="branch-label branch-main">main</text>
+  <text x="550" y="130" class="branch-label branch-main" text-anchor="middle">main</text>
 
   <rect x="520" y="130" width="120" height="25" rx="4" class="branch-feature label-bg"/>
-  <text x="580" y="148" class="branch-label branch-feature">feature/new</text>
+  <text x="580" y="185" class="branch-label branch-feature" text-anchor="middle">feature/new</text>
 
   <!-- Annotation -->
   <text x="50" y="175" style="font-size: 12px; fill: #666; font-family: sans-serif;">Both branches point to C3</text>
