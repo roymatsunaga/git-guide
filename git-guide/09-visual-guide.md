@@ -50,10 +50,7 @@ C4 and C5 are replayed as C4' and C5' (shown in purple) on top of C6. They have 
 
 ### Result After Rebase + Fast-Forward Merge
 
-```
-After: git switch main && git merge feature/new-feature
-C1 ← C2 ← C3 ← C6 ← C4' ← C5' ← main, feature/new-feature
-```
+![Linear commit history showing clean rebase and merge result](diagrams/rebase-fastforward-result.svg)
 
 Linear history, clean commit graph.
 
@@ -69,19 +66,9 @@ C4 is copied as C4' (new hash, shown in cyan) onto main. Both branches still exi
 
 When you checkout a specific commit instead of a branch, HEAD points directly to the commit:
 
-```
-Before: git checkout C3
-C1 ← C2 ← C3 ← C4 ← main
-     ↑
-   HEAD
+![Detached HEAD diagram showing HEAD pointing to C3 instead of a branch](diagrams/detached-head.svg)
 
-After: 
-C1 ← C2 ← C3 ← C4 ← main
-     ↑
-   HEAD (detached)
-```
-
-If you make new commits in detached HEAD, they're not on any branch:
+If you make new commits in detached HEAD, they're not on any branch. For example:
 
 ```
 C1 ← C2 ← C3 ← C4 ← main
@@ -95,13 +82,7 @@ If you switch away without creating a branch, C5 and C6 become unreferenced (but
 
 Complex projects often have multiple feature branches:
 
-```
-             C4 ← C5 ← feature/auth
-            ↙
-C1 ← C2 ← C3 ← C7 ← main
-      ↖
-       C6 ← C8 ← feature/search
-```
+![Multiple branches diagram showing auth and search branches diverging from main](diagrams/multiple-branches.svg)
 
 Each branch has its own commit history. `main` is the integration point.
 

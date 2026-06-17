@@ -15,7 +15,11 @@
       "Bash(git commit -m 'Fix MkDocs configuration directory structure *)",
       "Bash(git fetch *)",
       "Bash(git ls-tree *)",
-      "Bash(git commit -m 'Fix internal markdown links for MkDocs *)"
+      "Bash(git commit -m 'Fix internal markdown links for MkDocs *)",
+      "Bash(git commit -m 'Update README.md to link to live documentation site *)",
+      "Bash(git commit -m 'Fix SVG diagram text centering and label positioning *)",
+      "Bash(grep -n \"^\\\\`\\\\`\\\\`$\" /Users/rmatsunaga/docs/git-guide/09-visual-guide.md)",
+      "Bash(git commit -m 'Add SVG diagrams for remaining visual guide sections *)"
     ]
   }
 }
