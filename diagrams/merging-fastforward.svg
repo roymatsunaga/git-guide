@@ -52,10 +52,10 @@
 
   <!-- Branch labels -->
   <rect x="300" y="130" width="60" height="22" rx="3" class="branch-main label-bg"/>
-  <text x="330" y="160" class="branch-label branch-main" text-anchor="middle">main</text>
+  <text x="330" y="145" class="branch-label branch-main" text-anchor="middle">main</text>
 
   <rect x="460" y="130" width="100" height="22" rx="3" class="branch-feature label-bg"/>
-  <text x="510" y="175" class="branch-label branch-feature" text-anchor="middle">feature/new</text>
+  <text x="510" y="145" class="branch-label branch-feature" text-anchor="middle">feature/new</text>
 
   <!-- AFTER section -->
   <text x="100" y="190" class="section-title">AFTER: merge complete</text>
@@ -84,7 +84,7 @@
 
   <!-- Branch labels after -->
   <rect x="460" y="215" width="120" height="22" rx="3" class="branch-main label-bg"/>
-  <text x="520" y="231" class="branch-label branch-main" text-anchor="middle">main, feature/new</text>
+  <text x="520" y="230" class="branch-label branch-main" text-anchor="middle">main, feature/new</text>
 
   <!-- Annotation -->
   <text x="600" y="100" class="label-text">No new commits created</text>

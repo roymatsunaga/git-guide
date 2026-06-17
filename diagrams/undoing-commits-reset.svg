@@ -45,7 +45,7 @@
 
   <!-- Branch label -->
   <rect x="410" y="125" width="60" height="22" rx="3" class="branch-main label-bg"/>
-  <text x="440" y="141" text-anchor="middle" class="branch-label branch-main">main</text>
+  <text x="440" y="140" text-anchor="middle" class="branch-label branch-main">main</text>
 
   <!-- Annotation -->
   <text x="650" y="105" class="label-text">HEAD is at C5</text>
@@ -75,7 +75,7 @@
 
   <!-- Branch label -->
   <rect x="250" y="260" width="100" height="22" rx="3" class="branch-main label-bg"/>
-  <text x="300" y="276" text-anchor="middle" class="branch-label branch-main">main, HEAD</text>
+  <text x="300" y="275" text-anchor="middle" class="branch-label branch-main">main, HEAD</text>
 
   <!-- Annotation -->
   <text x="550" y="235" class="label-text">C4 & C5 unreferenced but recoverable</text>
