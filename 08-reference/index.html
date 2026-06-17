@@ -1,0 +1,1288 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A practical guide to Git from installation through advanced workflows">
+      
+      
+        <meta name="author" content="Your Team">
+      
+      
+        <link rel="canonical" href="https://roymatsunaga.github.io/git-guide/08-reference/">
+      
+      
+        <link rel="prev" href="../07-troubleshooting/">
+      
+      
+        <link rel="next" href="../09-visual-guide/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>8. Command Reference - Comprehensive Git Guide</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="light" data-md-color-primary="blue" data-md-color-accent="green">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#8-command-reference" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Comprehensive Git Guide" class="md-header__button md-logo" aria-label="Comprehensive Git Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Comprehensive Git Guide
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              8. Command Reference
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../01-concepts/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  1. Concepts
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../02-installation/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  2. Installation
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../03-basics/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  3. Basic Workflow
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../04-branching/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  4. Branching & Merging
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../05-advanced/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  5. Advanced Features
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../06-collaboration/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  6. Collaboration
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../07-troubleshooting/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  7. Troubleshooting
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  8. Command Reference
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../09-visual-guide/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  9. Visual Guide
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Comprehensive Git Guide" class="md-nav__button md-logo" aria-label="Comprehensive Git Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Comprehensive Git Guide
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-concepts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Concepts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-basics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Basic Workflow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-branching/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Branching & Merging
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-advanced/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Advanced Features
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-collaboration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Collaboration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Command Reference
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Command Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#setup-configuration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Setup &amp; Configuration
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-cloning" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Creating &amp; Cloning
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#checking-status" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Checking Status
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#making-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Making Changes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#branching" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Branching
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#merging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Merging
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rebasing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rebasing
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#remote-operations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remote Operations
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#undoing-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Undoing Changes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cherry-pick-stash" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cherry-Pick &amp; Stash
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#tags" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Tags
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#inspecting-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Inspecting Changes
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cleaning-up" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cleaning Up
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Advanced
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#useful-aliases" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Useful Aliases
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#getting-help" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Getting Help
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#command-cheat-sheet-by-task" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Command Cheat Sheet by Task
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Command Cheat Sheet by Task">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#i-want-to-see-what-changed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        "I want to see what changed"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#i-want-to-save-my-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        "I want to save my work"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#i-want-to-update-from-remote" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        "I want to update from remote"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#i-messed-up" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        "I messed up"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#i-want-to-work-on-something-new" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        "I want to work on something new"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#i-want-to-merge-my-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        "I want to merge my changes"
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exit-git-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exit Git Commands
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#glossary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Glossary
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-visual-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. Visual Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="8-command-reference">8. Command Reference<a class="headerlink" href="#8-command-reference" title="Permanent link">&para;</a></h1>
+<p>Quick lookup for common Git commands.</p>
+<h2 id="setup-configuration">Setup &amp; Configuration<a class="headerlink" href="#setup-configuration" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.name<span class="w"> </span><span class="s2">&quot;Your Name&quot;</span>
+git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>user.email<span class="w"> </span><span class="s2">&quot;email@example.com&quot;</span>
+git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>--list<span class="w">              </span><span class="c1"># View all settings</span>
+</code></pre></div>
+<h2 id="creating-cloning">Creating &amp; Cloning<a class="headerlink" href="#creating-cloning" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>init<span class="w">                        </span><span class="c1"># Initialize a new repo</span>
+git<span class="w"> </span>clone<span class="w"> </span>&lt;url&gt;<span class="w">                 </span><span class="c1"># Clone an existing repo</span>
+git<span class="w"> </span>clone<span class="w"> </span>&lt;url&gt;<span class="w"> </span>folder-name<span class="w">     </span><span class="c1"># Clone into a specific folder</span>
+</code></pre></div>
+<h2 id="checking-status">Checking Status<a class="headerlink" href="#checking-status" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>status<span class="w">                      </span><span class="c1"># Current state</span>
+git<span class="w"> </span>status<span class="w"> </span>-s<span class="w">                   </span><span class="c1"># Short format</span>
+git<span class="w"> </span>log<span class="w">                         </span><span class="c1"># Commit history</span>
+git<span class="w"> </span>log<span class="w"> </span>--oneline<span class="w">               </span><span class="c1"># Condensed history</span>
+git<span class="w"> </span>log<span class="w"> </span>-p<span class="w">                      </span><span class="c1"># Show changes in each commit</span>
+git<span class="w"> </span>log<span class="w"> </span>--graph<span class="w"> </span>--oneline<span class="w"> </span>--all<span class="w"> </span><span class="c1"># Visual branch history</span>
+git<span class="w"> </span>diff<span class="w">                        </span><span class="c1"># Unstaged changes</span>
+git<span class="w"> </span>diff<span class="w"> </span>--staged<span class="w">               </span><span class="c1"># Staged changes</span>
+git<span class="w"> </span>show<span class="w"> </span>&lt;commit&gt;<span class="w">               </span><span class="c1"># Show a specific commit</span>
+git<span class="w"> </span>blame<span class="w"> </span>&lt;file&gt;<span class="w">                </span><span class="c1"># Who changed each line</span>
+</code></pre></div>
+<h2 id="making-changes">Making Changes<a class="headerlink" href="#making-changes" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>add<span class="w"> </span>&lt;file&gt;<span class="w">                  </span><span class="c1"># Stage a file</span>
+git<span class="w"> </span>add<span class="w"> </span>.<span class="w">                       </span><span class="c1"># Stage all changes</span>
+git<span class="w"> </span>add<span class="w"> </span>-p<span class="w">                      </span><span class="c1"># Interactive staging</span>
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;message&quot;</span><span class="w">         </span><span class="c1"># Commit with message</span>
+git<span class="w"> </span>commit<span class="w">                      </span><span class="c1"># Commit, open editor for message</span>
+git<span class="w"> </span>commit<span class="w"> </span>--amend<span class="w">              </span><span class="c1"># Modify the last commit</span>
+git<span class="w"> </span>commit<span class="w"> </span>--amend<span class="w"> </span>--no-edit<span class="w">    </span><span class="c1"># Add to last commit, keep message</span>
+git<span class="w"> </span>restore<span class="w"> </span>&lt;file&gt;<span class="w">              </span><span class="c1"># Discard changes to a file</span>
+git<span class="w"> </span>restore<span class="w"> </span>.<span class="w">                   </span><span class="c1"># Discard all changes</span>
+git<span class="w"> </span>restore<span class="w"> </span>--staged<span class="w"> </span>&lt;file&gt;<span class="w">     </span><span class="c1"># Unstage a file</span>
+</code></pre></div>
+<h2 id="branching">Branching<a class="headerlink" href="#branching" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>branch<span class="w">                      </span><span class="c1"># List local branches</span>
+git<span class="w"> </span>branch<span class="w"> </span>-a<span class="w">                   </span><span class="c1"># List all branches (local + remote)</span>
+git<span class="w"> </span>branch<span class="w"> </span>&lt;name&gt;<span class="w">               </span><span class="c1"># Create a branch</span>
+git<span class="w"> </span>branch<span class="w"> </span>-d<span class="w"> </span>&lt;name&gt;<span class="w">            </span><span class="c1"># Delete a branch</span>
+git<span class="w"> </span>switch<span class="w"> </span>&lt;branch&gt;<span class="w">             </span><span class="c1"># Switch to a branch</span>
+git<span class="w"> </span>switch<span class="w"> </span>-c<span class="w"> </span>&lt;branch&gt;<span class="w">          </span><span class="c1"># Create and switch to a branch</span>
+git<span class="w"> </span>checkout<span class="w"> </span>&lt;branch&gt;<span class="w">           </span><span class="c1"># Old syntax for switching</span>
+git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>&lt;branch&gt;<span class="w">        </span><span class="c1"># Old syntax for create + switch</span>
+</code></pre></div>
+<h2 id="merging">Merging<a class="headerlink" href="#merging" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>merge<span class="w"> </span>&lt;branch&gt;<span class="w">              </span><span class="c1"># Merge a branch into current</span>
+git<span class="w"> </span>merge<span class="w"> </span>--no-ff<span class="w"> </span>&lt;branch&gt;<span class="w">      </span><span class="c1"># Merge with merge commit</span>
+git<span class="w"> </span>merge<span class="w"> </span>--squash<span class="w"> </span>&lt;branch&gt;<span class="w">     </span><span class="c1"># Squash commits before merge</span>
+git<span class="w"> </span>merge<span class="w"> </span>--abort<span class="w">               </span><span class="c1"># Cancel a merge in progress</span>
+</code></pre></div>
+<h2 id="rebasing">Rebasing<a class="headerlink" href="#rebasing" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>rebase<span class="w"> </span>&lt;branch&gt;<span class="w">             </span><span class="c1"># Rebase current branch onto another</span>
+git<span class="w"> </span>rebase<span class="w"> </span>-i<span class="w"> </span>&lt;branch&gt;<span class="w">          </span><span class="c1"># Interactive rebase</span>
+git<span class="w"> </span>rebase<span class="w"> </span>--continue<span class="w">           </span><span class="c1"># Continue after resolving conflicts</span>
+git<span class="w"> </span>rebase<span class="w"> </span>--abort<span class="w">              </span><span class="c1"># Cancel a rebase</span>
+</code></pre></div>
+<h2 id="remote-operations">Remote Operations<a class="headerlink" href="#remote-operations" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>remote<span class="w">                      </span><span class="c1"># List remotes</span>
+git<span class="w"> </span>remote<span class="w"> </span>-v<span class="w">                   </span><span class="c1"># Show remote URLs</span>
+git<span class="w"> </span>remote<span class="w"> </span>add<span class="w"> </span>origin<span class="w"> </span>&lt;url&gt;<span class="w">     </span><span class="c1"># Add a remote</span>
+git<span class="w"> </span>fetch<span class="w">                       </span><span class="c1"># Download from remote</span>
+git<span class="w"> </span>fetch<span class="w"> </span>&lt;remote&gt;<span class="w">              </span><span class="c1"># Fetch from specific remote</span>
+git<span class="w"> </span>pull<span class="w">                        </span><span class="c1"># Fetch and merge from remote</span>
+git<span class="w"> </span>push<span class="w">                        </span><span class="c1"># Push to remote</span>
+git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span>origin<span class="w"> </span>&lt;branch&gt;<span class="w">     </span><span class="c1"># Push and set upstream</span>
+git<span class="w"> </span>push<span class="w"> </span>&lt;remote&gt;<span class="w"> </span>&lt;branch&gt;<span class="w">      </span><span class="c1"># Push to specific remote</span>
+git<span class="w"> </span>push<span class="w"> </span>--force-with-lease<span class="w">     </span><span class="c1"># Force push (safer)</span>
+git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>--delete<span class="w"> </span>&lt;branch&gt;<span class="w">  </span><span class="c1"># Delete remote branch</span>
+git<span class="w"> </span>push<span class="w"> </span>--tags<span class="w">                 </span><span class="c1"># Push all tags</span>
+</code></pre></div>
+<h2 id="undoing-changes">Undoing Changes<a class="headerlink" href="#undoing-changes" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>restore<span class="w"> </span>&lt;file&gt;<span class="w">              </span><span class="c1"># Discard unstaged changes</span>
+git<span class="w"> </span>restore<span class="w"> </span>--staged<span class="w"> </span>&lt;file&gt;<span class="w">     </span><span class="c1"># Unstage</span>
+git<span class="w"> </span>reset<span class="w"> </span>HEAD~1<span class="w">                </span><span class="c1"># Undo last commit (mixed)</span>
+git<span class="w"> </span>reset<span class="w"> </span>--soft<span class="w"> </span>HEAD~1<span class="w">         </span><span class="c1"># Undo, keep changes staged</span>
+git<span class="w"> </span>reset<span class="w"> </span>--hard<span class="w"> </span>HEAD~1<span class="w">         </span><span class="c1"># Undo, discard changes</span>
+git<span class="w"> </span>reset<span class="w"> </span>--hard<span class="w"> </span>&lt;commit&gt;<span class="w">       </span><span class="c1"># Go back to a specific commit</span>
+git<span class="w"> </span>revert<span class="w"> </span>&lt;commit&gt;<span class="w">             </span><span class="c1"># Undo a commit (creates new commit)</span>
+git<span class="w"> </span>checkout<span class="w"> </span>--<span class="w"> </span>&lt;file&gt;<span class="w">          </span><span class="c1"># Old syntax for discard</span>
+</code></pre></div>
+<h2 id="cherry-pick-stash">Cherry-Pick &amp; Stash<a class="headerlink" href="#cherry-pick-stash" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>cherry-pick<span class="w"> </span>&lt;commit&gt;<span class="w">        </span><span class="c1"># Apply a specific commit</span>
+git<span class="w"> </span>cherry-pick<span class="w"> </span>&lt;commit1&gt;..&lt;commit2&gt;<span class="w">  </span><span class="c1"># Multiple commits</span>
+git<span class="w"> </span>cherry-pick<span class="w"> </span>--abort<span class="w">         </span><span class="c1"># Cancel cherry-pick</span>
+git<span class="w"> </span>stash<span class="w">                       </span><span class="c1"># Save changes temporarily</span>
+git<span class="w"> </span>stash<span class="w"> </span>save<span class="w"> </span><span class="s2">&quot;message&quot;</span><span class="w">        </span><span class="c1"># Stash with description</span>
+git<span class="w"> </span>stash<span class="w"> </span>list<span class="w">                  </span><span class="c1"># List stashes</span>
+git<span class="w"> </span>stash<span class="w"> </span>pop<span class="w">                   </span><span class="c1"># Restore most recent stash</span>
+git<span class="w"> </span>stash<span class="w"> </span>pop<span class="w"> </span>stash@<span class="o">{</span><span class="m">0</span><span class="o">}</span><span class="w">         </span><span class="c1"># Restore specific stash</span>
+git<span class="w"> </span>stash<span class="w"> </span>drop<span class="w"> </span>stash@<span class="o">{</span><span class="m">0</span><span class="o">}</span><span class="w">        </span><span class="c1"># Delete a stash</span>
+git<span class="w"> </span>stash<span class="w"> </span>clear<span class="w">                 </span><span class="c1"># Delete all stashes</span>
+</code></pre></div>
+<h2 id="tags">Tags<a class="headerlink" href="#tags" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>tag<span class="w">                         </span><span class="c1"># List tags</span>
+git<span class="w"> </span>tag<span class="w"> </span>&lt;name&gt;<span class="w">                  </span><span class="c1"># Create lightweight tag</span>
+git<span class="w"> </span>tag<span class="w"> </span>-a<span class="w"> </span>&lt;name&gt;<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;message&quot;</span><span class="w">  </span><span class="c1"># Create annotated tag</span>
+git<span class="w"> </span>show<span class="w"> </span>&lt;tag&gt;<span class="w">                  </span><span class="c1"># Show tag details</span>
+git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>&lt;tag&gt;<span class="w">           </span><span class="c1"># Push one tag</span>
+git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>--tags<span class="w">          </span><span class="c1"># Push all tags</span>
+git<span class="w"> </span>tag<span class="w"> </span>-d<span class="w"> </span>&lt;name&gt;<span class="w">               </span><span class="c1"># Delete local tag</span>
+git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>--delete<span class="w"> </span>&lt;tag&gt;<span class="w">  </span><span class="c1"># Delete remote tag</span>
+</code></pre></div>
+<h2 id="inspecting-changes">Inspecting Changes<a class="headerlink" href="#inspecting-changes" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>diff<span class="w">                        </span><span class="c1"># Show unstaged changes</span>
+git<span class="w"> </span>diff<span class="w"> </span>&lt;branch1&gt;<span class="w"> </span>&lt;branch2&gt;<span class="w">    </span><span class="c1"># Compare two branches</span>
+git<span class="w"> </span>diff<span class="w"> </span>&lt;commit1&gt;<span class="w"> </span>&lt;commit2&gt;<span class="w">    </span><span class="c1"># Compare two commits</span>
+git<span class="w"> </span>log<span class="w"> </span>--grep<span class="o">=</span><span class="s2">&quot;text&quot;</span><span class="w">           </span><span class="c1"># Search commit messages</span>
+git<span class="w"> </span>log<span class="w"> </span>-S<span class="w"> </span><span class="s2">&quot;code&quot;</span><span class="w">               </span><span class="c1"># Search for code changes</span>
+git<span class="w"> </span>log<span class="w"> </span>--since<span class="o">=</span><span class="s2">&quot;2 weeks ago&quot;</span><span class="w">   </span><span class="c1"># Commits in last 2 weeks</span>
+git<span class="w"> </span>log<span class="w"> </span>&lt;file&gt;<span class="w">                  </span><span class="c1"># History of a file</span>
+git<span class="w"> </span>blame<span class="w"> </span>&lt;file&gt;<span class="w">                </span><span class="c1"># Show who changed each line</span>
+</code></pre></div>
+<h2 id="cleaning-up">Cleaning Up<a class="headerlink" href="#cleaning-up" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>clean<span class="w"> </span>-fd<span class="w">                   </span><span class="c1"># Remove untracked files and dirs</span>
+git<span class="w"> </span>gc<span class="w">                          </span><span class="c1"># Clean up and optimize repo</span>
+git<span class="w"> </span>reflog<span class="w">                      </span><span class="c1"># Show all HEAD movements</span>
+git<span class="w"> </span>fsck<span class="w"> </span>--full<span class="w">                 </span><span class="c1"># Check repo integrity</span>
+</code></pre></div>
+<h2 id="advanced">Advanced<a class="headerlink" href="#advanced" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>rebase<span class="w"> </span>-i<span class="w"> </span>HEAD~3<span class="w">            </span><span class="c1"># Rebase last 3 commits</span>
+git<span class="w"> </span>squash<span class="w"> </span>&lt;commit&gt;<span class="w">             </span><span class="c1"># Interactive rebase (see 05-advanced.md)</span>
+git<span class="w"> </span>bisect<span class="w"> </span>start<span class="w">                </span><span class="c1"># Start binary search for bad commit</span>
+git<span class="w"> </span>filter-branch<span class="w">               </span><span class="c1"># Rewrite history (advanced)</span>
+git<span class="w"> </span>worktree<span class="w"> </span>add<span class="w"> </span>&lt;path&gt;<span class="w">         </span><span class="c1"># Create multiple working directories</span>
+</code></pre></div>
+<h2 id="useful-aliases">Useful Aliases<a class="headerlink" href="#useful-aliases" title="Permanent link">&para;</a></h2>
+<p>Add these to your Git config for faster commands:</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>alias.st<span class="w"> </span>status
+git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>alias.co<span class="w"> </span>checkout
+git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>alias.br<span class="w"> </span>branch
+git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>alias.ci<span class="w"> </span>commit
+git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>alias.unstage<span class="w"> </span><span class="s1">&#39;restore --staged&#39;</span>
+git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>alias.last<span class="w"> </span><span class="s1">&#39;log -1 HEAD&#39;</span>
+git<span class="w"> </span>config<span class="w"> </span>--global<span class="w"> </span>alias.visual<span class="w"> </span><span class="s1">&#39;log --graph --oneline --all&#39;</span>
+</code></pre></div>
+<p>Then use:
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>st<span class="w">              </span><span class="c1"># instead of git status</span>
+git<span class="w"> </span>co<span class="w"> </span>main<span class="w">         </span><span class="c1"># instead of git checkout main</span>
+</code></pre></div></p>
+<h2 id="getting-help">Getting Help<a class="headerlink" href="#getting-help" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span><span class="nb">help</span><span class="w"> </span>&lt;command&gt;<span class="w">              </span><span class="c1"># Opens man page</span>
+git<span class="w"> </span>&lt;command&gt;<span class="w"> </span>--help<span class="w">            </span><span class="c1"># Quick help</span>
+git<span class="w">                             </span><span class="c1"># List basic commands</span>
+git<span class="w"> </span>config<span class="w"> </span>--help<span class="w">               </span><span class="c1"># Help for config</span>
+</code></pre></div>
+<h2 id="command-cheat-sheet-by-task">Command Cheat Sheet by Task<a class="headerlink" href="#command-cheat-sheet-by-task" title="Permanent link">&para;</a></h2>
+<h3 id="i-want-to-see-what-changed">"I want to see what changed"<a class="headerlink" href="#i-want-to-see-what-changed" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>status<span class="w">              </span><span class="c1"># Current state</span>
+git<span class="w"> </span>diff<span class="w">                </span><span class="c1"># What I changed</span>
+git<span class="w"> </span>log<span class="w"> </span>--oneline<span class="w">       </span><span class="c1"># Commit history</span>
+git<span class="w"> </span>show<span class="w"> </span>&lt;commit&gt;<span class="w">       </span><span class="c1"># Details of a commit</span>
+</code></pre></div>
+<h3 id="i-want-to-save-my-work">"I want to save my work"<a class="headerlink" href="#i-want-to-save-my-work" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>add<span class="w"> </span>.<span class="w">               </span><span class="c1"># Stage everything</span>
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;msg&quot;</span><span class="w">     </span><span class="c1"># Commit</span>
+git<span class="w"> </span>push<span class="w">                </span><span class="c1"># Push to remote</span>
+</code></pre></div>
+<h3 id="i-want-to-update-from-remote">"I want to update from remote"<a class="headerlink" href="#i-want-to-update-from-remote" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>fetch<span class="w">               </span><span class="c1"># See what&#39;s new</span>
+git<span class="w"> </span>pull<span class="w">                </span><span class="c1"># Fetch and merge</span>
+</code></pre></div>
+<h3 id="i-messed-up">"I messed up"<a class="headerlink" href="#i-messed-up" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>status<span class="w">              </span><span class="c1"># See the mess</span>
+git<span class="w"> </span>reflog<span class="w">              </span><span class="c1"># Find where you were</span>
+git<span class="w"> </span>reset<span class="w"> </span>--hard<span class="w"> </span>&lt;commit&gt;<span class="w">  </span><span class="c1"># Go back</span>
+</code></pre></div>
+<h3 id="i-want-to-work-on-something-new">"I want to work on something new"<a class="headerlink" href="#i-want-to-work-on-something-new" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>switch<span class="w"> </span>-c<span class="w"> </span>feature/name<span class="w">      </span><span class="c1"># Create branch</span>
+git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span>origin<span class="w"> </span>feature/name<span class="w"> </span><span class="c1"># Push it</span>
+</code></pre></div>
+<h3 id="i-want-to-merge-my-changes">"I want to merge my changes"<a class="headerlink" href="#i-want-to-merge-my-changes" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>switch<span class="w"> </span>main<span class="w">         </span><span class="c1"># Go to main</span>
+git<span class="w"> </span>merge<span class="w"> </span>feature/name<span class="w">  </span><span class="c1"># Merge the branch</span>
+git<span class="w"> </span>push<span class="w">                </span><span class="c1"># Push to remote</span>
+</code></pre></div>
+<h2 id="exit-git-commands">Exit Git Commands<a class="headerlink" href="#exit-git-commands" title="Permanent link">&para;</a></h2>
+<p>Some commands open an editor or pager. Exit with:
+- <strong>Vim/Vi</strong> — <code>:q</code> then Enter
+- <strong>Nano</strong> — Ctrl+X
+- <strong>Less pager</strong> — <code>q</code></p>
+<h2 id="glossary">Glossary<a class="headerlink" href="#glossary" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Repository</strong> — A Git project folder</li>
+<li><strong>Commit</strong> — A snapshot of changes</li>
+<li><strong>Branch</strong> — A line of development</li>
+<li><strong>Remote</strong> — A server copy (GitHub, etc.)</li>
+<li><strong>Staging</strong> — Preparing changes for commit</li>
+<li><strong>HEAD</strong> — Current commit you're on</li>
+<li><strong>Index</strong> — Staging area</li>
+<li><strong>Merge</strong> — Combine branches</li>
+<li><strong>Rebase</strong> — Replay commits on a new base</li>
+<li><strong>Cherry-pick</strong> — Apply specific commit</li>
+<li><strong>Stash</strong> — Temporarily save changes</li>
+<li><strong>Tag</strong> — Mark important commits</li>
+<li><strong>Reflog</strong> — History of HEAD movements</li>
+</ul>
+<hr />
+<p>For detailed explanations, see the other guides:
+- <a href="../01-concepts/">Concepts</a> — What is Git?
+- <a href="../03-basics/">Basics</a> — Day-to-day commands
+- <a href="../04-branching/">Branching</a> — Working with branches
+- <a href="../05-advanced/">Advanced</a> — Power user features
+- <a href="../06-collaboration/">Collaboration</a> — Team workflows
+- <a href="../07-troubleshooting/">Troubleshooting</a> — Fixing mistakes</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.sections", "toc.integrate", "search.suggest", "search.highlight"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

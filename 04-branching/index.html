@@ -1,0 +1,1283 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A practical guide to Git from installation through advanced workflows">
+      
+      
+        <meta name="author" content="Your Team">
+      
+      
+        <link rel="canonical" href="https://roymatsunaga.github.io/git-guide/04-branching/">
+      
+      
+        <link rel="prev" href="../03-basics/">
+      
+      
+        <link rel="next" href="../05-advanced/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>4. Branching & Merging - Comprehensive Git Guide</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="light" data-md-color-primary="blue" data-md-color-accent="green">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#4-branching-merging" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Comprehensive Git Guide" class="md-header__button md-logo" aria-label="Comprehensive Git Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Comprehensive Git Guide
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              4. Branching & Merging
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../01-concepts/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  1. Concepts
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../02-installation/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  2. Installation
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../03-basics/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  3. Basic Workflow
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  4. Branching & Merging
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../05-advanced/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  5. Advanced Features
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../06-collaboration/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  6. Collaboration
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../07-troubleshooting/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  7. Troubleshooting
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../08-reference/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  8. Command Reference
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../09-visual-guide/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  9. Visual Guide
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Comprehensive Git Guide" class="md-nav__button md-logo" aria-label="Comprehensive Git Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Comprehensive Git Guide
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-concepts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Concepts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-basics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Basic Workflow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Branching & Merging
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Branching & Merging
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#quick-start" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quick Start
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#why-branches" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Why Branches?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-and-switching-branches" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Creating and Switching Branches
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Creating and Switching Branches">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#create-a-branch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Create a Branch
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#list-branches" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        List Branches
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#switch-between-branches" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Switch Between Branches
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#naming-conventions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Naming Conventions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#merging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Merging
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Merging">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#basic-merge" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Basic Merge
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#merge-with-a-commit-message" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Merge with a Commit Message
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#conflicts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Conflicts
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Conflicts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#detecting-conflicts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Detecting Conflicts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#resolving-conflicts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Resolving Conflicts
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#aborting-a-merge" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Aborting a Merge
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#deleting-branches" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deleting Branches
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#remote-branches" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remote Branches
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Remote Branches">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#push-a-new-branch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Push a New Branch
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#track-a-remote-branch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Track a Remote Branch
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#see-remote-branches" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        See Remote Branches
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#advanced-rebasing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Advanced: Rebasing
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-situations" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common Situations
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Common Situations">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#i-accidentally-switched-branches-and-made-changes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        I Accidentally Switched Branches and Made Changes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#i-want-to-see-whats-different-between-branches" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        I Want to See What's Different Between Branches
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#i-want-to-merge-but-keep-my-branch-history-clean" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        I Want to Merge But Keep My Branch History Clean
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Best Practices
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Next Steps
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-advanced/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Advanced Features
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-collaboration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Collaboration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Command Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-visual-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. Visual Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="4-branching-merging">4. Branching &amp; Merging<a class="headerlink" href="#4-branching-merging" title="Permanent link">&para;</a></h1>
+<p>Work on multiple features in parallel without stepping on each other's toes.</p>
+<h2 id="quick-start">Quick Start<a class="headerlink" href="#quick-start" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code><span class="c1"># Create and switch to a new branch</span>
+git<span class="w"> </span>switch<span class="w"> </span>-c<span class="w"> </span>feature/dark-mode
+
+<span class="c1"># Make changes and commit</span>
+git<span class="w"> </span>add<span class="w"> </span>.
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Add dark mode styles&quot;</span>
+
+<span class="c1"># Push the branch to remote</span>
+git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span>origin<span class="w"> </span>feature/dark-mode
+
+<span class="c1"># Switch back to main</span>
+git<span class="w"> </span>switch<span class="w"> </span>main
+
+<span class="c1"># Merge the feature branch in</span>
+git<span class="w"> </span>merge<span class="w"> </span>feature/dark-mode
+</code></pre></div>
+<h2 id="why-branches">Why Branches?<a class="headerlink" href="#why-branches" title="Permanent link">&para;</a></h2>
+<p>Without branches, everyone works on the same copy of the code. This creates chaos:
+- Person A is working on a login feature
+- Person B is working on a search feature
+- Their changes conflict everywhere</p>
+<p>Branches let each person work in isolation, then merge changes back together.</p>
+<h2 id="creating-and-switching-branches">Creating and Switching Branches<a class="headerlink" href="#creating-and-switching-branches" title="Permanent link">&para;</a></h2>
+<h3 id="create-a-branch">Create a Branch<a class="headerlink" href="#create-a-branch" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>switch<span class="w"> </span>-c<span class="w"> </span>feature/dark-mode
+</code></pre></div>
+<p>This creates a new branch called <code>feature/dark-mode</code> and switches to it.</p>
+<p>Old syntax (still works):
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>checkout<span class="w"> </span>-b<span class="w"> </span>feature/dark-mode
+</code></pre></div></p>
+<h3 id="list-branches">List Branches<a class="headerlink" href="#list-branches" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code><span class="c1"># Local branches</span>
+git<span class="w"> </span>branch
+
+<span class="c1"># All branches (local + remote)</span>
+git<span class="w"> </span>branch<span class="w"> </span>-a
+</code></pre></div>
+<h3 id="switch-between-branches">Switch Between Branches<a class="headerlink" href="#switch-between-branches" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>switch<span class="w"> </span>feature/dark-mode<span class="w">    </span><span class="c1"># Switch to the feature branch</span>
+git<span class="w"> </span>switch<span class="w"> </span>main<span class="w">                 </span><span class="c1"># Switch back to main</span>
+</code></pre></div>
+<h2 id="naming-conventions">Naming Conventions<a class="headerlink" href="#naming-conventions" title="Permanent link">&para;</a></h2>
+<p>While Git doesn't enforce this, teams usually follow a pattern:</p>
+<div class="highlight"><pre><span></span><code>feature/                 — New feature
+  feature/dark-mode
+  feature/user-profiles
+
+bugfix/ or fix/          — Bug fix
+  fix/login-timeout
+  fix/crash-on-startup
+
+docs/                    — Documentation
+  docs/api-reference
+
+chore/                   — Maintenance, refactoring
+  chore/upgrade-dependencies
+</code></pre></div>
+<p>Choose a convention and stick with it. It makes history readable.</p>
+<h2 id="merging">Merging<a class="headerlink" href="#merging" title="Permanent link">&para;</a></h2>
+<p>When you're done with a branch and want to incorporate it into <code>main</code>:</p>
+<p><strong>Visual learner?</strong> Check <a href="../09-visual-guide/#merging-non-fast-forward">Visual Guide: Merging</a> to see what happens to the commit graph.</p>
+<h3 id="basic-merge">Basic Merge<a class="headerlink" href="#basic-merge" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>switch<span class="w"> </span>main<span class="w">          </span><span class="c1"># Switch to the branch you want to merge INTO</span>
+git<span class="w"> </span>merge<span class="w"> </span>feature/dark-mode
+</code></pre></div>
+<p>Git will merge the changes. If there are no conflicts, you're done.</p>
+<h3 id="merge-with-a-commit-message">Merge with a Commit Message<a class="headerlink" href="#merge-with-a-commit-message" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>merge<span class="w"> </span>--no-ff<span class="w"> </span>feature/dark-mode
+</code></pre></div>
+<p>The <code>--no-ff</code> flag creates a merge commit even if Git could fast-forward. This preserves the branch history and makes it clear what changes were part of the feature.</p>
+<h2 id="conflicts">Conflicts<a class="headerlink" href="#conflicts" title="Permanent link">&para;</a></h2>
+<p>When two branches change the same part of a file, Git can't automatically merge them. You have to resolve the conflict manually.</p>
+<h3 id="detecting-conflicts">Detecting Conflicts<a class="headerlink" href="#detecting-conflicts" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>merge<span class="w"> </span>feature/dark-mode
+<span class="c1"># Output:</span>
+<span class="c1"># CONFLICT (content): Merge conflict in styles.css</span>
+<span class="c1"># Automatic merge failed; fix conflicts and then commit the result.</span>
+</code></pre></div>
+<h3 id="resolving-conflicts">Resolving Conflicts<a class="headerlink" href="#resolving-conflicts" title="Permanent link">&para;</a></h3>
+<p>Open the conflicted file in your editor. You'll see:</p>
+<div class="highlight"><pre><span></span><code><span class="o">&lt;&lt;&lt;&lt;&lt;&lt;&lt;</span><span class="w"> </span><span class="nt">HEAD</span>
+<span class="nt">background</span><span class="o">:</span><span class="w"> </span><span class="nt">white</span><span class="o">;</span>
+<span class="o">=======</span>
+<span class="nt">background</span><span class="o">:</span><span class="w"> </span><span class="nt">black</span><span class="o">;</span>
+<span class="o">&gt;&gt;&gt;&gt;&gt;&gt;&gt;</span><span class="w"> </span><span class="nt">feature</span><span class="o">/</span><span class="nt">dark-mode</span>
+</code></pre></div>
+<ul>
+<li><code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD</code> — Your current branch's version</li>
+<li><code>=======</code> — The separator</li>
+<li><code>&gt;&gt;&gt;&gt;&gt;&gt;&gt; feature/dark-mode</code> — The branch being merged in</li>
+</ul>
+<p>Choose which version to keep (or combine them):</p>
+<div class="highlight"><pre><span></span><code><span class="nt">background</span><span class="o">:</span><span class="w"> </span><span class="nt">var</span><span class="o">(</span><span class="nt">--background-color</span><span class="o">);</span><span class="w">  </span><span class="c">/* Supports both light and dark */</span>
+</code></pre></div>
+<p>Then resolve the conflict:</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>add<span class="w"> </span>styles.css
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Merge feature/dark-mode (resolved conflict in styles.css)&quot;</span>
+</code></pre></div>
+<h3 id="aborting-a-merge">Aborting a Merge<a class="headerlink" href="#aborting-a-merge" title="Permanent link">&para;</a></h3>
+<p>If the conflict is too messy, abort and try again:</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>merge<span class="w"> </span>--abort
+</code></pre></div>
+<h2 id="deleting-branches">Deleting Branches<a class="headerlink" href="#deleting-branches" title="Permanent link">&para;</a></h2>
+<p>Once a branch is merged, delete it to keep things clean:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Delete locally</span>
+git<span class="w"> </span>branch<span class="w"> </span>-d<span class="w"> </span>feature/dark-mode
+
+<span class="c1"># Delete on remote</span>
+git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>--delete<span class="w"> </span>feature/dark-mode
+</code></pre></div>
+<h2 id="remote-branches">Remote Branches<a class="headerlink" href="#remote-branches" title="Permanent link">&para;</a></h2>
+<h3 id="push-a-new-branch">Push a New Branch<a class="headerlink" href="#push-a-new-branch" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>switch<span class="w"> </span>-c<span class="w"> </span>feature/new-feature
+git<span class="w"> </span>add<span class="w"> </span>.
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Start new feature&quot;</span>
+git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span>origin<span class="w"> </span>feature/new-feature
+</code></pre></div>
+<p>The <code>-u</code> flag sets the upstream, so future <code>git push</code> commands default to this branch.</p>
+<h3 id="track-a-remote-branch">Track a Remote Branch<a class="headerlink" href="#track-a-remote-branch" title="Permanent link">&para;</a></h3>
+<p>If someone else created a branch on the remote and you want to work on it:</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>switch<span class="w"> </span>feature/their-feature
+</code></pre></div>
+<p>Git automatically creates a local tracking branch.</p>
+<h3 id="see-remote-branches">See Remote Branches<a class="headerlink" href="#see-remote-branches" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>branch<span class="w"> </span>-r
+</code></pre></div>
+<p>This shows all branches on the remote that you're aware of.</p>
+<h2 id="advanced-rebasing">Advanced: Rebasing<a class="headerlink" href="#advanced-rebasing" title="Permanent link">&para;</a></h2>
+<p>Rebasing is an alternative to merging. Instead of creating a merge commit, it replays your commits on top of another branch.</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>switch<span class="w"> </span>feature/dark-mode
+git<span class="w"> </span>rebase<span class="w"> </span>main
+</code></pre></div>
+<p>This takes each commit from <code>feature/dark-mode</code> and replays them on top of the current <code>main</code>. The result is a linear history without merge commits.</p>
+<p><strong>Warning:</strong> Don't rebase branches that other people are using. It rewrites history, which causes problems when they pull. More on this in <a href="../05-advanced/">Advanced Features</a>.</p>
+<h2 id="common-situations">Common Situations<a class="headerlink" href="#common-situations" title="Permanent link">&para;</a></h2>
+<h3 id="i-accidentally-switched-branches-and-made-changes">I Accidentally Switched Branches and Made Changes<a class="headerlink" href="#i-accidentally-switched-branches-and-made-changes" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>stash<span class="w">                          </span><span class="c1"># Save your changes</span>
+git<span class="w"> </span>switch<span class="w"> </span>correct-branch
+git<span class="w"> </span>stash<span class="w"> </span>pop<span class="w">                      </span><span class="c1"># Restore your changes</span>
+</code></pre></div>
+<h3 id="i-want-to-see-whats-different-between-branches">I Want to See What's Different Between Branches<a class="headerlink" href="#i-want-to-see-whats-different-between-branches" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>diff<span class="w"> </span>main<span class="w"> </span>feature/dark-mode
+</code></pre></div>
+<p>This shows all differences between the two branches.</p>
+<h3 id="i-want-to-merge-but-keep-my-branch-history-clean">I Want to Merge But Keep My Branch History Clean<a class="headerlink" href="#i-want-to-merge-but-keep-my-branch-history-clean" title="Permanent link">&para;</a></h3>
+<p>Use rebase instead of merge:
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>switch<span class="w"> </span>feature/new-feature
+git<span class="w"> </span>rebase<span class="w"> </span>main
+git<span class="w"> </span>switch<span class="w"> </span>main
+git<span class="w"> </span>merge<span class="w"> </span>feature/new-feature
+</code></pre></div></p>
+<p>This creates a linear history: <code>main -&gt; rebase changes on top</code>.</p>
+<h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>One feature per branch</strong> — Don't mix unrelated changes</li>
+<li><strong>Keep branches short-lived</strong> — Merge back to main within a few days if possible</li>
+<li><strong>Name branches clearly</strong> — Use the convention your team follows</li>
+<li><strong>Delete merged branches</strong> — Keeps the branch list manageable</li>
+<li><strong>Pull before you push</strong> — Avoid conflicts by staying up-to-date</li>
+</ul>
+<h2 id="next-steps">Next Steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
+<p>Ready to learn advanced techniques? Jump to <a href="../05-advanced/">Advanced Features</a>.</p>
+<p>For team workflows, see <a href="../06-collaboration/">Collaboration Patterns</a>.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.sections", "toc.integrate", "search.suggest", "search.highlight"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,1255 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A practical guide to Git from installation through advanced workflows">
+      
+      
+        <meta name="author" content="Your Team">
+      
+      
+        <link rel="canonical" href="https://roymatsunaga.github.io/git-guide/07-troubleshooting/">
+      
+      
+        <link rel="prev" href="../06-collaboration/">
+      
+      
+        <link rel="next" href="../08-reference/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>7. Troubleshooting - Comprehensive Git Guide</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="light" data-md-color-primary="blue" data-md-color-accent="green">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#7-fixing-mistakes" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Comprehensive Git Guide" class="md-header__button md-logo" aria-label="Comprehensive Git Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Comprehensive Git Guide
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              7. Troubleshooting
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../01-concepts/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  1. Concepts
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../02-installation/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  2. Installation
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../03-basics/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  3. Basic Workflow
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../04-branching/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  4. Branching & Merging
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../05-advanced/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  5. Advanced Features
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../06-collaboration/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  6. Collaboration
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  7. Troubleshooting
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../08-reference/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  8. Command Reference
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../09-visual-guide/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  9. Visual Guide
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Comprehensive Git Guide" class="md-nav__button md-logo" aria-label="Comprehensive Git Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Comprehensive Git Guide
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-concepts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Concepts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-basics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Basic Workflow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-branching/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Branching & Merging
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-advanced/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Advanced Features
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-collaboration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Collaboration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#i-made-changes-i-dont-want" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        I Made Changes I Don't Want
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="I Made Changes I Don&#39;t Want">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#havent-staged-yet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Haven't Staged Yet
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#already-staged-but-not-committed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Already Staged (But Not Committed)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#already-committed-but-not-pushed" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Already Committed (But Not Pushed)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-committed-to-the-wrong-branch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        I Committed to the Wrong Branch
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-need-to-undo-my-last-commit-message" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        I Need to Undo My Last Commit Message
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-accidentally-deleted-a-branch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        I Accidentally Deleted a Branch
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-pushed-something-i-shouldnt-have" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        I Pushed Something I Shouldn't Have
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="I Pushed Something I Shouldn&#39;t Have">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#if-no-one-else-has-pulled-yet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        If No One Else Has Pulled Yet
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#if-others-have-already-pulled" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        If Others Have Already Pulled
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-lost-a-commit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        I Lost a Commit
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-have-a-merge-conflict" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        I Have a Merge Conflict
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="I Have a Merge Conflict">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#abort-the-mergerebase" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Abort the Merge/Rebase
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#my-repo-seems-corrupted" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        My Repo Seems Corrupted
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#i-accidentally-rebased-the-wrong-branch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        I Accidentally Rebased the Wrong Branch
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-i-messed-up-commands" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common "I Messed Up" Commands
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#the-nuclear-option" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Nuclear Option
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#what-you-cant-undo" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What You Can't Undo
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#prevention" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Prevention
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#get-help" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Get Help
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Next Steps
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Command Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-visual-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. Visual Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="7-fixing-mistakes">7. Fixing Mistakes<a class="headerlink" href="#7-fixing-mistakes" title="Permanent link">&para;</a></h1>
+<p>Recover from Git errors. The good news: almost nothing is permanent in Git.</p>
+<h2 id="i-made-changes-i-dont-want">I Made Changes I Don't Want<a class="headerlink" href="#i-made-changes-i-dont-want" title="Permanent link">&para;</a></h2>
+<h3 id="havent-staged-yet">Haven't Staged Yet<a class="headerlink" href="#havent-staged-yet" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>restore<span class="w"> </span>filename.txt<span class="w">        </span><span class="c1"># Discard changes to one file</span>
+git<span class="w"> </span>restore<span class="w"> </span>.<span class="w">                   </span><span class="c1"># Discard all changes</span>
+</code></pre></div>
+<p>Or the older syntax:
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>checkout<span class="w"> </span>--<span class="w"> </span>filename.txt
+</code></pre></div></p>
+<h3 id="already-staged-but-not-committed">Already Staged (But Not Committed)<a class="headerlink" href="#already-staged-but-not-committed" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>restore<span class="w"> </span>--staged<span class="w"> </span>filename.txt<span class="w">   </span><span class="c1"># Unstage the file</span>
+git<span class="w"> </span>restore<span class="w"> </span>filename.txt<span class="w">            </span><span class="c1"># Also discard the changes</span>
+</code></pre></div>
+<p>Or:
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>reset<span class="w"> </span>filename.txt<span class="w">              </span><span class="c1"># Unstage</span>
+git<span class="w"> </span>restore<span class="w"> </span>filename.txt<span class="w">            </span><span class="c1"># Discard</span>
+</code></pre></div></p>
+<h3 id="already-committed-but-not-pushed">Already Committed (But Not Pushed)<a class="headerlink" href="#already-committed-but-not-pushed" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>reset<span class="w"> </span>--soft<span class="w"> </span>HEAD~1<span class="w">         </span><span class="c1"># Undo commit, keep changes staged</span>
+git<span class="w"> </span>reset<span class="w"> </span>--mixed<span class="w"> </span>HEAD~1<span class="w">        </span><span class="c1"># Undo commit, keep changes unstaged</span>
+git<span class="w"> </span>reset<span class="w"> </span>--hard<span class="w"> </span>HEAD~1<span class="w">         </span><span class="c1"># Undo commit, discard changes (dangerous!)</span>
+</code></pre></div>
+<p>For older commits:
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>reset<span class="w"> </span>--hard<span class="w"> </span>abc123def<span class="w">      </span><span class="c1"># Go back to that commit, discard everything after</span>
+</code></pre></div></p>
+<h2 id="i-committed-to-the-wrong-branch">I Committed to the Wrong Branch<a class="headerlink" href="#i-committed-to-the-wrong-branch" title="Permanent link">&para;</a></h2>
+<p>You committed to <code>main</code> but meant to commit to <code>feature/dark-mode</code>.</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Get the commit hash</span>
+git<span class="w"> </span>log
+
+<span class="c1"># Reset main to before your commit</span>
+git<span class="w"> </span>reset<span class="w"> </span>--soft<span class="w"> </span>HEAD~1
+
+<span class="c1"># Switch to the correct branch</span>
+git<span class="w"> </span>switch<span class="w"> </span>feature/dark-mode
+
+<span class="c1"># Create the commit there</span>
+git<span class="w"> </span>add<span class="w"> </span>.
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Your commit message&quot;</span>
+
+<span class="c1"># Go back to main and verify it&#39;s clean</span>
+git<span class="w"> </span>switch<span class="w"> </span>main
+git<span class="w"> </span>status<span class="w">  </span><span class="c1"># Should be clean</span>
+</code></pre></div>
+<h2 id="i-need-to-undo-my-last-commit-message">I Need to Undo My Last Commit Message<a class="headerlink" href="#i-need-to-undo-my-last-commit-message" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>commit<span class="w"> </span>--amend<span class="w">              </span><span class="c1"># Opens editor to change message</span>
+</code></pre></div>
+<p>Or change message and keep everything:
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>commit<span class="w"> </span>--amend<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;New message&quot;</span>
+</code></pre></div></p>
+<p><strong>Only do this before pushing.</strong> After pushing, it creates problems for teammates.</p>
+<h2 id="i-accidentally-deleted-a-branch">I Accidentally Deleted a Branch<a class="headerlink" href="#i-accidentally-deleted-a-branch" title="Permanent link">&para;</a></h2>
+<p>Git keeps a log of everything. Recover with reflog:</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>reflog
+</code></pre></div>
+<p>Find the branch's last commit:
+<div class="highlight"><pre><span></span><code>abc123d HEAD@{0}: commit: Feature complete
+def456a HEAD@{1}: checkout: switching to feature
+</code></pre></div></p>
+<p>Recreate the branch:
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>switch<span class="w"> </span>-c<span class="w"> </span>feature/dark-mode<span class="w"> </span>abc123d
+</code></pre></div></p>
+<h2 id="i-pushed-something-i-shouldnt-have">I Pushed Something I Shouldn't Have<a class="headerlink" href="#i-pushed-something-i-shouldnt-have" title="Permanent link">&para;</a></h2>
+<h3 id="if-no-one-else-has-pulled-yet">If No One Else Has Pulled Yet<a class="headerlink" href="#if-no-one-else-has-pulled-yet" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>reset<span class="w"> </span>--hard<span class="w"> </span>HEAD~1<span class="w">         </span><span class="c1"># Undo locally</span>
+git<span class="w"> </span>push<span class="w"> </span>--force-with-lease<span class="w">     </span><span class="c1"># Overwrite remote</span>
+</code></pre></div>
+<p><strong>Warn your team first.</strong> Then tell them to pull the reset.</p>
+<h3 id="if-others-have-already-pulled">If Others Have Already Pulled<a class="headerlink" href="#if-others-have-already-pulled" title="Permanent link">&para;</a></h3>
+<p>Use <code>git revert</code> instead of reset (creates a new commit that undoes the change):</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>revert<span class="w"> </span>HEAD<span class="w">                 </span><span class="c1"># Undo the last commit</span>
+git<span class="w"> </span>push
+</code></pre></div>
+<p>Now everyone pulls the revert commit.</p>
+<h2 id="i-lost-a-commit">I Lost a Commit<a class="headerlink" href="#i-lost-a-commit" title="Permanent link">&para;</a></h2>
+<p>Git keeps a log of HEAD movements. Find it:</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>reflog
+</code></pre></div>
+<p>Example output:
+<div class="highlight"><pre><span></span><code>abc123d HEAD@{0}: reset: moving to HEAD~1
+def456a HEAD@{1}: commit: Important feature
+</code></pre></div></p>
+<p>Recover the commit:
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>reset<span class="w"> </span>--hard<span class="w"> </span>def456a
+</code></pre></div></p>
+<p>Or create a new branch from it:
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>switch<span class="w"> </span>-c<span class="w"> </span>recovery<span class="w"> </span>def456a
+</code></pre></div></p>
+<h2 id="i-have-a-merge-conflict">I Have a Merge Conflict<a class="headerlink" href="#i-have-a-merge-conflict" title="Permanent link">&para;</a></h2>
+<p>See <a href="../04-branching/">Branching &amp; Merging</a> for detailed resolution.</p>
+<p>Quick version:
+1. Open conflicted files
+2. Resolve conflicts (remove <code>&lt;&lt;&lt;&lt;</code>, <code>====</code>, <code>&gt;&gt;&gt;&gt;</code>)
+3. Stage the files: <code>git add .</code>
+4. Continue: <code>git commit</code> or <code>git rebase --continue</code> (depending on what you were doing)</p>
+<h3 id="abort-the-mergerebase">Abort the Merge/Rebase<a class="headerlink" href="#abort-the-mergerebase" title="Permanent link">&para;</a></h3>
+<p>If it's too messy:
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>merge<span class="w"> </span>--abort
+git<span class="w"> </span>rebase<span class="w"> </span>--abort
+</code></pre></div></p>
+<p>Try again later.</p>
+<h2 id="my-repo-seems-corrupted">My Repo Seems Corrupted<a class="headerlink" href="#my-repo-seems-corrupted" title="Permanent link">&para;</a></h2>
+<p>Try to check the repo's integrity:</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>fsck<span class="w"> </span>--full
+</code></pre></div>
+<p>If it finds issues, you can usually recover from backups or remote copies.</p>
+<p>If you have a remote copy:
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>fetch<span class="w"> </span>origin
+git<span class="w"> </span>reset<span class="w"> </span>--hard<span class="w"> </span>origin/main
+</code></pre></div></p>
+<h2 id="i-accidentally-rebased-the-wrong-branch">I Accidentally Rebased the Wrong Branch<a class="headerlink" href="#i-accidentally-rebased-the-wrong-branch" title="Permanent link">&para;</a></h2>
+<p>If you rebased a shared branch and pushed it:</p>
+<ol>
+<li>Don't panic — you can fix this</li>
+<li>Tell your team</li>
+<li>Reset the branch: <code>git reset --hard origin/branch-name</code></li>
+<li>Tell everyone to pull the reset</li>
+</ol>
+<p>If you rebased locally but haven't pushed:
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>reset<span class="w"> </span>--hard<span class="w"> </span>origin/main<span class="w">    </span><span class="c1"># Go back to remote state</span>
+git<span class="w"> </span>reflog<span class="w">                      </span><span class="c1"># Find where you were before</span>
+git<span class="w"> </span>reset<span class="w"> </span>--hard<span class="w"> </span>abc123d<span class="w">        </span><span class="c1"># Go back to that state</span>
+</code></pre></div></p>
+<h2 id="common-i-messed-up-commands">Common "I Messed Up" Commands<a class="headerlink" href="#common-i-messed-up-commands" title="Permanent link">&para;</a></h2>
+<table>
+<thead>
+<tr>
+<th>Situation</th>
+<th>Command</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Discard changes to a file</td>
+<td><code>git restore filename.txt</code></td>
+</tr>
+<tr>
+<td>Undo the last commit</td>
+<td><code>git reset --soft HEAD~1</code></td>
+</tr>
+<tr>
+<td>Undo and discard changes</td>
+<td><code>git reset --hard HEAD~1</code></td>
+</tr>
+<tr>
+<td>See what you did</td>
+<td><code>git reflog</code></td>
+</tr>
+<tr>
+<td>Recover a lost commit</td>
+<td><code>git reset --hard &lt;commit&gt;</code></td>
+</tr>
+<tr>
+<td>Fix a commit message</td>
+<td><code>git commit --amend</code></td>
+</tr>
+<tr>
+<td>Undo a pushed commit</td>
+<td><code>git revert &lt;commit&gt;</code></td>
+</tr>
+<tr>
+<td>Abort a merge</td>
+<td><code>git merge --abort</code></td>
+</tr>
+<tr>
+<td>Abort a rebase</td>
+<td><code>git rebase --abort</code></td>
+</tr>
+</tbody>
+</table>
+<h2 id="the-nuclear-option">The Nuclear Option<a class="headerlink" href="#the-nuclear-option" title="Permanent link">&para;</a></h2>
+<p>If everything is a mess, you can clone the remote repo fresh:</p>
+<div class="highlight"><pre><span></span><code><span class="nb">cd</span><span class="w"> </span>..
+rm<span class="w"> </span>-rf<span class="w"> </span>messed-up-repo
+git<span class="w"> </span>clone<span class="w"> </span>&lt;url&gt;<span class="w"> </span>messed-up-repo
+<span class="nb">cd</span><span class="w"> </span>messed-up-repo
+</code></pre></div>
+<p>This is extreme but sometimes necessary.</p>
+<h2 id="what-you-cant-undo">What You Can't Undo<a class="headerlink" href="#what-you-cant-undo" title="Permanent link">&para;</a></h2>
+<p>Almost nothing is permanent in Git, but here are the rare cases:</p>
+<ul>
+<li><strong>Garbage collected commits</strong> — If a commit isn't referenced anywhere and hasn't been pushed, it might be garbage collected after ~30 days. Keep backups of important work.</li>
+<li><strong>Force-pushed to a remote where someone else started new work</strong> — If you force-push and someone else pulled the old state, they have work on the old state. This is messy but recoverable.</li>
+</ul>
+<h2 id="prevention">Prevention<a class="headerlink" href="#prevention" title="Permanent link">&para;</a></h2>
+<p>Avoid these mistakes by:</p>
+<ul>
+<li><strong>Commit frequently</strong> — More checkpoints mean less lost work</li>
+<li><strong>Use feature branches</strong> — Never work directly on main</li>
+<li><strong>Pull before you push</strong> — Avoid conflicts</li>
+<li><strong>Test before pushing</strong> — Don't push broken code</li>
+<li><strong>Read git status</strong> — Know what you're committing</li>
+<li><strong>Use <code>--force-with-lease</code></strong> — Safer than <code>--force</code></li>
+</ul>
+<h2 id="get-help">Get Help<a class="headerlink" href="#get-help" title="Permanent link">&para;</a></h2>
+<p>If you're stuck:</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>status<span class="w">              </span><span class="c1"># Current state</span>
+git<span class="w"> </span>log<span class="w"> </span>--oneline<span class="w">       </span><span class="c1"># Recent commits</span>
+git<span class="w"> </span>reflog<span class="w">              </span><span class="c1"># Everything you&#39;ve done</span>
+</code></pre></div>
+<p>And remember: almost nothing is permanent. Take a breath and work through it.</p>
+<h2 id="next-steps">Next Steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
+<p>Check out <a href="../08-reference/">Command Reference</a> for a full command lookup.</p>
+<p>Or go back to <a href="../05-advanced/">Advanced Features</a> to learn techniques for preventing mistakes.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.sections", "toc.integrate", "search.suggest", "search.highlight"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

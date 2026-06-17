@@ -1,0 +1,1220 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A practical guide to Git from installation through advanced workflows">
+      
+      
+        <meta name="author" content="Your Team">
+      
+      
+        <link rel="canonical" href="https://roymatsunaga.github.io/git-guide/09-visual-guide/">
+      
+      
+        <link rel="prev" href="../08-reference/">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>9. Visual Guide - Comprehensive Git Guide</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="light" data-md-color-primary="blue" data-md-color-accent="green">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#9-visual-guide-git-tree-progression" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Comprehensive Git Guide" class="md-header__button md-logo" aria-label="Comprehensive Git Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Comprehensive Git Guide
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              9. Visual Guide
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../01-concepts/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  1. Concepts
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../02-installation/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  2. Installation
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../03-basics/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  3. Basic Workflow
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../04-branching/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  4. Branching & Merging
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../05-advanced/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  5. Advanced Features
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../06-collaboration/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  6. Collaboration
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../07-troubleshooting/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  7. Troubleshooting
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../08-reference/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  8. Command Reference
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  9. Visual Guide
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Comprehensive Git Guide" class="md-nav__button md-logo" aria-label="Comprehensive Git Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Comprehensive Git Guide
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-concepts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Concepts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-basics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Basic Workflow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-branching/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Branching & Merging
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-advanced/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Advanced Features
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../06-collaboration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Collaboration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Command Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. Visual Guide
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. Visual Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#initial-repository" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Initial Repository
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#linear-history" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Linear History
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#creating-a-branch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Creating a Branch
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#merging-fast-forward" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Merging (Fast-Forward)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#merging-non-fast-forward" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Merging (Non-Fast-Forward)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#rebasing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rebasing
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Rebasing">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#result-after-rebase-fast-forward-merge" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Result After Rebase + Fast-Forward Merge
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cherry-pick" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Cherry-Pick
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#detached-head" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Detached HEAD
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#multiple-branches" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Multiple Branches
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#merge-conflicts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Merge Conflicts
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#undoing-commits-reset" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Undoing Commits (Reset)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#reverting-commits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Reverting Commits
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amending-the-last-commit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amending the Last Commit
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#push-and-fetch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Push and Fetch
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#a-real-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        A Real Workflow
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#key-takeaways" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Key Takeaways
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#visual-patterns-to-remember" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Visual Patterns to Remember
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="9-visual-guide-git-tree-progression">9. Visual Guide: Git Tree Progression<a class="headerlink" href="#9-visual-guide-git-tree-progression" title="Permanent link">&para;</a></h1>
+<p>See how the commit graph evolves as you perform Git operations.</p>
+<h2 id="initial-repository">Initial Repository<a class="headerlink" href="#initial-repository" title="Permanent link">&para;</a></h2>
+<p>Your first commit creates a single node in the graph:</p>
+<div class="highlight"><pre><span></span><code>C1 ← main
+</code></pre></div>
+<h2 id="linear-history">Linear History<a class="headerlink" href="#linear-history" title="Permanent link">&para;</a></h2>
+<p>As you commit changes, the chain grows:</p>
+<p><img alt="Linear history showing commits C1, C2, C3, and C4 in a line with main branch pointing to the latest commit" src="../diagrams/linear-history.svg" /></p>
+<h2 id="creating-a-branch">Creating a Branch<a class="headerlink" href="#creating-a-branch" title="Permanent link">&para;</a></h2>
+<p>When you create a branch, it's just a pointer to the current commit:</p>
+<p><img alt="Diagram showing how branches point to commits, with both main and feature/new branches pointing to C3" src="../diagrams/branching.svg" /></p>
+<p>Both branches point to C3. When you commit on the branch, it advances while <code>main</code> stays behind. The branches have diverged. C3 is their common ancestor.</p>
+<h2 id="merging-fast-forward">Merging (Fast-Forward)<a class="headerlink" href="#merging-fast-forward" title="Permanent link">&para;</a></h2>
+<p>If <code>main</code> hasn't changed since you branched, Git can fast-forward:</p>
+<p><img alt="Fast-forward merge diagram showing main pointer moving forward to C5 with no new merge commit" src="../diagrams/merging-fastforward.svg" /></p>
+<p>The <code>main</code> branch pointer moves forward to C5. No new commit is created.</p>
+<h2 id="merging-non-fast-forward">Merging (Non-Fast-Forward)<a class="headerlink" href="#merging-non-fast-forward" title="Permanent link">&para;</a></h2>
+<p>If <code>main</code> has new commits, a merge commit is created:</p>
+<p><img alt="Non-fast-forward merge diagram showing a red merge commit M with two parents (C6 and C5)" src="../diagrams/merging-with-commit.svg" /></p>
+<p>A merge commit M (shown in red) has two parents: C6 and C5. Both branches now point to M.</p>
+<h2 id="rebasing">Rebasing<a class="headerlink" href="#rebasing" title="Permanent link">&para;</a></h2>
+<p>Rebasing replays your commits on top of another branch:</p>
+<p><img alt="Rebasing diagram showing C4 and C5 replayed as C4' and C5' on top of C6, with old commits faded" src="../diagrams/rebasing.svg" /></p>
+<p>C4 and C5 are replayed as C4' and C5' (shown in purple) on top of C6. They have new hashes because their parent changed. The old C4 and C5 are no longer referenced (can be garbage collected).</p>
+<h3 id="result-after-rebase-fast-forward-merge">Result After Rebase + Fast-Forward Merge<a class="headerlink" href="#result-after-rebase-fast-forward-merge" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>After: git switch main &amp;&amp; git merge feature/new-feature
+C1 ← C2 ← C3 ← C6 ← C4&#39; ← C5&#39; ← main, feature/new-feature
+</code></pre></div>
+<p>Linear history, clean commit graph.</p>
+<h2 id="cherry-pick">Cherry-Pick<a class="headerlink" href="#cherry-pick" title="Permanent link">&para;</a></h2>
+<p>Cherry-pick copies a specific commit onto another branch:</p>
+<p><img alt="Cherry-pick diagram showing C4 copied from feature branch to main as C4' with cyan color" src="../diagrams/cherry-pick.svg" /></p>
+<p>C4 is copied as C4' (new hash, shown in cyan) onto main. Both branches still exist unchanged. The original C4 and C5 remain on the feature branch.</p>
+<h2 id="detached-head">Detached HEAD<a class="headerlink" href="#detached-head" title="Permanent link">&para;</a></h2>
+<p>When you checkout a specific commit instead of a branch, HEAD points directly to the commit:</p>
+<div class="highlight"><pre><span></span><code>Before: git checkout C3
+C1 ← C2 ← C3 ← C4 ← main
+     ↑
+   HEAD
+
+After: 
+C1 ← C2 ← C3 ← C4 ← main
+     ↑
+   HEAD (detached)
+</code></pre></div>
+<p>If you make new commits in detached HEAD, they're not on any branch:</p>
+<div class="highlight"><pre><span></span><code>C1 ← C2 ← C3 ← C4 ← main
+     ↑
+     C5 ← C6 ← HEAD (detached)
+</code></pre></div>
+<p>If you switch away without creating a branch, C5 and C6 become unreferenced (but recoverable via reflog).</p>
+<h2 id="multiple-branches">Multiple Branches<a class="headerlink" href="#multiple-branches" title="Permanent link">&para;</a></h2>
+<p>Complex projects often have multiple feature branches:</p>
+<div class="highlight"><pre><span></span><code>             C4 ← C5 ← feature/auth
+            ↙
+C1 ← C2 ← C3 ← C7 ← main
+      ↖
+       C6 ← C8 ← feature/search
+</code></pre></div>
+<p>Each branch has its own commit history. <code>main</code> is the integration point.</p>
+<h2 id="merge-conflicts">Merge Conflicts<a class="headerlink" href="#merge-conflicts" title="Permanent link">&para;</a></h2>
+<p>When branches modify the same lines, a merge conflict occurs:</p>
+<div class="highlight"><pre><span></span><code>         C4 ← C5 ← feature/auth
+        ↙
+C1 ← C2 ← C3 ← C6 ← main
+(both modified styles.css)
+
+During merge:
+         C4 ← C5 ← feature/auth
+        ↙
+C1 ← C2 ← C3 ← C6 ← ??? (conflict!)
+</code></pre></div>
+<p>You resolve the conflict manually, then create a merge commit:</p>
+<div class="highlight"><pre><span></span><code>         C4 ← C5 ← feature/auth
+        ↙        ↘
+C1 ← C2 ← C3 ← C6 ← M ← main
+</code></pre></div>
+<h2 id="undoing-commits-reset">Undoing Commits (Reset)<a class="headerlink" href="#undoing-commits-reset" title="Permanent link">&para;</a></h2>
+<p>Reset moves the branch pointer back:</p>
+<div class="highlight"><pre><span></span><code>Before: git reset --hard HEAD~2
+C1 ← C2 ← C3 ← C4 ← C5 ← main
+                          ↑
+                        HEAD
+
+After:
+C1 ← C2 ← C3 ← main, HEAD
+     ↑
+(C4 and C5 still exist, just unreferenced)
+</code></pre></div>
+<p>The commits are discarded from the branch perspective but recoverable via reflog.</p>
+<h2 id="reverting-commits">Reverting Commits<a class="headerlink" href="#reverting-commits" title="Permanent link">&para;</a></h2>
+<p>Revert creates a new commit that undoes a previous one:</p>
+<div class="highlight"><pre><span></span><code>Before: git revert C3
+C1 ← C2 ← C3 ← C4 ← C5 ← main
+
+After:
+C1 ← C2 ← C3 ← C4 ← C5 ← R ← main
+(R&#39;s changes are the opposite of C3)
+</code></pre></div>
+<p>The original commits stay in history. R is a normal new commit.</p>
+<h2 id="amending-the-last-commit">Amending the Last Commit<a class="headerlink" href="#amending-the-last-commit" title="Permanent link">&para;</a></h2>
+<p>Amend modifies the most recent commit:</p>
+<div class="highlight"><pre><span></span><code>Before: git commit --amend
+C1 ← C2 ← C3 ← C4 ← main
+
+After:
+C1 ← C2 ← C3 ← C4&#39; ← main
+(C4 is replaced by C4&#39; with new hash)
+</code></pre></div>
+<p>If C4 hasn't been pushed, only your local history changes. If it's been pushed, you'll need to force-push (dangerous!).</p>
+<h2 id="push-and-fetch">Push and Fetch<a class="headerlink" href="#push-and-fetch" title="Permanent link">&para;</a></h2>
+<p>When you push, the remote's commit graph updates:</p>
+<div class="highlight"><pre><span></span><code>Local:
+C1 ← C2 ← C3 ← C4 ← main
+
+Remote (before push):
+C1 ← C2 ← main
+
+After: git push origin main
+Local:
+C1 ← C2 ← C3 ← C4 ← main
+
+Remote:
+C1 ← C2 ← C3 ← C4 ← main
+</code></pre></div>
+<p>Both are now synchronized. Remote tracking branches update when you fetch:</p>
+<div class="highlight"><pre><span></span><code>Local (after fetch):
+C1 ← C2 ← C3 ← C4 ← main
+          ↑
+       origin/main
+</code></pre></div>
+<h2 id="a-real-workflow">A Real Workflow<a class="headerlink" href="#a-real-workflow" title="Permanent link">&para;</a></h2>
+<p>Here's how a typical team workflow evolves:</p>
+<p><strong>1. Start:</strong> Everyone on main
+<div class="highlight"><pre><span></span><code>C1 ← main, origin/main
+</code></pre></div></p>
+<p><strong>2. Alice creates feature/auth:</strong>
+<div class="highlight"><pre><span></span><code>           C2 ← feature/auth
+          ↙
+C1 ← main, origin/main
+</code></pre></div></p>
+<p><strong>3. Bob creates feature/search:</strong>
+<div class="highlight"><pre><span></span><code>           C2 ← feature/auth
+          ↙
+C1 ← main, origin/main
+  ↘
+   C3 ← feature/search
+</code></pre></div></p>
+<p><strong>4. Alice commits:</strong>
+<div class="highlight"><pre><span></span><code>           C2 ← C4 ← feature/auth
+          ↙
+C1 ← main, origin/main
+  ↘
+   C3 ← feature/search
+</code></pre></div></p>
+<p><strong>5. Alice's PR is approved, merged to main:</strong>
+<div class="highlight"><pre><span></span><code>           C2 ← C4 ⟲
+          ↙        ↘
+C1 ← main, origin/main ← M
+  ↘
+   C3 ← feature/search
+</code></pre></div></p>
+<p><strong>6. Bob fetches and sees main updated:</strong>
+<div class="highlight"><pre><span></span><code>           C2 ← C4 ⟲
+          ↙        ↘
+C1 ←  M ← main
+↑    ↑
+origin/main (before fetch)
+
+After fetch:
+           C2 ← C4 ⟲
+          ↙        ↘
+C1 ← origin/main ← M ← main
+  ↘
+   C3 ← feature/search
+</code></pre></div></p>
+<p><strong>7. Bob rebases feature/search on the updated main:</strong>
+<div class="highlight"><pre><span></span><code>           C2 ← C4 ⟲
+          ↙        ↘
+C1 ← origin/main ← M ← main
+              ↘
+               C3&#39; ← feature/search
+</code></pre></div></p>
+<p><strong>8. Bob's PR is approved and merged:</strong>
+<div class="highlight"><pre><span></span><code>           C2 ← C4 ⟲
+          ↙        ↘
+C1 ← origin/main ← M ← C3&#39; ⟲
+                    ↑    ↘
+                   main ← M2
+</code></pre></div></p>
+<p>And the cycle continues...</p>
+<h2 id="key-takeaways">Key Takeaways<a class="headerlink" href="#key-takeaways" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>Commits form a DAG</strong> — Each commit points to its parent(s)</li>
+<li><strong>Branches are pointers</strong> — Moving a branch pointer doesn't change commits</li>
+<li><strong>Merges create branches</strong> — Merge commits have multiple parents</li>
+<li><strong>Rebasing replays commits</strong> — Creates new commits with different hashes</li>
+<li><strong>History is immutable</strong> — Old commits stay accessible via reflog</li>
+<li><strong>Conflicts happen when</strong> — Two branches modify the same lines</li>
+</ul>
+<h2 id="visual-patterns-to-remember">Visual Patterns to Remember<a class="headerlink" href="#visual-patterns-to-remember" title="Permanent link">&para;</a></h2>
+<div class="highlight"><pre><span></span><code>Linear history:          C1 ← C2 ← C3 ← C4
+
+Branching:               C3 ← C4 ← feature
+                        ↙
+                       C1 ← C2 ← main
+
+Merging:                C3 ← C4 ⟲
+                       ↙        ↘
+                       C1 ← C2 ← M ← main
+
+Rebasing:              C1 ← C2 ← C3&#39; ← C4&#39; ← feature
+                              ↑
+                            main
+</code></pre></div>
+<p>These patterns repeat in every Git workflow. Understanding them helps you predict what your commit graph will look like after each operation.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.sections", "toc.integrate", "search.suggest", "search.highlight"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

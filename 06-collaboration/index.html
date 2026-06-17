@@ -1,0 +1,1582 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="A practical guide to Git from installation through advanced workflows">
+      
+      
+        <meta name="author" content="Your Team">
+      
+      
+        <link rel="canonical" href="https://roymatsunaga.github.io/git-guide/06-collaboration/">
+      
+      
+        <link rel="prev" href="../05-advanced/">
+      
+      
+        <link rel="next" href="../07-troubleshooting/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>6. Collaboration - Comprehensive Git Guide</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="light" data-md-color-primary="blue" data-md-color-accent="green">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#6-collaboration-patterns" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="Comprehensive Git Guide" class="md-header__button md-logo" aria-label="Comprehensive Git Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            Comprehensive Git Guide
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              6. Collaboration
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../01-concepts/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  1. Concepts
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../02-installation/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  2. Installation
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../03-basics/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  3. Basic Workflow
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../04-branching/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  4. Branching & Merging
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../05-advanced/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  5. Advanced Features
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  6. Collaboration
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../07-troubleshooting/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  7. Troubleshooting
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../08-reference/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  8. Command Reference
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../09-visual-guide/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  9. Visual Guide
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+  
+
+<nav class="md-nav md-nav--primary md-nav--lifted md-nav--integrated" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="Comprehensive Git Guide" class="md-nav__button md-logo" aria-label="Comprehensive Git Guide" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    Comprehensive Git Guide
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../01-concepts/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    1. Concepts
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../02-installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    2. Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../03-basics/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    3. Basic Workflow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../04-branching/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    4. Branching & Merging
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../05-advanced/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    5. Advanced Features
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Collaboration
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    6. Collaboration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#the-pull-request-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        The Pull Request Workflow
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="The Pull Request Workflow">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#step-1-create-a-branch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 1: Create a Branch
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-2-make-and-push-commits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 2: Make and Push Commits
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-3-open-a-pull-request" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 3: Open a Pull Request
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-4-code-review" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 4: Code Review
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#step-5-merge" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Step 5: Merge
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#collaboration-strategies" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Collaboration Strategies
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Collaboration Strategies">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#keep-main-stable" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Keep Main Stable
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rebase-feature-branches-before-merging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Rebase Feature Branches Before Merging
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#squash-commits-when-merging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Squash Commits When Merging
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#commit-hygiene" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Commit Hygiene
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#handling-merge-conflicts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Handling Merge Conflicts
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Handling Merge Conflicts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#option-1-rebase-and-resolve" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option 1: Rebase and Resolve
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#option-2-merge-and-resolve" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Option 2: Merge and Resolve
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#preventing-conflicts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Preventing Conflicts
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#code-review-best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Code Review Best Practices
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Code Review Best Practices">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#for-reviewers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        For Reviewers
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#for-authors" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        For Authors
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#team-workflows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Team Workflows
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Team Workflows">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#feature-branch-workflow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Feature Branch Workflow
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#git-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Git Flow
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#trunk-based-development" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Trunk-Based Development
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#protecting-main" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Protecting Main
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#handling-urgent-fixes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Handling Urgent Fixes
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Handling Urgent Fixes">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#if-its-a-one-line-fix" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        If It's a One-Line Fix
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#if-its-complex" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        If It's Complex
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#common-team-patterns" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Common Team Patterns
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Common Team Patterns">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#rebase-and-squash-before-merge" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        "Rebase and squash before merge"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#merge-with-merge-commits" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        "Merge with merge commits"
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#rebase-on-main-then-merge-without-merge-commit" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        "Rebase on main, then merge without merge commit"
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#remote-collaboration" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Remote Collaboration
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Remote Collaboration">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#push-frequently" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Push Frequently
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#fetch-before-working" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Fetch Before Working
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#keep-branches-up-to-date" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Keep Branches Up-to-Date
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#issues-and-discussions" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Issues and Discussions
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#communication" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Communication
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Communication">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#when-opening-a-pr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When Opening a PR
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#when-reviewing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When Reviewing
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#when-merging" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        When Merging
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#best-practices" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Best Practices
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#next-steps" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Next Steps
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../07-troubleshooting/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    7. Troubleshooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../08-reference/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    8. Command Reference
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../09-visual-guide/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    9. Visual Guide
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="6-collaboration-patterns">6. Collaboration Patterns<a class="headerlink" href="#6-collaboration-patterns" title="Permanent link">&para;</a></h1>
+<p>Work effectively with teammates using Git.</p>
+<h2 id="the-pull-request-workflow">The Pull Request Workflow<a class="headerlink" href="#the-pull-request-workflow" title="Permanent link">&para;</a></h2>
+<p>Most teams use this pattern:</p>
+<ol>
+<li>Create a branch for your feature</li>
+<li>Make commits and push to the remote</li>
+<li>Open a Pull Request (PR) for code review</li>
+<li>Address feedback</li>
+<li>Merge when approved</li>
+</ol>
+<h3 id="step-1-create-a-branch">Step 1: Create a Branch<a class="headerlink" href="#step-1-create-a-branch" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>switch<span class="w"> </span>-c<span class="w"> </span>feature/dark-mode
+</code></pre></div>
+<p>Use clear naming (see <a href="../04-branching/">Branching &amp; Merging</a> for conventions).</p>
+<h3 id="step-2-make-and-push-commits">Step 2: Make and Push Commits<a class="headerlink" href="#step-2-make-and-push-commits" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>add<span class="w"> </span>.
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Add dark mode toggle to header&quot;</span>
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Add dark mode styles&quot;</span>
+git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span>origin<span class="w"> </span>feature/dark-mode
+</code></pre></div>
+<p>Push frequently. It's a backup and lets teammates see your progress.</p>
+<h3 id="step-3-open-a-pull-request">Step 3: Open a Pull Request<a class="headerlink" href="#step-3-open-a-pull-request" title="Permanent link">&para;</a></h3>
+<p>On GitHub/GitLab, create a PR from your branch to <code>main</code>. Include:</p>
+<ul>
+<li><strong>Title</strong> — One-line summary of the change</li>
+<li><strong>Description</strong> — Why the change exists, how it works, any caveats</li>
+<li><strong>Screenshots</strong> — For UI changes</li>
+<li><strong>Related issues</strong> — Link to any issues this fixes (e.g., "Fixes #123")</li>
+</ul>
+<p>Example description:
+<div class="highlight"><pre><span></span><code>## What
+Add dark mode support to the app.
+
+## Why
+Users have requested dark mode for years. This is the top feature
+request on our feedback board.
+
+## How
+- New toggle in the header
+- CSS variables for light/dark colors
+- localStorage to persist user preference
+
+## Testing
+Tested in Chrome, Firefox, and Safari on macOS and Windows.
+Dark mode toggle persists across page refreshes.
+
+Fixes #1234
+</code></pre></div></p>
+<h3 id="step-4-code-review">Step 4: Code Review<a class="headerlink" href="#step-4-code-review" title="Permanent link">&para;</a></h3>
+<p>Teammates review your code. They might request changes:
+- "Can you add a test for this?"
+- "Should we handle the error case here?"
+- "Let's simplify this logic"</p>
+<p>Address feedback by:
+1. Making the requested changes
+2. Committing them
+3. Pushing to the branch
+4. Replying with what you changed</p>
+<p><strong>Important:</strong> Don't force-push after review. It rewrites history and makes it hard to see what changed.</p>
+<h3 id="step-5-merge">Step 5: Merge<a class="headerlink" href="#step-5-merge" title="Permanent link">&para;</a></h3>
+<p>Once approved, merge the PR:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># On the PR page, click &quot;Merge&quot;</span>
+</code></pre></div>
+<p>Or command line:
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>switch<span class="w"> </span>main
+git<span class="w"> </span>pull
+git<span class="w"> </span>merge<span class="w"> </span>feature/dark-mode
+git<span class="w"> </span>push
+</code></pre></div></p>
+<p>Then delete the branch:
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>branch<span class="w"> </span>-d<span class="w"> </span>feature/dark-mode
+git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>--delete<span class="w"> </span>feature/dark-mode
+</code></pre></div></p>
+<h2 id="collaboration-strategies">Collaboration Strategies<a class="headerlink" href="#collaboration-strategies" title="Permanent link">&para;</a></h2>
+<h3 id="keep-main-stable">Keep Main Stable<a class="headerlink" href="#keep-main-stable" title="Permanent link">&para;</a></h3>
+<p><strong>Rule:</strong> Never push directly to <code>main</code>. Always use branches and PRs.</p>
+<p>This ensures:
+- Code is reviewed before merging
+- Tests pass before production
+- History is clean and traceable</p>
+<h3 id="rebase-feature-branches-before-merging">Rebase Feature Branches Before Merging<a class="headerlink" href="#rebase-feature-branches-before-merging" title="Permanent link">&para;</a></h3>
+<p>Before opening a PR or merging, rebase your branch on the latest main:</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>fetch
+git<span class="w"> </span>rebase<span class="w"> </span>origin/main
+git<span class="w"> </span>push<span class="w"> </span>--force-with-lease<span class="w"> </span>origin<span class="w"> </span>feature/dark-mode
+</code></pre></div>
+<p>This integrates recent changes from main and prevents conflicts.</p>
+<p><strong>Note:</strong> Use <code>--force-with-lease</code> instead of <code>--force</code>. It's safer (won't overwrite remote changes you didn't expect).</p>
+<h3 id="squash-commits-when-merging">Squash Commits When Merging<a class="headerlink" href="#squash-commits-when-merging" title="Permanent link">&para;</a></h3>
+<p>Keep main's history clean. Instead of merging all commits:</p>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>merge<span class="w"> </span>--squash<span class="w"> </span>feature/dark-mode
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Add dark mode support&quot;</span>
+git<span class="w"> </span>push
+</code></pre></div>
+<p>This creates one clean commit on main.</p>
+<p>Alternatively, some teams use "squash and merge" on the PR page.</p>
+<h3 id="commit-hygiene">Commit Hygiene<a class="headerlink" href="#commit-hygiene" title="Permanent link">&para;</a></h3>
+<p>Write commits that tell a story:</p>
+<p><strong>Bad:</strong>
+<div class="highlight"><pre><span></span><code>Update files
+Fix stuff
+WIP
+Finish feature
+</code></pre></div></p>
+<p><strong>Good:</strong>
+<div class="highlight"><pre><span></span><code>Add dark mode toggle to header
+Add CSS variables for theme colors
+Persist dark mode preference to localStorage
+</code></pre></div></p>
+<p>Each commit should be a logical, self-contained change.</p>
+<h2 id="handling-merge-conflicts">Handling Merge Conflicts<a class="headerlink" href="#handling-merge-conflicts" title="Permanent link">&para;</a></h2>
+<p>When your branch conflicts with main:</p>
+<h3 id="option-1-rebase-and-resolve">Option 1: Rebase and Resolve<a class="headerlink" href="#option-1-rebase-and-resolve" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>fetch
+git<span class="w"> </span>rebase<span class="w"> </span>origin/main
+</code></pre></div>
+<p>Git pauses on conflicts. Resolve them:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Edit conflicted files</span>
+git<span class="w"> </span>add<span class="w"> </span>.
+git<span class="w"> </span>rebase<span class="w"> </span>--continue
+</code></pre></div>
+<h3 id="option-2-merge-and-resolve">Option 2: Merge and Resolve<a class="headerlink" href="#option-2-merge-and-resolve" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>fetch
+git<span class="w"> </span>merge<span class="w"> </span>origin/main
+</code></pre></div>
+<p>Resolve conflicts:</p>
+<div class="highlight"><pre><span></span><code><span class="c1"># Edit conflicted files</span>
+git<span class="w"> </span>add<span class="w"> </span>.
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Merge main into feature branch&quot;</span>
+</code></pre></div>
+<h3 id="preventing-conflicts">Preventing Conflicts<a class="headerlink" href="#preventing-conflicts" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Pull/fetch often to stay synchronized</li>
+<li>Avoid editing the same files as teammates</li>
+<li>Communicate about what you're working on</li>
+</ul>
+<h2 id="code-review-best-practices">Code Review Best Practices<a class="headerlink" href="#code-review-best-practices" title="Permanent link">&para;</a></h2>
+<h3 id="for-reviewers">For Reviewers<a class="headerlink" href="#for-reviewers" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Be constructive</strong> — "Why not use const instead?" not "This is wrong"</li>
+<li><strong>Approve when satisfied</strong> — Don't block on minor style issues</li>
+<li><strong>Ask questions</strong> — "What's the purpose of this logic?"</li>
+<li><strong>Suggest, don't demand</strong> — "We could also..." vs "You must..."</li>
+<li><strong>Review promptly</strong> — Hours, not days</li>
+</ul>
+<h3 id="for-authors">For Authors<a class="headerlink" href="#for-authors" title="Permanent link">&para;</a></h3>
+<ul>
+<li><strong>Keep PRs small</strong> — Easier to review, easier to understand</li>
+<li><strong>Explain your intent</strong> — The code shows what, the description shows why</li>
+<li><strong>Be responsive</strong> — Address feedback quickly</li>
+<li><strong>Ask for clarification</strong> — If feedback is unclear</li>
+<li><strong>Don't take it personally</strong> — Code review is about the code, not you</li>
+</ul>
+<h2 id="team-workflows">Team Workflows<a class="headerlink" href="#team-workflows" title="Permanent link">&para;</a></h2>
+<h3 id="feature-branch-workflow">Feature Branch Workflow<a class="headerlink" href="#feature-branch-workflow" title="Permanent link">&para;</a></h3>
+<p>Each feature gets its own branch, reviewed before merging to main.</p>
+<div class="highlight"><pre><span></span><code>main (always stable)
+├── feature/dark-mode
+├── feature/user-profiles
+└── fix/login-timeout
+</code></pre></div>
+<p><strong>Best for:</strong> Most teams and projects.</p>
+<h3 id="git-flow">Git Flow<a class="headerlink" href="#git-flow" title="Permanent link">&para;</a></h3>
+<p>More complex branching model with <code>develop</code> and <code>release</code> branches.</p>
+<div class="highlight"><pre><span></span><code>main (releases only)
+├── develop (integration branch)
+├── feature/... (merged into develop)
+└── release/... (bugfixes before release)
+</code></pre></div>
+<p><strong>Best for:</strong> Large teams, scheduled releases.</p>
+<h3 id="trunk-based-development">Trunk-Based Development<a class="headerlink" href="#trunk-based-development" title="Permanent link">&para;</a></h3>
+<p>Everyone commits directly to main, feature flags control visibility.</p>
+<div class="highlight"><pre><span></span><code>main
+├── [commit with feature flag: disabled]
+├── [commit with feature flag: enabled]
+└── [commit with feature flag: removed]
+</code></pre></div>
+<p><strong>Best for:</strong> Continuous deployment, very communicative teams.</p>
+<h2 id="protecting-main">Protecting Main<a class="headerlink" href="#protecting-main" title="Permanent link">&para;</a></h2>
+<p>Set up branch protection rules to enforce standards:</p>
+<ul>
+<li>Require PR reviews before merging</li>
+<li>Require CI/CD tests to pass</li>
+<li>Require status checks (linting, type checking)</li>
+<li>Prevent force-pushing</li>
+<li>Dismiss stale PR approvals when new commits are pushed</li>
+</ul>
+<p>This prevents accidents and ensures quality.</p>
+<h2 id="handling-urgent-fixes">Handling Urgent Fixes<a class="headerlink" href="#handling-urgent-fixes" title="Permanent link">&para;</a></h2>
+<p>Sometimes you need to fix a critical bug immediately.</p>
+<h3 id="if-its-a-one-line-fix">If It's a One-Line Fix<a class="headerlink" href="#if-its-a-one-line-fix" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>switch<span class="w"> </span>main
+git<span class="w"> </span>switch<span class="w"> </span>-c<span class="w"> </span>fix/critical-bug
+git<span class="w"> </span>commit<span class="w"> </span>-m<span class="w"> </span><span class="s2">&quot;Fix critical bug&quot;</span>
+git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span>origin<span class="w"> </span>fix/critical-bug
+<span class="c1"># Open PR, get quick review, merge</span>
+</code></pre></div>
+<h3 id="if-its-complex">If It's Complex<a class="headerlink" href="#if-its-complex" title="Permanent link">&para;</a></h3>
+<p>Use the same process but loop in senior developers for fast review.</p>
+<h2 id="common-team-patterns">Common Team Patterns<a class="headerlink" href="#common-team-patterns" title="Permanent link">&para;</a></h2>
+<h3 id="rebase-and-squash-before-merge">"Rebase and squash before merge"<a class="headerlink" href="#rebase-and-squash-before-merge" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>fetch
+git<span class="w"> </span>rebase<span class="w"> </span>origin/main
+git<span class="w"> </span>push<span class="w"> </span>--force-with-lease
+<span class="c1"># Then squash and merge on the PR page</span>
+</code></pre></div>
+<p>Keeps main's history clean with one commit per feature.</p>
+<h3 id="merge-with-merge-commits">"Merge with merge commits"<a class="headerlink" href="#merge-with-merge-commits" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>merge<span class="w"> </span>--no-ff<span class="w"> </span>feature/dark-mode
+</code></pre></div>
+<p>Preserves branch history, making it clear what changes were part of the feature.</p>
+<h3 id="rebase-on-main-then-merge-without-merge-commit">"Rebase on main, then merge without merge commit"<a class="headerlink" href="#rebase-on-main-then-merge-without-merge-commit" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>rebase<span class="w"> </span>origin/main
+git<span class="w"> </span>merge<span class="w"> </span>--ff-only
+</code></pre></div>
+<p>Clean linear history.</p>
+<h2 id="remote-collaboration">Remote Collaboration<a class="headerlink" href="#remote-collaboration" title="Permanent link">&para;</a></h2>
+<h3 id="push-frequently">Push Frequently<a class="headerlink" href="#push-frequently" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>push<span class="w"> </span>origin<span class="w"> </span>feature/dark-mode
+</code></pre></div>
+<p>This backs up your work and lets teammates see your progress.</p>
+<h3 id="fetch-before-working">Fetch Before Working<a class="headerlink" href="#fetch-before-working" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>fetch
+</code></pre></div>
+<p>Update your local view of remote branches. Do this daily.</p>
+<h3 id="keep-branches-up-to-date">Keep Branches Up-to-Date<a class="headerlink" href="#keep-branches-up-to-date" title="Permanent link">&para;</a></h3>
+<div class="highlight"><pre><span></span><code>git<span class="w"> </span>fetch
+git<span class="w"> </span>rebase<span class="w"> </span>origin/main
+git<span class="w"> </span>push<span class="w"> </span>--force-with-lease
+</code></pre></div>
+<p>Prevents your branch from diverging too far from main.</p>
+<h2 id="issues-and-discussions">Issues and Discussions<a class="headerlink" href="#issues-and-discussions" title="Permanent link">&para;</a></h2>
+<p>Link commits and PRs to issues:</p>
+<p>In commit messages:
+<div class="highlight"><pre><span></span><code>Fix form validation
+
+Fixes #123
+</code></pre></div></p>
+<p>In PR description:
+<div class="highlight"><pre><span></span><code>Fixes #123
+Depends on #456
+</code></pre></div></p>
+<p>GitHub auto-closes issues when the PR is merged.</p>
+<h2 id="communication">Communication<a class="headerlink" href="#communication" title="Permanent link">&para;</a></h2>
+<h3 id="when-opening-a-pr">When Opening a PR<a class="headerlink" href="#when-opening-a-pr" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Tag reviewers: <code>@teammate</code></li>
+<li>Explain non-obvious changes</li>
+<li>Link related work</li>
+<li>Mention if it's urgent</li>
+</ul>
+<h3 id="when-reviewing">When Reviewing<a class="headerlink" href="#when-reviewing" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Comment with context, not just "LGTM"</li>
+<li>Ask questions if you don't understand</li>
+<li>Suggest improvements, don't demand</li>
+</ul>
+<h3 id="when-merging">When Merging<a class="headerlink" href="#when-merging" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Thank the reviewers</li>
+<li>Celebrate the merge (for team morale)</li>
+<li>Note any follow-up work needed</li>
+</ul>
+<h2 id="best-practices">Best Practices<a class="headerlink" href="#best-practices" title="Permanent link">&para;</a></h2>
+<ul>
+<li><strong>One PR = one feature</strong> — Mix concerns only when necessary</li>
+<li><strong>Keep PRs under 400 lines</strong> — Easier to review thoroughly</li>
+<li><strong>Never force-push to main</strong> — Ever</li>
+<li><strong>Require code review</strong> — Even for senior developers</li>
+<li><strong>Protect your main branch</strong> — Use GitHub/GitLab settings</li>
+<li><strong>Automate what you can</strong> — Tests, linting, formatting</li>
+</ul>
+<h2 id="next-steps">Next Steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
+<p>Ready for disaster recovery? Jump to <a href="../07-troubleshooting/">Fixing Mistakes</a>.</p>
+<p>Or check out <a href="../08-reference/">Command Reference</a> for a quick lookup.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.tabs", "navigation.sections", "toc.integrate", "search.suggest", "search.highlight"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
