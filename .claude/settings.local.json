@@ -23,7 +23,11 @@
       "Bash(git commit -m 'Convert all remaining ASCII diagrams to SVG *)",
       "Bash(git commit -m 'Fix text positioning in all SVG diagrams *)",
       "Bash(npm create *)",
-      "Bash(git commit -m 'Migrate from MkDocs to Astro Starlight *)"
+      "Bash(git commit -m 'Migrate from MkDocs to Astro Starlight *)",
+      "Bash(npm run *)",
+      "Bash(curl -s http://localhost:3000)",
+      "Bash(curl -s http://localhost:4321/)",
+      "Bash(git commit -m 'Fix Astro Starlight configuration and content setup *)"
     ]
   }
 }

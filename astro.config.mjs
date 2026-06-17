@@ -6,16 +6,10 @@ export default defineConfig({
     starlight({
       title: 'Comprehensive Git Guide',
       description: 'A practical guide to Git for teams new to version control',
-      social: {
-        github: 'https://github.com/roymatsunaga/git-guide',
-      },
+      social: [
+        { icon: 'github', href: 'https://github.com/roymatsunaga/git-guide', label: 'GitHub' },
+      ],
       sidebar: [
-        {
-          label: 'Getting Started',
-          items: [
-            { label: 'Home', slug: 'index' },
-          ],
-        },
         {
           label: 'Learning Path',
           items: [

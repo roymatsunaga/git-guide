@@ -18,7 +18,7 @@ npm install
 npm run dev
 ```
 
-Visit `http://localhost:3000` to see your site.
+Visit `http://localhost:4321` to see your site.
 
 ### Building for Production
 
