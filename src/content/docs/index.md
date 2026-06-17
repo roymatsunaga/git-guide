@@ -6,11 +6,11 @@ hero:
   tagline: Master Git from fundamentals to advanced workflows
   actions:
     - text: Get Started
-      link: /01-concepts/
+      link: /git-guide/01-concepts/
       icon: right-arrow
       variant: primary
     - text: Visual Guide
-      link: /09-visual-guide/
+      link: /git-guide/09-visual-guide/
       icon: open-book
 ---
 
@@ -30,8 +30,8 @@ This comprehensive guide is designed to take you from zero to proficient with Gi
 
 Each section builds on the previous one, but you can jump to any topic. Every concept includes concrete examples you can try immediately.
 
-**New to Git?** Start with [Concepts](/01-concepts/)
+**New to Git?** Start with [Concepts](/git-guide/01-concepts/)
 
-**Prefer visuals?** Jump to the [Visual Guide](/09-visual-guide/) with color-coded commit diagrams
+**Prefer visuals?** Jump to the [Visual Guide](/git-guide/09-visual-guide/) with color-coded commit diagrams
 
-**Looking for a command?** Check the [Command Reference](/08-reference/)
+**Looking for a command?** Check the [Command Reference](/git-guide/08-reference/)
