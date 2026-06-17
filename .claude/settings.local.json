@@ -27,7 +27,9 @@
       "Bash(npm run *)",
       "Bash(curl -s http://localhost:3000)",
       "Bash(curl -s http://localhost:4321/)",
-      "Bash(git commit -m 'Fix Astro Starlight configuration and content setup *)"
+      "Bash(git commit -m 'Fix Astro Starlight configuration and content setup *)",
+      "Bash(git commit -m 'Add package-lock.json for GitHub Actions *)",
+      "Bash(git commit -m 'Update Node.js version requirement to 22+ *)"
     ]
   }
 }

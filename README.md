@@ -5,7 +5,7 @@ A practical guide to Git for teams new to version control, built with [Astro](ht
 ## 🚀 Quick Start
 
 ### Prerequisites
-- Node.js 18+ 
+- Node.js 22+ 
 - npm
 
 ### Installation
