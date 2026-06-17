@@ -1,83 +1,35 @@
-<svg viewBox="0 0 900 250" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <style>
-      .commit-circle { fill: #FFD700; stroke: #DAA520; stroke-width: 2; }
-      .commit-text { font-family: monospace; font-size: 12px; text-anchor: middle; dominant-baseline: middle; font-weight: bold; }
-      .branch-label { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 13px; font-weight: 600; }
-      .branch-main { fill: #0066CC; }
-      .branch-feature { fill: #22C55E; }
-      .arrow-main { stroke: #0066CC; stroke-width: 2.5; fill: none; }
-      .arrow-feature1 { stroke: #22C55E; stroke-width: 2.5; fill: none; }
-      .arrow-feature2 { stroke: #8B5CF6; stroke-width: 2.5; fill: none; }
-      .label-bg { opacity: 0.15; }
-    </style>
-    <marker id="arrowhead-main" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
-      <polygon points="0 0, 10 3, 0 6" fill="#0066CC" />
-    </marker>
-    <marker id="arrowhead-feature1" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
-      <polygon points="0 0, 10 3, 0 6" fill="#22C55E" />
-    </marker>
-    <marker id="arrowhead-feature2" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
-      <polygon points="0 0, 10 3, 0 6" fill="#8B5CF6" />
-    </marker>
-  </defs>
-
-  <!-- Title -->
-  <text x="450" y="20" style="font-size: 16px; font-weight: bold; text-anchor: center; font-family: sans-serif;">Multiple Feature Branches</text>
-
-  <!-- Main branch -->
-  <circle cx="80" cy="100" r="16" class="commit-circle"/>
-  <text x="80" y="100" class="commit-text">C1</text>
-
-  <circle cx="160" cy="100" r="16" class="commit-circle"/>
-  <text x="160" y="100" class="commit-text">C2</text>
-
-  <circle cx="240" cy="100" r="16" class="commit-circle"/>
-  <text x="240" y="100" class="commit-text">C3</text>
-
-  <circle cx="320" cy="100" r="16" class="commit-circle"/>
-  <text x="320" y="100" class="commit-text">C7</text>
-
-  <!-- Main branch arrows -->
-  <path d="M 96 100 L 144 100" class="arrow-main" marker-end="url(#arrowhead-main)"/>
-  <path d="M 176 100 L 224 100" class="arrow-main" marker-end="url(#arrowhead-main)"/>
-  <path d="M 256 100 L 304 100" class="arrow-main" marker-end="url(#arrowhead-main)"/>
-
-  <!-- Auth branch (feature/auth) -->
-  <circle cx="240" cy="50" r="16" class="commit-circle"/>
-  <text x="240" y="50" class="commit-text">C4</text>
-
-  <circle cx="320" cy="50" r="16" class="commit-circle"/>
-  <text x="320" y="50" class="commit-text">C5</text>
-
-  <!-- Auth branch arrows -->
-  <path d="M 256 50 L 304 50" class="arrow-feature1" marker-end="url(#arrowhead-feature1)"/>
-  <!-- Divergence from main -->
-  <path d="M 240 82 L 240 68" class="arrow-feature1" marker-end="url(#arrowhead-feature1)"/>
-
-  <!-- Search branch (feature/search) -->
-  <circle cx="160" cy="150" r="16" class="commit-circle"/>
-  <text x="160" y="150" class="commit-text">C6</text>
-
-  <circle cx="240" cy="150" r="16" class="commit-circle"/>
-  <text x="240" y="150" class="commit-text">C8</text>
-
-  <!-- Search branch arrows -->
-  <path d="M 176 150 L 224 150" class="arrow-feature2" marker-end="url(#arrowhead-feature2)"/>
-  <!-- Divergence from main -->
-  <path d="M 160 118 L 160 132" class="arrow-feature2" marker-end="url(#arrowhead-feature2)"/>
-
-  <!-- Branch labels -->
-  <rect x="350" y="80" width="100" height="22" rx="3" class="branch-main label-bg"/>
-  <text x="400" y="95" text-anchor="middle" class="branch-label branch-main">main</text>
-
-  <rect x="350" y="30" width="130" height="22" rx="3" class="branch-feature label-bg"/>
-  <text x="415" y="45" text-anchor="middle" class="branch-label branch-feature">feature/auth</text>
-
-  <rect x="280" y="170" width="140" height="22" rx="3" fill="#8B5CF6" opacity="0.15"/>
-  <text x="350" y="186" text-anchor="middle" style="font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 13px; font-weight: 600; fill: #8B5CF6;">feature/search</text>
-
-  <!-- Annotation -->
-  <text x="50" y="220" style="font-size: 12px; fill: #666; font-family: sans-serif;">Each branch has independent commit history</text>
-  <text x="50" y="240" style="font-size: 12px; fill: #666; font-family: sans-serif;">main is the integration point for all features</text>
+<svg viewBox="0 0 700 290" xmlns="http://www.w3.org/2000/svg">
+<text x="350" y="22" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="15" font-weight="bold" text-anchor="middle" fill="#1e293b">Multiple Branches</text>
+<circle cx="80" cy="150" r="20" fill="#FFD700" stroke="#DAA520" stroke-width="2" opacity="1"/>
+<text x="80" y="150" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#1e293b" opacity="1">C1</text>
+<line x1="100" y1="150" x2="190" y2="150" stroke="#94a3b8" stroke-width="2" fill="none"/>
+<circle cx="210" cy="150" r="20" fill="#FFD700" stroke="#DAA520" stroke-width="2" opacity="1"/>
+<text x="210" y="150" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#1e293b" opacity="1">C2</text>
+<line x1="230" y1="150" x2="305" y2="150" stroke="#94a3b8" stroke-width="2" fill="none"/>
+<circle cx="325" cy="150" r="20" fill="#FFD700" stroke="#DAA520" stroke-width="2" opacity="1"/>
+<text x="325" y="150" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#1e293b" opacity="1">C3</text>
+<rect x="300.4" y="90.0" width="49.2" height="22" rx="4" fill="#0066CC"/>
+<text x="325" y="105.0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" font-weight="600" text-anchor="middle" fill="white">main</text>
+<line x1="325" y1="112" x2="325" y2="122.0" stroke="#0066CC" stroke-width="1.5"/>
+<polygon points="320,122.0 330,122.0 325,132.0" fill="#0066CC"/>
+<line x1="337.3" y1="134.2" x2="382.7" y2="75.8" stroke="#94a3b8" stroke-width="2" fill="none"/>
+<line x1="415" y1="60" x2="495" y2="60" stroke="#94a3b8" stroke-width="2" fill="none"/>
+<circle cx="395" cy="60" r="20" fill="#FFD700" stroke="#DAA520" stroke-width="2" opacity="1"/>
+<text x="395" y="60" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#1e293b" opacity="1">C4</text>
+<circle cx="515" cy="60" r="20" fill="#FFD700" stroke="#DAA520" stroke-width="2" opacity="1"/>
+<text x="515" y="60" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#1e293b" opacity="1">C5</text>
+<rect x="459.2" y="0.0" width="111.6" height="22" rx="4" fill="#16A34A"/>
+<text x="515" y="15.0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" font-weight="600" text-anchor="middle" fill="white">feature/auth</text>
+<line x1="515" y1="22" x2="515" y2="32.0" stroke="#16A34A" stroke-width="1.5"/>
+<polygon points="510,32.0 520,32.0 515,42.0" fill="#16A34A"/>
+<line x1="337.3" y1="165.8" x2="382.7" y2="224.2" stroke="#94a3b8" stroke-width="2" fill="none"/>
+<line x1="415" y1="240" x2="495" y2="240" stroke="#94a3b8" stroke-width="2" fill="none"/>
+<circle cx="395" cy="240" r="20" fill="#FFD700" stroke="#DAA520" stroke-width="2" opacity="1"/>
+<text x="395" y="240" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#1e293b" opacity="1">C6</text>
+<circle cx="515" cy="240" r="20" fill="#FFD700" stroke="#DAA520" stroke-width="2" opacity="1"/>
+<text x="515" y="240" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#1e293b" opacity="1">C7</text>
+<rect x="451.4" y="278" width="127.2" height="22" rx="4" fill="#7C3AED"/>
+<text x="515" y="293" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" font-weight="600" text-anchor="middle" fill="white">feature/search</text>
+<line x1="515" y1="268" x2="515" y2="278" stroke="#7C3AED" stroke-width="1.5"/>
+<polygon points="510,268 520,268 515,258" fill="#7C3AED"/>
 </svg>

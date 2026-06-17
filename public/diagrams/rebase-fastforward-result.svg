@@ -1,51 +1,29 @@
-<svg viewBox="0 0 900 150" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <style>
-      .commit-circle { fill: #FFD700; stroke: #DAA520; stroke-width: 2; }
-      .commit-text { font-family: monospace; font-size: 12px; text-anchor: middle; dominant-baseline: middle; font-weight: bold; }
-      .branch-label { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 13px; font-weight: 600; }
-      .branch-main { fill: #0066CC; }
-      .branch-feature { fill: #22C55E; }
-      .arrow-main { stroke: #0066CC; stroke-width: 2.5; fill: none; }
-    </style>
-    <marker id="arrowhead-main" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
-      <polygon points="0 0, 10 3, 0 6" fill="#0066CC" />
-    </marker>
-  </defs>
-
-  <!-- Title -->
-  <text x="450" y="20" style="font-size: 16px; font-weight: bold; text-anchor: middle; font-family: sans-serif;">After Rebase + Fast-Forward Merge</text>
-
-  <!-- Linear commits -->
-  <circle cx="60" cy="80" r="16" class="commit-circle"/>
-  <text x="60" y="80" class="commit-text">C1</text>
-
-  <circle cx="140" cy="80" r="16" class="commit-circle"/>
-  <text x="140" y="80" class="commit-text">C2</text>
-
-  <circle cx="220" cy="80" r="16" class="commit-circle"/>
-  <text x="220" y="80" class="commit-text">C3</text>
-
-  <circle cx="300" cy="80" r="16" class="commit-circle"/>
-  <text x="300" y="80" class="commit-text">C6</text>
-
-  <circle cx="380" cy="80" r="16" class="commit-circle"/>
-  <text x="380" y="80" class="commit-text">C4'</text>
-
-  <circle cx="460" cy="80" r="16" class="commit-circle"/>
-  <text x="460" y="80" class="commit-text">C5'</text>
-
-  <!-- Arrows -->
-  <path d="M 76 80 L 124 80" class="arrow-main" marker-end="url(#arrowhead-main)"/>
-  <path d="M 156 80 L 204 80" class="arrow-main" marker-end="url(#arrowhead-main)"/>
-  <path d="M 236 80 L 284 80" class="arrow-main" marker-end="url(#arrowhead-main)"/>
-  <path d="M 316 80 L 364 80" class="arrow-main" marker-end="url(#arrowhead-main)"/>
-  <path d="M 396 80 L 444 80" class="arrow-main" marker-end="url(#arrowhead-main)"/>
-
-  <!-- Branch labels -->
-  <rect x="470" y="105" width="140" height="25" rx="4" fill="#0066CC" opacity="0.15"/>
-  <text x="540" y="122" text-anchor="middle" class="branch-label branch-main">main, feature/new</text>
-
-  <!-- Annotation -->
-  <text x="60" y="135" style="font-size: 12px; fill: #666; font-family: sans-serif;">Linear history, clean commit graph</text>
+<svg viewBox="0 0 700 155" xmlns="http://www.w3.org/2000/svg">
+<text x="350" y="22" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="15" font-weight="bold" text-anchor="middle" fill="#1e293b">After Rebase + Fast-Forward Merge</text>
+<circle cx="70" cy="100" r="20" fill="#FFD700" stroke="#DAA520" stroke-width="2" opacity="1"/>
+<text x="70" y="100" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#1e293b" opacity="1">C1</text>
+<line x1="90" y1="100" x2="155" y2="100" stroke="#94a3b8" stroke-width="2" fill="none"/>
+<circle cx="175" cy="100" r="20" fill="#FFD700" stroke="#DAA520" stroke-width="2" opacity="1"/>
+<text x="175" y="100" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#1e293b" opacity="1">C2</text>
+<line x1="195" y1="100" x2="255" y2="100" stroke="#94a3b8" stroke-width="2" fill="none"/>
+<circle cx="275" cy="100" r="20" fill="#FFD700" stroke="#DAA520" stroke-width="2" opacity="1"/>
+<text x="275" y="100" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#1e293b" opacity="1">C3</text>
+<line x1="295" y1="100" x2="365" y2="100" stroke="#94a3b8" stroke-width="2" fill="none"/>
+<circle cx="385" cy="100" r="20" fill="#FFD700" stroke="#DAA520" stroke-width="2" opacity="1"/>
+<text x="385" y="100" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#1e293b" opacity="1">C6</text>
+<line x1="405" y1="100" x2="470" y2="100" stroke="#94a3b8" stroke-width="2" fill="none"/>
+<circle cx="490" cy="100" r="20" fill="#9333EA" stroke="#7E22CE" stroke-width="2" opacity="1"/>
+<text x="490" y="100" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="white" opacity="1">C4'</text>
+<line x1="510" y1="100" x2="575" y2="100" stroke="#94a3b8" stroke-width="2" fill="none"/>
+<circle cx="595" cy="100" r="20" fill="#9333EA" stroke="#7E22CE" stroke-width="2" opacity="1"/>
+<text x="595" y="100" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="white" opacity="1">C5'</text>
+<rect x="570.4" y="12.0" width="49.2" height="22" rx="4" fill="#0066CC"/>
+<text x="595" y="27.0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" font-weight="600" text-anchor="middle" fill="white">main</text>
+<line x1="595" y1="34" x2="595" y2="72.0" stroke="#0066CC" stroke-width="1.5"/>
+<polygon points="590,72.0 600,72.0 595,82.0" fill="#0066CC"/>
+<rect x="558.7" y="40.0" width="72.6" height="22" rx="4" fill="#7C3AED"/>
+<text x="595" y="55.0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" font-weight="600" text-anchor="middle" fill="white">feature</text>
+<line x1="595" y1="62" x2="595" y2="72.0" stroke="#7C3AED" stroke-width="1.5"/>
+<polygon points="590,72.0 600,72.0 595,82.0" fill="#7C3AED"/>
+<text x="350" y="148" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" fill="#64748b" text-anchor="middle">Clean linear history — no merge commit needed</text>
 </svg>

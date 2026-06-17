@@ -1,115 +1,33 @@
-<svg viewBox="0 0 1000 280" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <style>
-      .commit-circle { fill: #FFD700; stroke: #DAA520; stroke-width: 2; }
-      .merge-commit { fill: #FF6B6B; stroke: #CC5555; stroke-width: 2; }
-      .commit-text { font-family: monospace; font-size: 12px; text-anchor: middle; dominant-baseline: middle; font-weight: bold; }
-      .branch-label { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 13px; font-weight: 600; }
-      .branch-main { fill: #0066CC; }
-      .branch-feature { fill: #22C55E; }
-      .arrow { stroke: #999; stroke-width: 2; fill: none; }
-      .arrow-main { stroke: #0066CC; stroke-width: 2.5; }
-      .arrow-feature { stroke: #22C55E; stroke-width: 2.5; }
-      .arrow-merge { stroke: #FF6B6B; stroke-width: 2.5; }
-      .label-bg { opacity: 0.15; }
-      .section-title { font-size: 14px; font-weight: bold; font-family: sans-serif; }
-      .label-text { font-size: 11px; fill: #666; font-family: sans-serif; }
-    </style>
-    <marker id="arrowhead-main" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
-      <polygon points="0 0, 10 3, 0 6" fill="#0066CC" />
-    </marker>
-    <marker id="arrowhead-feature" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
-      <polygon points="0 0, 10 3, 0 6" fill="#22C55E" />
-    </marker>
-    <marker id="arrowhead-merge" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
-      <polygon points="0 0, 10 3, 0 6" fill="#FF6B6B" />
-    </marker>
-  </defs>
-
-  <!-- Title -->
-  <text x="500" y="20" style="font-size: 16px; font-weight: bold; text-anchor: middle; font-family: sans-serif;">Merge with Merge Commit</text>
-
-  <!-- BEFORE section -->
-  <text x="50" y="55" class="section-title">BEFORE</text>
-
-  <!-- Main branch -->
-  <circle cx="80" cy="100" r="16" class="commit-circle"/>
-  <text x="80" y="100" class="commit-text">C1</text>
-
-  <circle cx="180" cy="100" r="16" class="commit-circle"/>
-  <text x="180" y="100" class="commit-text">C2</text>
-
-  <circle cx="280" cy="100" r="16" class="commit-circle"/>
-  <text x="280" y="100" class="commit-text">C3</text>
-
-  <circle cx="380" cy="100" r="16" class="commit-circle"/>
-  <text x="380" y="100" class="commit-text">C6</text>
-
-  <!-- Feature branch -->
-  <circle cx="280" cy="160" r="16" class="commit-circle"/>
-  <text x="280" y="160" class="commit-text">C4</text>
-
-  <circle cx="380" cy="160" r="16" class="commit-circle"/>
-  <text x="380" y="160" class="commit-text">C5</text>
-
-  <!-- Arrows -->
-  <path d="M 96 100 L 164 100" class="arrow-main" marker-end="url(#arrowhead-main)"/>
-  <path d="M 196 100 L 264 100" class="arrow-main" marker-end="url(#arrowhead-main)"/>
-  <path d="M 296 100 L 364 100" class="arrow-main" marker-end="url(#arrowhead-main)"/>
-  <path d="M 296 160 L 364 160" class="arrow-feature" marker-end="url(#arrowhead-feature)"/>
-  <path d="M 280 118 L 280 142" class="arrow-feature" marker-end="url(#arrowhead-feature)"/>
-
-  <!-- Branch labels before -->
-  <rect x="400" y="80" width="60" height="22" rx="3" class="branch-main label-bg"/>
-  <text x="430" y="95" class="branch-label branch-main" text-anchor="middle">main</text>
-
-  <rect x="400" y="140" width="100" height="22" rx="3" class="branch-feature label-bg"/>
-  <text x="450" y="155" class="branch-label branch-feature" text-anchor="middle">feature/new</text>
-
-  <!-- AFTER section -->
-  <text x="550" y="55" class="section-title">AFTER: git merge --no-ff</text>
-
-  <!-- Main branch after -->
-  <circle cx="580" cy="100" r="16" class="commit-circle"/>
-  <text x="580" y="100" class="commit-text">C1</text>
-
-  <circle cx="680" cy="100" r="16" class="commit-circle"/>
-  <text x="680" y="100" class="commit-text">C2</text>
-
-  <circle cx="780" cy="100" r="16" class="commit-circle"/>
-  <text x="780" y="100" class="commit-text">C3</text>
-
-  <!-- Feature branch after -->
-  <circle cx="780" cy="160" r="16" class="commit-circle"/>
-  <text x="780" y="160" class="commit-text">C4</text>
-
-  <circle cx="880" cy="160" r="16" class="commit-circle"/>
-  <text x="880" y="160" class="commit-text">C5</text>
-
-  <!-- Main continues -->
-  <circle cx="880" cy="100" r="16" class="commit-circle"/>
-  <text x="880" y="100" class="commit-text">C6</text>
-
-  <!-- Merge commit -->
-  <circle cx="950" cy="130" r="16" class="merge-commit"/>
-  <text x="950" y="130" class="commit-text">M</text>
-
-  <!-- Arrows after -->
-  <path d="M 596 100 L 664 100" class="arrow-main" marker-end="url(#arrowhead-main)"/>
-  <path d="M 696 100 L 764 100" class="arrow-main" marker-end="url(#arrowhead-main)"/>
-  <path d="M 796 100 L 864 100" class="arrow-main" marker-end="url(#arrowhead-main)"/>
-  <path d="M 796 160 L 864 160" class="arrow-feature" marker-end="url(#arrowhead-feature)"/>
-  <path d="M 780 118 L 780 142" class="arrow-feature" marker-end="url(#arrowhead-feature)"/>
-
-  <!-- Merge arrows -->
-  <path d="M 896 100 L 935 120" class="arrow-merge" marker-end="url(#arrowhead-merge)" stroke-dasharray="5,5"/>
-  <path d="M 896 160 L 935 140" class="arrow-merge" marker-end="url(#arrowhead-merge)" stroke-dasharray="5,5"/>
-
-  <!-- Branch label after -->
-  <rect x="920" y="150" width="120" height="22" rx="3" class="branch-main label-bg"/>
-  <text x="980" y="165" class="branch-label branch-main" text-anchor="middle">main, feature/new</text>
-
-  <!-- Annotation -->
-  <text x="550" y="220" class="label-text">Both branches modified files → Merge commit created</text>
-  <text x="550" y="240" class="label-text">Merge commit M has two parents (C6 and C5)</text>
+<svg viewBox="0 0 700 245" xmlns="http://www.w3.org/2000/svg">
+<text x="350" y="22" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="15" font-weight="bold" text-anchor="middle" fill="#1e293b">Merging (Non-Fast-Forward)</text>
+<line x1="100" y1="85" x2="165" y2="85" stroke="#94a3b8" stroke-width="2" fill="none"/>
+<line x1="205" y1="85" x2="270" y2="85" stroke="#94a3b8" stroke-width="2" fill="none"/>
+<line x1="310" y1="85" x2="395" y2="85" stroke="#94a3b8" stroke-width="2" fill="none"/>
+<line x1="435" y1="85" x2="535" y2="85" stroke="#94a3b8" stroke-width="2" fill="none"/>
+<line x1="297.8" y1="103.4" x2="322.2" y2="161.6" stroke="#94a3b8" stroke-width="2" fill="none"/>
+<line x1="350" y1="180" x2="455" y2="180" stroke="#94a3b8" stroke-width="2" fill="none"/>
+<line x1="487.9" y1="164.7" x2="542.1" y2="100.3" stroke="#94a3b8" stroke-width="2" fill="none"/>
+<circle cx="80" cy="85" r="20" fill="#FFD700" stroke="#DAA520" stroke-width="2" opacity="1"/>
+<text x="80" y="85" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#1e293b" opacity="1">C1</text>
+<circle cx="185" cy="85" r="20" fill="#FFD700" stroke="#DAA520" stroke-width="2" opacity="1"/>
+<text x="185" y="85" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#1e293b" opacity="1">C2</text>
+<circle cx="290" cy="85" r="20" fill="#FFD700" stroke="#DAA520" stroke-width="2" opacity="1"/>
+<text x="290" y="85" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#1e293b" opacity="1">C3</text>
+<circle cx="415" cy="85" r="20" fill="#FFD700" stroke="#DAA520" stroke-width="2" opacity="1"/>
+<text x="415" y="85" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#1e293b" opacity="1">C6</text>
+<circle cx="555" cy="85" r="20" fill="#EF4444" stroke="#B91C1C" stroke-width="2" opacity="1"/>
+<text x="555" y="85" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="white" opacity="1">M</text>
+<circle cx="330" cy="180" r="20" fill="#FFD700" stroke="#DAA520" stroke-width="2" opacity="1"/>
+<text x="330" y="180" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#1e293b" opacity="1">C4</text>
+<circle cx="475" cy="180" r="20" fill="#FFD700" stroke="#DAA520" stroke-width="2" opacity="1"/>
+<text x="475" y="180" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#1e293b" opacity="1">C5</text>
+<rect x="530.4" y="25.0" width="49.2" height="22" rx="4" fill="#0066CC"/>
+<text x="555" y="40.0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" font-weight="600" text-anchor="middle" fill="white">main</text>
+<line x1="555" y1="47" x2="555" y2="57.0" stroke="#0066CC" stroke-width="1.5"/>
+<polygon points="550,57.0 560,57.0 555,67.0" fill="#0066CC"/>
+<rect x="438.7" y="218" width="72.6" height="22" rx="4" fill="#22C55E"/>
+<text x="475" y="233" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" font-weight="600" text-anchor="middle" fill="white">feature</text>
+<line x1="475" y1="208" x2="475" y2="218" stroke="#22C55E" stroke-width="1.5"/>
+<polygon points="470,208 480,208 475,198" fill="#22C55E"/>
+<text x="350" y="238" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" fill="#64748b" text-anchor="middle">M has two parents: C6 (main) and C5 (feature)</text>
 </svg>

@@ -1,115 +1,44 @@
-<svg viewBox="0 0 1200 350" xmlns="http://www.w3.org/2000/svg">
-  <defs>
-    <style>
-      .commit-circle { fill: #FFD700; stroke: #DAA520; stroke-width: 2; }
-      .merge-commit { fill: #FF6B6B; stroke: #CC5555; stroke-width: 2; }
-      .commit-text { font-family: monospace; font-size: 12px; text-anchor: middle; dominant-baseline: middle; font-weight: bold; }
-      .commit-text-light { fill: white; }
-      .branch-label { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 12px; font-weight: 600; }
-      .branch-main { fill: #0066CC; }
-      .branch-auth { fill: #22C55E; }
-      .branch-search { fill: #8B5CF6; }
-      .arrow-main { stroke: #0066CC; stroke-width: 2.5; fill: none; }
-      .arrow-auth { stroke: #22C55E; stroke-width: 2.5; fill: none; }
-      .arrow-search { stroke: #8B5CF6; stroke-width: 2.5; fill: none; }
-      .arrow-merge { stroke: #FF6B6B; stroke-width: 2.5; fill: none; }
-      .label-bg { opacity: 0.15; }
-      .title { font-size: 15px; font-weight: bold; font-family: sans-serif; }
-      .label-text { font-size: 10px; fill: #666; font-family: sans-serif; }
-    </style>
-    <marker id="arrowhead-main" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
-      <polygon points="0 0, 10 3, 0 6" fill="#0066CC" />
-    </marker>
-    <marker id="arrowhead-auth" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
-      <polygon points="0 0, 10 3, 0 6" fill="#22C55E" />
-    </marker>
-    <marker id="arrowhead-search" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
-      <polygon points="0 0, 10 3, 0 6" fill="#8B5CF6" />
-    </marker>
-    <marker id="arrowhead-merge" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
-      <polygon points="0 0, 10 3, 0 6" fill="#FF6B6B" />
-    </marker>
-  </defs>
-
-  <!-- Title -->
-  <text x="600" y="20" style="font-size: 16px; font-weight: bold; text-anchor: center; font-family: sans-serif;">Team Workflow: Alice & Bob Collaborating</text>
-
-  <!-- Base commits -->
-  <circle cx="80" cy="100" r="16" class="commit-circle"/>
-  <text x="80" y="100" class="commit-text">C1</text>
-
-  <!-- Main branch progression -->
-  <circle cx="160" cy="100" r="16" class="commit-circle"/>
-  <text x="160" y="100" class="commit-text">C2</text>
-
-  <circle cx="240" cy="100" r="16" class="commit-circle"/>
-  <text x="240" y="100" class="commit-text">C3</text>
-
-  <!-- Merge commit M1 (Alice's) -->
-  <circle cx="320" cy="100" r="16" class="merge-commit"/>
-  <text x="320" y="100" class="commit-text commit-text-light">M</text>
-
-  <!-- Main continues with Bob's rebase -->
-  <circle cx="400" cy="100" r="16" class="commit-circle"/>
-  <text x="400" y="100" class="commit-text">C3'</text>
-
-  <!-- Merge commit M2 (Bob's) -->
-  <circle cx="480" cy="100" r="16" class="merge-commit"/>
-  <text x="480" y="100" class="commit-text commit-text-light">M2</text>
-
-  <!-- Main arrows -->
-  <path d="M 96 100 L 144 100" class="arrow-main" marker-end="url(#arrowhead-main)"/>
-  <path d="M 176 100 L 224 100" class="arrow-main" marker-end="url(#arrowhead-main)"/>
-  <path d="M 256 100 L 304 100" class="arrow-main" marker-end="url(#arrowhead-main)"/>
-  <path d="M 336 100 L 384 100" class="arrow-main" marker-end="url(#arrowhead-main)"/>
-  <path d="M 416 100 L 464 100" class="arrow-main" marker-end="url(#arrowhead-main)"/>
-
-  <!-- Main branch label -->
-  <rect x="490" y="125" width="50" height="20" rx="3" class="branch-main label-bg"/>
-  <text x="515" y="139" text-anchor="middle" class="branch-label branch-main">main</text>
-
-  <!-- Alice's auth feature (C2 base, merged to M) -->
-  <circle cx="160" cy="50" r="16" class="commit-circle"/>
-  <text x="160" y="50" class="commit-text">C4</text>
-
-  <circle cx="240" cy="50" r="16" class="commit-circle"/>
-  <text x="240" y="50" class="commit-text">C5</text>
-
-  <!-- Auth branch arrows -->
-  <path d="M 176 50 L 224 50" class="arrow-auth" marker-end="url(#arrowhead-auth)"/>
-  <path d="M 160 68 L 160 82" class="arrow-auth" marker-end="url(#arrowhead-auth)"/>
-  <path d="M 240 68 L 320 82" class="arrow-merge" marker-end="url(#arrowhead-merge)" stroke-dasharray="5,5"/>
-
-  <!-- Auth branch label -->
-  <rect x="250" y="20" width="120" height="20" rx="3" class="branch-auth label-bg"/>
-  <text x="310" y="34" text-anchor="middle" class="branch-label branch-auth">feature/auth</text>
-
-  <!-- Bob's search feature (C1 base, rebased, merged to M2) -->
-  <circle cx="80" cy="150" r="16" class="commit-circle"/>
-  <text x="80" y="150" class="commit-text">C6</text>
-
-  <circle cx="160" cy="150" r="16" class="commit-circle"/>
-  <text x="160" y="150" class="commit-text">C8</text>
-
-  <!-- Rebased search commits -->
-  <circle cx="320" cy="150" r="16" class="commit-circle"/>
-  <text x="320" y="150" class="commit-text">C6'</text>
-
-  <!-- Search branch arrows -->
-  <path d="M 96 150 L 144 150" class="arrow-search" marker-end="url(#arrowhead-search)"/>
-  <path d="M 80 132 L 80 118" class="arrow-search" marker-end="url(#arrowhead-search)"/>
-  <path d="M 176 150 L 304 150" class="arrow-search" marker-end="url(#arrowhead-search)" stroke-dasharray="5,5"/>
-  <path d="M 336 150 L 464 118" class="arrow-merge" marker-end="url(#arrowhead-merge)" stroke-dasharray="5,5"/>
-
-  <!-- Search branch label -->
-  <rect x="350" y="165" width="130" height="20" rx="3" class="branch-search label-bg"/>
-  <text x="415" y="179" text-anchor="middle" class="branch-label branch-search">feature/search</text>
-
-  <!-- Annotations -->
-  <text x="50" y="250" class="title">Workflow steps:</text>
-  <text x="50" y="270" class="label-text">1. C1 base commit, 2. Alice (C2-C4-C5) & Bob (C6-C8) branch off independently</text>
-  <text x="50" y="285" class="label-text">3. Alice's PR approved → merge to main (M), 4. Bob rebases search on updated main (C6')</text>
-  <text x="50" y="300" class="label-text">5. Bob's PR approved → merge to main (M2), 6. Cycle continues...</text>
-
-  <text x="50" y="330" class="label-text" style="fill: #008000;">✓ Both features integrated cleanly with independent parallel work</text>
+<svg viewBox="0 0 700 310" xmlns="http://www.w3.org/2000/svg">
+<text x="350" y="22" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="15" font-weight="bold" text-anchor="middle" fill="#1e293b">Team Workflow</text>
+<line x1="90" y1="155" x2="165" y2="155" stroke="#94a3b8" stroke-width="2" fill="none"/>
+<line x1="205" y1="155" x2="390" y2="155" stroke="#94a3b8" stroke-width="2" fill="none"/>
+<line x1="430" y1="155" x2="570" y2="155" stroke="#94a3b8" stroke-width="2" fill="none"/>
+<line x1="193.9" y1="137.1" x2="221.1" y2="82.9" stroke="#94a3b8" stroke-width="2" fill="none"/>
+<line x1="250" y1="65" x2="335" y2="65" stroke="#94a3b8" stroke-width="2" fill="none"/>
+<line x1="365.4" y1="82.1" x2="399.6" y2="137.9" stroke="#94a3b8" stroke-width="2" fill="none"/>
+<line x1="418.1" y1="173.3" x2="441.9" y2="226.7" stroke="#94a3b8" stroke-width="2" fill="none"/>
+<line x1="470" y1="245" x2="515" y2="245" stroke="#94a3b8" stroke-width="2" fill="none"/>
+<line x1="545.4" y1="227.9" x2="579.6" y2="172.1" stroke="#94a3b8" stroke-width="2" fill="none"/>
+<circle cx="70" cy="155" r="20" fill="#FFD700" stroke="#DAA520" stroke-width="2" opacity="1"/>
+<text x="70" y="155" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#1e293b" opacity="1">C1</text>
+<circle cx="185" cy="155" r="20" fill="#FFD700" stroke="#DAA520" stroke-width="2" opacity="1"/>
+<text x="185" y="155" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#1e293b" opacity="1">C2</text>
+<circle cx="230" cy="65" r="20" fill="#FFD700" stroke="#DAA520" stroke-width="2" opacity="1"/>
+<text x="230" y="65" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#1e293b" opacity="1">C4</text>
+<circle cx="355" cy="65" r="20" fill="#FFD700" stroke="#DAA520" stroke-width="2" opacity="1"/>
+<text x="355" y="65" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#1e293b" opacity="1">C5</text>
+<circle cx="410" cy="155" r="20" fill="#EF4444" stroke="#B91C1C" stroke-width="2" opacity="1"/>
+<text x="410" y="155" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="white" opacity="1">M1</text>
+<circle cx="450" cy="245" r="20" fill="#FFD700" stroke="#DAA520" stroke-width="2" opacity="1"/>
+<text x="450" y="245" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#1e293b" opacity="1">C6</text>
+<circle cx="535" cy="245" r="20" fill="#FFD700" stroke="#DAA520" stroke-width="2" opacity="1"/>
+<text x="535" y="245" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#1e293b" opacity="1">C7</text>
+<circle cx="590" cy="155" r="20" fill="#EF4444" stroke="#B91C1C" stroke-width="2" opacity="1"/>
+<text x="590" y="155" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="white" opacity="1">M2</text>
+<rect x="565.4" y="95.0" width="49.2" height="22" rx="4" fill="#0066CC"/>
+<text x="590" y="110.0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" font-weight="600" text-anchor="middle" fill="white">main</text>
+<line x1="590" y1="117" x2="590" y2="127.0" stroke="#0066CC" stroke-width="1.5"/>
+<polygon points="585,127.0 595,127.0 590,137.0" fill="#0066CC"/>
+<rect x="299.2" y="5.0" width="111.6" height="22" rx="4" fill="#16A34A"/>
+<text x="355" y="20.0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" font-weight="600" text-anchor="middle" fill="white">feature/auth</text>
+<line x1="355" y1="27" x2="355" y2="37.0" stroke="#16A34A" stroke-width="1.5"/>
+<polygon points="350,37.0 360,37.0 355,47.0" fill="#16A34A"/>
+<rect x="471.4" y="283" width="127.2" height="22" rx="4" fill="#7C3AED"/>
+<text x="535" y="298" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" font-weight="600" text-anchor="middle" fill="white">feature/search</text>
+<line x1="535" y1="273" x2="535" y2="283" stroke="#7C3AED" stroke-width="1.5"/>
+<polygon points="530,273 540,273 535,263" fill="#7C3AED"/>
+<text x="225" y="-25" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" fill="#16A34A" text-anchor="start">Alice</text>
+<text x="445" y="323" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" fill="#7C3AED" text-anchor="start">Bob</text>
+<text x="12" y="290" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" fill="#64748b" text-anchor="start">1. Alice branches from C2, works on auth, PR merges as M1</text>
+<text x="12" y="303" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" fill="#64748b" text-anchor="start">2. Bob branches from M1, works on search, PR merges as M2</text>
 </svg>
