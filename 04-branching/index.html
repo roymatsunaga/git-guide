@@ -1121,7 +1121,7 @@ chore/                   — Maintenance, refactoring
 <p>Choose a convention and stick with it. It makes history readable.</p>
 <h2 id="merging">Merging<a class="headerlink" href="#merging" title="Permanent link">&para;</a></h2>
 <p>When you're done with a branch and want to incorporate it into <code>main</code>:</p>
-<p><strong>Visual learner?</strong> Check <a href="../09-visual-guide/#merging-non-fast-forward">Visual Guide: Merging</a> to see what happens to the commit graph.</p>
+<p><strong>Visual learner?</strong> Check <a href="09-visual-guide#merging-non-fast-forward">Visual Guide: Merging</a> to see what happens to the commit graph.</p>
 <h3 id="basic-merge">Basic Merge<a class="headerlink" href="#basic-merge" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code>git<span class="w"> </span>switch<span class="w"> </span>main<span class="w">          </span><span class="c1"># Switch to the branch you want to merge INTO</span>
 git<span class="w"> </span>merge<span class="w"> </span>feature/dark-mode
@@ -1194,7 +1194,7 @@ git<span class="w"> </span>push<span class="w"> </span>-u<span class="w"> </span
 git<span class="w"> </span>rebase<span class="w"> </span>main
 </code></pre></div>
 <p>This takes each commit from <code>feature/dark-mode</code> and replays them on top of the current <code>main</code>. The result is a linear history without merge commits.</p>
-<p><strong>Warning:</strong> Don't rebase branches that other people are using. It rewrites history, which causes problems when they pull. More on this in <a href="../05-advanced/">Advanced Features</a>.</p>
+<p><strong>Warning:</strong> Don't rebase branches that other people are using. It rewrites history, which causes problems when they pull. More on this in <a href="05-advanced">Advanced Features</a>.</p>
 <h2 id="common-situations">Common Situations<a class="headerlink" href="#common-situations" title="Permanent link">&para;</a></h2>
 <h3 id="i-accidentally-switched-branches-and-made-changes">I Accidentally Switched Branches and Made Changes<a class="headerlink" href="#i-accidentally-switched-branches-and-made-changes" title="Permanent link">&para;</a></h3>
 <div class="highlight"><pre><span></span><code>git<span class="w"> </span>stash<span class="w">                          </span><span class="c1"># Save your changes</span>
@@ -1222,8 +1222,8 @@ git<span class="w"> </span>merge<span class="w"> </span>feature/new-feature
 <li><strong>Pull before you push</strong> — Avoid conflicts by staying up-to-date</li>
 </ul>
 <h2 id="next-steps">Next Steps<a class="headerlink" href="#next-steps" title="Permanent link">&para;</a></h2>
-<p>Ready to learn advanced techniques? Jump to <a href="../05-advanced/">Advanced Features</a>.</p>
-<p>For team workflows, see <a href="../06-collaboration/">Collaboration Patterns</a>.</p>
+<p>Ready to learn advanced techniques? Jump to <a href="05-advanced">Advanced Features</a>.</p>
+<p>For team workflows, see <a href="06-collaboration">Collaboration Patterns</a>.</p>
 
 
 
