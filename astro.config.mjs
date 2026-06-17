@@ -28,5 +28,6 @@ export default defineConfig({
       customCss: ['./src/styles/custom.css'],
     }),
   ],
-  site: 'https://roymatsunaga.github.io/git-guide/',
+  site: 'https://roymatsunaga.github.io',
+  base: '/git-guide',
 });
