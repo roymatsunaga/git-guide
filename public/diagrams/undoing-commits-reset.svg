@@ -1,0 +1,82 @@
+<svg viewBox="0 0 1000 280" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .commit-circle { fill: #FFD700; stroke: #DAA520; stroke-width: 2; }
+      .commit-faded { fill: #FFD700; stroke: #DAA520; stroke-width: 2; opacity: 0.4; }
+      .commit-text { font-family: monospace; font-size: 12px; text-anchor: middle; dominant-baseline: middle; font-weight: bold; }
+      .branch-label { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 13px; font-weight: 600; }
+      .branch-main { fill: #0066CC; }
+      .arrow-main { stroke: #0066CC; stroke-width: 2.5; fill: none; }
+      .label-bg { opacity: 0.15; }
+      .section-title { font-size: 14px; font-weight: bold; font-family: sans-serif; }
+      .label-text { font-size: 11px; fill: #666; font-family: sans-serif; }
+    </style>
+    <marker id="arrowhead-main" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#0066CC" />
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="500" y="20" style="font-size: 16px; font-weight: bold; text-anchor: center; font-family: sans-serif;">Undoing Commits with Reset</text>
+
+  <!-- BEFORE section -->
+  <text x="50" y="55" class="section-title">BEFORE: git reset --hard HEAD~2</text>
+
+  <circle cx="80" cy="100" r="16" class="commit-circle"/>
+  <text x="80" y="100" class="commit-text">C1</text>
+
+  <circle cx="160" cy="100" r="16" class="commit-circle"/>
+  <text x="160" y="100" class="commit-text">C2</text>
+
+  <circle cx="240" cy="100" r="16" class="commit-circle"/>
+  <text x="240" y="100" class="commit-text">C3</text>
+
+  <circle cx="320" cy="100" r="16" class="commit-circle"/>
+  <text x="320" y="100" class="commit-text">C4</text>
+
+  <circle cx="400" cy="100" r="16" class="commit-circle"/>
+  <text x="400" y="100" class="commit-text">C5</text>
+
+  <!-- Arrows -->
+  <path d="M 96 100 L 144 100" class="arrow-main" marker-end="url(#arrowhead-main)"/>
+  <path d="M 176 100 L 224 100" class="arrow-main" marker-end="url(#arrowhead-main)"/>
+  <path d="M 256 100 L 304 100" class="arrow-main" marker-end="url(#arrowhead-main)"/>
+  <path d="M 336 100 L 384 100" class="arrow-main" marker-end="url(#arrowhead-main)"/>
+
+  <!-- Branch label -->
+  <rect x="410" y="125" width="60" height="22" rx="3" class="branch-main label-bg"/>
+  <text x="440" y="140" text-anchor="middle" class="branch-label branch-main">main</text>
+
+  <!-- Annotation -->
+  <text x="650" y="105" class="label-text">HEAD is at C5</text>
+
+  <!-- AFTER section -->
+  <text x="50" y="190" class="section-title">AFTER: Reset to C3</text>
+
+  <circle cx="80" cy="235" r="16" class="commit-circle"/>
+  <text x="80" y="235" class="commit-text">C1</text>
+
+  <circle cx="160" cy="235" r="16" class="commit-circle"/>
+  <text x="160" y="235" class="commit-text">C2</text>
+
+  <circle cx="240" cy="235" r="16" class="commit-circle"/>
+  <text x="240" y="235" class="commit-text">C3</text>
+
+  <!-- Faded unreferenced commits -->
+  <circle cx="320" cy="235" r="16" class="commit-faded"/>
+  <text x="320" y="235" class="commit-text" style="opacity: 0.4;">C4</text>
+
+  <circle cx="400" cy="235" r="16" class="commit-faded"/>
+  <text x="400" y="235" class="commit-text" style="opacity: 0.4;">C5</text>
+
+  <!-- Arrows -->
+  <path d="M 96 235 L 144 235" class="arrow-main" marker-end="url(#arrowhead-main)"/>
+  <path d="M 176 235 L 224 235" class="arrow-main" marker-end="url(#arrowhead-main)"/>
+
+  <!-- Branch label -->
+  <rect x="250" y="260" width="100" height="22" rx="3" class="branch-main label-bg"/>
+  <text x="300" y="275" text-anchor="middle" class="branch-label branch-main">main, HEAD</text>
+
+  <!-- Annotation -->
+  <text x="550" y="235" class="label-text">C4 & C5 unreferenced but recoverable</text>
+</svg>

@@ -1,0 +1,115 @@
+<svg viewBox="0 0 1000 280" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .commit-circle { fill: #FFD700; stroke: #DAA520; stroke-width: 2; }
+      .commit-new { fill: #9D4EDD; stroke: #7A3FB0; stroke-width: 2; }
+      .commit-text { font-family: monospace; font-size: 12px; text-anchor: middle; dominant-baseline: middle; font-weight: bold; }
+      .commit-text-light { fill: white; }
+      .branch-label { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 13px; font-weight: 600; }
+      .branch-main { fill: #0066CC; }
+      .branch-feature { fill: #22C55E; }
+      .arrow { stroke: #999; stroke-width: 2; fill: none; }
+      .arrow-main { stroke: #0066CC; stroke-width: 2.5; }
+      .arrow-feature { stroke: #22C55E; stroke-width: 2.5; }
+      .arrow-new { stroke: #9D4EDD; stroke-width: 2.5; }
+      .label-bg { opacity: 0.15; }
+      .section-title { font-size: 14px; font-weight: bold; font-family: sans-serif; }
+      .label-text { font-size: 11px; fill: #666; font-family: sans-serif; }
+      .faded { opacity: 0.4; }
+    </style>
+    <marker id="arrowhead-main" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#0066CC" />
+    </marker>
+    <marker id="arrowhead-feature" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#22C55E" />
+    </marker>
+    <marker id="arrowhead-new" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#9D4EDD" />
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="500" y="20" style="font-size: 16px; font-weight: bold; text-anchor: middle; font-family: sans-serif;">Rebasing</text>
+
+  <!-- BEFORE section -->
+  <text x="50" y="55" class="section-title">BEFORE: git rebase main</text>
+
+  <!-- Main branch -->
+  <circle cx="80" cy="100" r="16" class="commit-circle"/>
+  <text x="80" y="100" class="commit-text">C1</text>
+
+  <circle cx="180" cy="100" r="16" class="commit-circle"/>
+  <text x="180" y="100" class="commit-text">C2</text>
+
+  <circle cx="280" cy="100" r="16" class="commit-circle"/>
+  <text x="280" y="100" class="commit-text">C3</text>
+
+  <circle cx="380" cy="100" r="16" class="commit-circle"/>
+  <text x="380" y="100" class="commit-text">C6</text>
+
+  <!-- Feature branch -->
+  <circle cx="280" cy="160" r="16" class="commit-circle"/>
+  <text x="280" y="160" class="commit-text">C4</text>
+
+  <circle cx="380" cy="160" r="16" class="commit-circle"/>
+  <text x="380" y="160" class="commit-text">C5</text>
+
+  <!-- Arrows -->
+  <path d="M 96 100 L 164 100" class="arrow-main" marker-end="url(#arrowhead-main)"/>
+  <path d="M 196 100 L 264 100" class="arrow-main" marker-end="url(#arrowhead-main)"/>
+  <path d="M 296 100 L 364 100" class="arrow-main" marker-end="url(#arrowhead-main)"/>
+  <path d="M 296 160 L 364 160" class="arrow-feature" marker-end="url(#arrowhead-feature)"/>
+  <path d="M 280 118 L 280 142" class="arrow-feature" marker-end="url(#arrowhead-feature)"/>
+
+  <!-- Branch labels before -->
+  <rect x="400" y="80" width="60" height="22" rx="3" class="branch-main label-bg"/>
+  <text x="430" y="95" class="branch-label branch-main" text-anchor="middle">main</text>
+
+  <rect x="400" y="140" width="100" height="22" rx="3" class="branch-feature label-bg"/>
+  <text x="450" y="155" class="branch-label branch-feature" text-anchor="middle">feature/new</text>
+
+  <!-- AFTER section -->
+  <text x="550" y="55" class="section-title">AFTER: rebase complete</text>
+
+  <!-- Main branch after (unchanged) -->
+  <circle cx="580" cy="100" r="16" class="commit-circle"/>
+  <text x="580" y="100" class="commit-text">C1</text>
+
+  <circle cx="680" cy="100" r="16" class="commit-circle"/>
+  <text x="680" y="100" class="commit-text">C2</text>
+
+  <circle cx="780" cy="100" r="16" class="commit-circle"/>
+  <text x="780" y="100" class="commit-text">C3</text>
+
+  <circle cx="880" cy="100" r="16" class="commit-circle"/>
+  <text x="880" y="100" class="commit-text">C6</text>
+
+  <!-- Feature branch rebased (new commits) -->
+  <circle cx="950" cy="100" r="16" class="commit-new"/>
+  <text x="950" y="100" class="commit-text commit-text-light">C4'</text>
+
+  <circle cx="950" cy="160" r="16" class="commit-new"/>
+  <text x="950" y="160" class="commit-text commit-text-light">C5'</text>
+
+  <!-- Old commits faded -->
+  <circle cx="280" cy="160" r="16" class="commit-circle faded"/>
+  <text x="280" y="160" class="commit-text faded">C4</text>
+
+  <circle cx="380" cy="160" r="16" class="commit-circle faded"/>
+  <text x="380" y="160" class="commit-text faded">C5</text>
+
+  <!-- Arrows after -->
+  <path d="M 596 100 L 664 100" class="arrow-main" marker-end="url(#arrowhead-main)"/>
+  <path d="M 696 100 L 764 100" class="arrow-main" marker-end="url(#arrowhead-main)"/>
+  <path d="M 796 100 L 864 100" class="arrow-main" marker-end="url(#arrowhead-main)"/>
+  <path d="M 896 100 L 934 100" class="arrow-new" marker-end="url(#arrowhead-new)"/>
+  <path d="M 950 116 L 950 144" class="arrow-new" marker-end="url(#arrowhead-new)"/>
+
+  <!-- Branch label after -->
+  <rect x="920" y="175" width="100" height="22" rx="3" class="branch-feature label-bg"/>
+  <text x="970" y="190" class="branch-label branch-feature" text-anchor="middle">feature/new</text>
+
+  <!-- Annotation -->
+  <text x="550" y="240" class="label-text">Commits C4 and C5 replayed as C4' and C5' on top of C6</text>
+  <text x="550" y="260" class="label-text">Old commits still exist but unreferenced (can be garbage collected)</text>
+</svg>

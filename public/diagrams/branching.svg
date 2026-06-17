@@ -1,0 +1,55 @@
+<svg viewBox="0 0 800 200" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .commit-circle { fill: #FFD700; stroke: #DAA520; stroke-width: 2; }
+      .commit-text { font-family: monospace; font-size: 12px; text-anchor: middle; dominant-baseline: middle; font-weight: bold; }
+      .branch-label { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 13px; font-weight: 600; }
+      .branch-main { fill: #0066CC; }
+      .branch-feature { fill: #22C55E; }
+      .arrow { stroke: #999; stroke-width: 2; fill: none; }
+      .arrow-main { stroke: #0066CC; stroke-width: 2.5; }
+      .arrow-feature { stroke: #22C55E; stroke-width: 2.5; }
+      .label-bg { opacity: 0.15; }
+    </style>
+    <marker id="arrowhead-main" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#0066CC" />
+    </marker>
+    <marker id="arrowhead-feature" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#22C55E" />
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="400" y="20" style="font-size: 16px; font-weight: bold; text-anchor: middle; font-family: sans-serif;">Creating a Branch</text>
+
+  <!-- Commits on main line -->
+  <circle cx="100" cy="80" r="18" class="commit-circle"/>
+  <text x="100" y="80" class="commit-text">C1</text>
+
+  <circle cx="250" cy="80" r="18" class="commit-circle"/>
+  <text x="250" y="80" class="commit-text">C2</text>
+
+  <circle cx="400" cy="80" r="18" class="commit-circle"/>
+  <text x="400" y="80" class="commit-text">C3</text>
+
+  <!-- Commits on feature branch -->
+  <circle cx="400" cy="150" r="18" class="commit-circle"/>
+  <text x="400" y="150" class="commit-text">C4</text>
+
+  <!-- Arrows showing parent relationships -->
+  <path d="M 118 80 L 232 80" class="arrow-main" marker-end="url(#arrowhead-main)"/>
+  <path d="M 268 80 L 382 80" class="arrow-main" marker-end="url(#arrowhead-main)"/>
+
+  <!-- Branch divergence -->
+  <path d="M 400 98 L 400 132" class="arrow-feature" marker-end="url(#arrowhead-feature)"/>
+
+  <!-- Branch labels -->
+  <rect x="520" y="60" width="60" height="25" rx="4" class="branch-main label-bg"/>
+  <text x="550" y="76" class="branch-label branch-main" text-anchor="middle">main</text>
+
+  <rect x="520" y="130" width="120" height="25" rx="4" class="branch-feature label-bg"/>
+  <text x="580" y="146" class="branch-label branch-feature" text-anchor="middle">feature/new</text>
+
+  <!-- Annotation -->
+  <text x="50" y="175" style="font-size: 12px; fill: #666; font-family: sans-serif;">Both branches point to C3</text>
+</svg>

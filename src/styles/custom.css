@@ -1,0 +1,22 @@
+/* Custom styles for Git Guide */
+
+:root {
+  --sl-color-accent-high: #0066cc;
+}
+
+/* Make sure images display nicely */
+img {
+  max-width: 100%;
+  height: auto;
+}
+
+/* Better spacing for diagrams */
+figure {
+  margin: 2rem 0;
+  text-align: center;
+}
+
+/* Code block styling */
+pre {
+  overflow-x: auto;
+}

@@ -20,7 +20,10 @@
       "Bash(git commit -m 'Fix SVG diagram text centering and label positioning *)",
       "Bash(grep -n \"^\\\\`\\\\`\\\\`$\" /Users/rmatsunaga/docs/git-guide/09-visual-guide.md)",
       "Bash(git commit -m 'Add SVG diagrams for remaining visual guide sections *)",
-      "Bash(git commit -m 'Convert all remaining ASCII diagrams to SVG *)"
+      "Bash(git commit -m 'Convert all remaining ASCII diagrams to SVG *)",
+      "Bash(git commit -m 'Fix text positioning in all SVG diagrams *)",
+      "Bash(npm create *)",
+      "Bash(git commit -m 'Migrate from MkDocs to Astro Starlight *)"
     ]
   }
 }
