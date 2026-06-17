@@ -63,10 +63,10 @@
 
   <!-- Branch labels before -->
   <rect x="400" y="80" width="60" height="22" rx="3" class="branch-main label-bg"/>
-  <text x="430" y="96" class="branch-label branch-main">main</text>
+  <text x="430" y="96" class="branch-label branch-main" text-anchor="middle">main</text>
 
   <rect x="400" y="140" width="100" height="22" rx="3" class="branch-feature label-bg"/>
-  <text x="450" y="156" class="branch-label branch-feature">feature/new</text>
+  <text x="450" y="156" class="branch-label branch-feature" text-anchor="middle">feature/new</text>
 
   <!-- AFTER section -->
   <text x="550" y="55" class="section-title">AFTER: rebase complete</text>
@@ -107,7 +107,7 @@
 
   <!-- Branch label after -->
   <rect x="920" y="175" width="100" height="22" rx="3" class="branch-feature label-bg"/>
-  <text x="970" y="191" class="branch-label branch-feature">feature/new</text>
+  <text x="970" y="220" class="branch-label branch-feature" text-anchor="middle">feature/new</text>
 
   <!-- Annotation -->
   <text x="550" y="240" class="label-text">Commits C4 and C5 replayed as C4' and C5' on top of C6</text>
