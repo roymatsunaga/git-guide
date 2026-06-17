@@ -970,9 +970,7 @@
 <p><img alt="Rebasing diagram showing C4 and C5 replayed as C4' and C5' on top of C6, with old commits faded" src="../diagrams/rebasing.svg" /></p>
 <p>C4 and C5 are replayed as C4' and C5' (shown in purple) on top of C6. They have new hashes because their parent changed. The old C4 and C5 are no longer referenced (can be garbage collected).</p>
 <h3 id="result-after-rebase-fast-forward-merge">Result After Rebase + Fast-Forward Merge<a class="headerlink" href="#result-after-rebase-fast-forward-merge" title="Permanent link">&para;</a></h3>
-<div class="highlight"><pre><span></span><code>After: git switch main &amp;&amp; git merge feature/new-feature
-C1 ← C2 ← C3 ← C6 ← C4&#39; ← C5&#39; ← main, feature/new-feature
-</code></pre></div>
+<p><img alt="Linear commit history showing clean rebase and merge result" src="../diagrams/rebase-fastforward-result.svg" /></p>
 <p>Linear history, clean commit graph.</p>
 <h2 id="cherry-pick">Cherry-Pick<a class="headerlink" href="#cherry-pick" title="Permanent link">&para;</a></h2>
 <p>Cherry-pick copies a specific commit onto another branch:</p>
@@ -980,17 +978,8 @@ C1 ← C2 ← C3 ← C6 ← C4&#39; ← C5&#39; ← main, feature/new-feature
 <p>C4 is copied as C4' (new hash, shown in cyan) onto main. Both branches still exist unchanged. The original C4 and C5 remain on the feature branch.</p>
 <h2 id="detached-head">Detached HEAD<a class="headerlink" href="#detached-head" title="Permanent link">&para;</a></h2>
 <p>When you checkout a specific commit instead of a branch, HEAD points directly to the commit:</p>
-<div class="highlight"><pre><span></span><code>Before: git checkout C3
-C1 ← C2 ← C3 ← C4 ← main
-     ↑
-   HEAD
-
-After: 
-C1 ← C2 ← C3 ← C4 ← main
-     ↑
-   HEAD (detached)
-</code></pre></div>
-<p>If you make new commits in detached HEAD, they're not on any branch:</p>
+<p><img alt="Detached HEAD diagram showing HEAD pointing to C3 instead of a branch" src="../diagrams/detached-head.svg" /></p>
+<p>If you make new commits in detached HEAD, they're not on any branch. For example:</p>
 <div class="highlight"><pre><span></span><code>C1 ← C2 ← C3 ← C4 ← main
      ↑
      C5 ← C6 ← HEAD (detached)
@@ -998,12 +987,7 @@ C1 ← C2 ← C3 ← C4 ← main
 <p>If you switch away without creating a branch, C5 and C6 become unreferenced (but recoverable via reflog).</p>
 <h2 id="multiple-branches">Multiple Branches<a class="headerlink" href="#multiple-branches" title="Permanent link">&para;</a></h2>
 <p>Complex projects often have multiple feature branches:</p>
-<div class="highlight"><pre><span></span><code>             C4 ← C5 ← feature/auth
-            ↙
-C1 ← C2 ← C3 ← C7 ← main
-      ↖
-       C6 ← C8 ← feature/search
-</code></pre></div>
+<p><img alt="Multiple branches diagram showing auth and search branches diverging from main" src="../diagrams/multiple-branches.svg" /></p>
 <p>Each branch has its own commit history. <code>main</code> is the integration point.</p>
 <h2 id="merge-conflicts">Merge Conflicts<a class="headerlink" href="#merge-conflicts" title="Permanent link">&para;</a></h2>
 <p>When branches modify the same lines, a merge conflict occurs:</p>

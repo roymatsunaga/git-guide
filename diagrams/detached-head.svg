@@ -1,0 +1,83 @@
+<svg viewBox="0 0 900 300" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .commit-circle { fill: #FFD700; stroke: #DAA520; stroke-width: 2; }
+      .commit-text { font-family: monospace; font-size: 12px; text-anchor: middle; dominant-baseline: middle; font-weight: bold; }
+      .branch-label { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 13px; font-weight: 600; }
+      .head-label { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 13px; font-weight: 600; fill: #DC2626; }
+      .branch-main { fill: #0066CC; }
+      .arrow-main { stroke: #0066CC; stroke-width: 2.5; fill: none; }
+      .arrow-detached { stroke: #DC2626; stroke-width: 2.5; fill: none; }
+      .section-title { font-size: 14px; font-weight: bold; font-family: sans-serif; }
+    </style>
+    <marker id="arrowhead-main" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#0066CC" />
+    </marker>
+    <marker id="arrowhead-detached" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#DC2626" />
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="450" y="20" style="font-size: 16px; font-weight: bold; text-anchor: middle; font-family: sans-serif;">Detached HEAD</text>
+
+  <!-- BEFORE section -->
+  <text x="50" y="55" class="section-title">BEFORE: git checkout C3</text>
+
+  <circle cx="80" cy="100" r="16" class="commit-circle"/>
+  <text x="80" y="100" class="commit-text">C1</text>
+
+  <circle cx="160" cy="100" r="16" class="commit-circle"/>
+  <text x="160" y="100" class="commit-text">C2</text>
+
+  <circle cx="240" cy="100" r="16" class="commit-circle"/>
+  <text x="240" y="100" class="commit-text">C3</text>
+
+  <circle cx="320" cy="100" r="16" class="commit-circle"/>
+  <text x="320" y="100" class="commit-text">C4</text>
+
+  <!-- Arrows -->
+  <path d="M 96 100 L 144 100" class="arrow-main" marker-end="url(#arrowhead-main)"/>
+  <path d="M 176 100 L 224 100" class="arrow-main" marker-end="url(#arrowhead-main)"/>
+  <path d="M 256 100 L 304 100" class="arrow-main" marker-end="url(#arrowhead-main)"/>
+
+  <!-- Branch label -->
+  <rect x="320" y="125" width="60" height="22" rx="3" fill="#0066CC" opacity="0.15"/>
+  <text x="350" y="141" text-anchor="middle" class="branch-label branch-main">main</text>
+
+  <!-- HEAD pointer (on branch) -->
+  <line x1="160" y1="85" x2="160" y2="60" class="arrow-detached" stroke-width="2" marker-end="url(#arrowhead-detached)"/>
+  <text x="160" y="50" text-anchor="middle" class="head-label">HEAD</text>
+
+  <!-- AFTER section -->
+  <text x="50" y="185" class="section-title">AFTER: detached HEAD (on commit C3)</text>
+
+  <circle cx="80" cy="230" r="16" class="commit-circle"/>
+  <text x="80" y="230" class="commit-text">C1</text>
+
+  <circle cx="160" cy="230" r="16" class="commit-circle"/>
+  <text x="160" y="230" class="commit-text">C2</text>
+
+  <circle cx="240" cy="230" r="16" class="commit-circle"/>
+  <text x="240" y="230" class="commit-text">C3</text>
+
+  <circle cx="320" cy="230" r="16" class="commit-circle"/>
+  <text x="320" y="230" class="commit-text">C4</text>
+
+  <!-- Arrows -->
+  <path d="M 96 230 L 144 230" class="arrow-main" marker-end="url(#arrowhead-main)"/>
+  <path d="M 176 230 L 224 230" class="arrow-main" marker-end="url(#arrowhead-main)"/>
+  <path d="M 256 230 L 304 230" class="arrow-main" marker-end="url(#arrowhead-main)"/>
+
+  <!-- Branch label -->
+  <rect x="320" y="255" width="60" height="22" rx="3" fill="#0066CC" opacity="0.15"/>
+  <text x="350" y="271" text-anchor="middle" class="branch-label branch-main">main</text>
+
+  <!-- HEAD pointer (detached) -->
+  <line x1="240" y1="215" x2="240" y2="190" class="arrow-detached" stroke-width="2" marker-end="url(#arrowhead-detached)"/>
+  <text x="240" y="180" text-anchor="middle" class="head-label">HEAD (detached)</text>
+
+  <!-- Annotation -->
+  <text x="500" y="230" style="font-size: 12px; fill: #666; font-family: sans-serif;">HEAD points directly to commit C3</text>
+  <text x="500" y="250" style="font-size: 12px; fill: #666; font-family: sans-serif;">instead of to a branch</text>
+</svg>
