@@ -1,0 +1,115 @@
+<svg viewBox="0 0 1200 350" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <style>
+      .commit-circle { fill: #FFD700; stroke: #DAA520; stroke-width: 2; }
+      .merge-commit { fill: #FF6B6B; stroke: #CC5555; stroke-width: 2; }
+      .commit-text { font-family: monospace; font-size: 12px; text-anchor: middle; dominant-baseline: middle; font-weight: bold; }
+      .commit-text-light { fill: white; }
+      .branch-label { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; font-size: 12px; font-weight: 600; }
+      .branch-main { fill: #0066CC; }
+      .branch-auth { fill: #22C55E; }
+      .branch-search { fill: #8B5CF6; }
+      .arrow-main { stroke: #0066CC; stroke-width: 2.5; fill: none; }
+      .arrow-auth { stroke: #22C55E; stroke-width: 2.5; fill: none; }
+      .arrow-search { stroke: #8B5CF6; stroke-width: 2.5; fill: none; }
+      .arrow-merge { stroke: #FF6B6B; stroke-width: 2.5; fill: none; }
+      .label-bg { opacity: 0.15; }
+      .title { font-size: 15px; font-weight: bold; font-family: sans-serif; }
+      .label-text { font-size: 10px; fill: #666; font-family: sans-serif; }
+    </style>
+    <marker id="arrowhead-main" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#0066CC" />
+    </marker>
+    <marker id="arrowhead-auth" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#22C55E" />
+    </marker>
+    <marker id="arrowhead-search" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#8B5CF6" />
+    </marker>
+    <marker id="arrowhead-merge" markerWidth="10" markerHeight="10" refX="9" refY="3" orient="auto">
+      <polygon points="0 0, 10 3, 0 6" fill="#FF6B6B" />
+    </marker>
+  </defs>
+
+  <!-- Title -->
+  <text x="600" y="20" style="font-size: 16px; font-weight: bold; text-anchor: center; font-family: sans-serif;">Team Workflow: Alice & Bob Collaborating</text>
+
+  <!-- Base commits -->
+  <circle cx="80" cy="100" r="16" class="commit-circle"/>
+  <text x="80" y="100" class="commit-text">C1</text>
+
+  <!-- Main branch progression -->
+  <circle cx="160" cy="100" r="16" class="commit-circle"/>
+  <text x="160" y="100" class="commit-text">C2</text>
+
+  <circle cx="240" cy="100" r="16" class="commit-circle"/>
+  <text x="240" y="100" class="commit-text">C3</text>
+
+  <!-- Merge commit M1 (Alice's) -->
+  <circle cx="320" cy="100" r="16" class="merge-commit"/>
+  <text x="320" y="100" class="commit-text commit-text-light">M</text>
+
+  <!-- Main continues with Bob's rebase -->
+  <circle cx="400" cy="100" r="16" class="commit-circle"/>
+  <text x="400" y="100" class="commit-text">C3'</text>
+
+  <!-- Merge commit M2 (Bob's) -->
+  <circle cx="480" cy="100" r="16" class="merge-commit"/>
+  <text x="480" y="100" class="commit-text commit-text-light">M2</text>
+
+  <!-- Main arrows -->
+  <path d="M 96 100 L 144 100" class="arrow-main" marker-end="url(#arrowhead-main)"/>
+  <path d="M 176 100 L 224 100" class="arrow-main" marker-end="url(#arrowhead-main)"/>
+  <path d="M 256 100 L 304 100" class="arrow-main" marker-end="url(#arrowhead-main)"/>
+  <path d="M 336 100 L 384 100" class="arrow-main" marker-end="url(#arrowhead-main)"/>
+  <path d="M 416 100 L 464 100" class="arrow-main" marker-end="url(#arrowhead-main)"/>
+
+  <!-- Main branch label -->
+  <rect x="490" y="125" width="50" height="20" rx="3" class="branch-main label-bg"/>
+  <text x="515" y="137" text-anchor="middle" class="branch-label branch-main">main</text>
+
+  <!-- Alice's auth feature (C2 base, merged to M) -->
+  <circle cx="160" cy="50" r="16" class="commit-circle"/>
+  <text x="160" y="50" class="commit-text">C4</text>
+
+  <circle cx="240" cy="50" r="16" class="commit-circle"/>
+  <text x="240" y="50" class="commit-text">C5</text>
+
+  <!-- Auth branch arrows -->
+  <path d="M 176 50 L 224 50" class="arrow-auth" marker-end="url(#arrowhead-auth)"/>
+  <path d="M 160 68 L 160 82" class="arrow-auth" marker-end="url(#arrowhead-auth)"/>
+  <path d="M 240 68 L 320 82" class="arrow-merge" marker-end="url(#arrowhead-merge)" stroke-dasharray="5,5"/>
+
+  <!-- Auth branch label -->
+  <rect x="250" y="20" width="120" height="20" rx="3" class="branch-auth label-bg"/>
+  <text x="310" y="32" text-anchor="middle" class="branch-label branch-auth">feature/auth</text>
+
+  <!-- Bob's search feature (C1 base, rebased, merged to M2) -->
+  <circle cx="80" cy="150" r="16" class="commit-circle"/>
+  <text x="80" y="150" class="commit-text">C6</text>
+
+  <circle cx="160" cy="150" r="16" class="commit-circle"/>
+  <text x="160" y="150" class="commit-text">C8</text>
+
+  <!-- Rebased search commits -->
+  <circle cx="320" cy="150" r="16" class="commit-circle"/>
+  <text x="320" y="150" class="commit-text">C6'</text>
+
+  <!-- Search branch arrows -->
+  <path d="M 96 150 L 144 150" class="arrow-search" marker-end="url(#arrowhead-search)"/>
+  <path d="M 80 132 L 80 118" class="arrow-search" marker-end="url(#arrowhead-search)"/>
+  <path d="M 176 150 L 304 150" class="arrow-search" marker-end="url(#arrowhead-search)" stroke-dasharray="5,5"/>
+  <path d="M 336 150 L 464 118" class="arrow-merge" marker-end="url(#arrowhead-merge)" stroke-dasharray="5,5"/>
+
+  <!-- Search branch label -->
+  <rect x="350" y="165" width="130" height="20" rx="3" class="branch-search label-bg"/>
+  <text x="415" y="177" text-anchor="middle" class="branch-label branch-search">feature/search</text>
+
+  <!-- Annotations -->
+  <text x="50" y="250" class="title">Workflow steps:</text>
+  <text x="50" y="270" class="label-text">1. C1 base commit, 2. Alice (C2-C4-C5) & Bob (C6-C8) branch off independently</text>
+  <text x="50" y="285" class="label-text">3. Alice's PR approved → merge to main (M), 4. Bob rebases search on updated main (C6')</text>
+  <text x="50" y="300" class="label-text">5. Bob's PR approved → merge to main (M2), 6. Cycle continues...</text>
+
+  <text x="50" y="330" class="label-text" style="fill: #008000;">✓ Both features integrated cleanly with independent parallel work</text>
+</svg>

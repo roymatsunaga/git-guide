@@ -90,41 +90,15 @@ Each branch has its own commit history. `main` is the integration point.
 
 When branches modify the same lines, a merge conflict occurs:
 
-```
-         C4 ← C5 ← feature/auth
-        ↙
-C1 ← C2 ← C3 ← C6 ← main
-(both modified styles.css)
+![Merge conflict diagram showing conflict between two branches](diagrams/merge-conflicts.svg)
 
-During merge:
-         C4 ← C5 ← feature/auth
-        ↙
-C1 ← C2 ← C3 ← C6 ← ??? (conflict!)
-```
-
-You resolve the conflict manually, then create a merge commit:
-
-```
-         C4 ← C5 ← feature/auth
-        ↙        ↘
-C1 ← C2 ← C3 ← C6 ← M ← main
-```
+You resolve the conflict manually, then create a merge commit.
 
 ## Undoing Commits (Reset)
 
 Reset moves the branch pointer back:
 
-```
-Before: git reset --hard HEAD~2
-C1 ← C2 ← C3 ← C4 ← C5 ← main
-                          ↑
-                        HEAD
-
-After:
-C1 ← C2 ← C3 ← main, HEAD
-     ↑
-(C4 and C5 still exist, just unreferenced)
-```
+![Reset diagram showing commits becoming unreferenced](diagrams/undoing-commits-reset.svg)
 
 The commits are discarded from the branch perspective but recoverable via reflog.
 
@@ -132,14 +106,7 @@ The commits are discarded from the branch perspective but recoverable via reflog
 
 Revert creates a new commit that undoes a previous one:
 
-```
-Before: git revert C3
-C1 ← C2 ← C3 ← C4 ← C5 ← main
-
-After:
-C1 ← C2 ← C3 ← C4 ← C5 ← R ← main
-(R's changes are the opposite of C3)
-```
+![Revert diagram showing new commit R with opposite changes](diagrams/reverting-commits.svg)
 
 The original commits stay in history. R is a normal new commit.
 
@@ -147,14 +114,7 @@ The original commits stay in history. R is a normal new commit.
 
 Amend modifies the most recent commit:
 
-```
-Before: git commit --amend
-C1 ← C2 ← C3 ← C4 ← main
-
-After:
-C1 ← C2 ← C3 ← C4' ← main
-(C4 is replaced by C4' with new hash)
-```
+![Amend diagram showing C4 replaced with C4' (new hash)](diagrams/amending-commits.svg)
 
 If C4 hasn't been pushed, only your local history changes. If it's been pushed, you'll need to force-push (dangerous!).
 
@@ -162,108 +122,25 @@ If C4 hasn't been pushed, only your local history changes. If it's been pushed, 
 
 When you push, the remote's commit graph updates:
 
-```
-Local:
-C1 ← C2 ← C3 ← C4 ← main
+![Push and fetch diagram showing local and remote synchronization](diagrams/push-and-fetch.svg)
 
-Remote (before push):
-C1 ← C2 ← main
-
-After: git push origin main
-Local:
-C1 ← C2 ← C3 ← C4 ← main
-
-Remote:
-C1 ← C2 ← C3 ← C4 ← main
-```
-
-Both are now synchronized. Remote tracking branches update when you fetch:
-
-```
-Local (after fetch):
-C1 ← C2 ← C3 ← C4 ← main
-          ↑
-       origin/main
-```
+Both are now synchronized. Remote tracking branches update when you fetch.
 
 ## A Real Workflow
 
 Here's how a typical team workflow evolves:
 
-**1. Start:** Everyone on main
-```
-C1 ← main, origin/main
-```
+![Team workflow diagram showing Alice and Bob's parallel development with merges](diagrams/team-workflow.svg)
 
-**2. Alice creates feature/auth:**
-```
-           C2 ← feature/auth
-          ↙
-C1 ← main, origin/main
-```
+**The workflow in steps:**
+1. Both Alice and Bob branch off from C1 independently
+2. Alice works on feature/auth (C4, C5), Bob works on feature/search (C6, C8)
+3. Alice's PR is approved and merged to main (creating merge commit M)
+4. Bob fetches the updated main and rebases feature/search (C6 becomes C6')
+5. Bob's PR is approved and merged to main (creating merge commit M2)
+6. And the cycle continues...
 
-**3. Bob creates feature/search:**
-```
-           C2 ← feature/auth
-          ↙
-C1 ← main, origin/main
-  ↘
-   C3 ← feature/search
-```
-
-**4. Alice commits:**
-```
-           C2 ← C4 ← feature/auth
-          ↙
-C1 ← main, origin/main
-  ↘
-   C3 ← feature/search
-```
-
-**5. Alice's PR is approved, merged to main:**
-```
-           C2 ← C4 ⟲
-          ↙        ↘
-C1 ← main, origin/main ← M
-  ↘
-   C3 ← feature/search
-```
-
-**6. Bob fetches and sees main updated:**
-```
-           C2 ← C4 ⟲
-          ↙        ↘
-C1 ←  M ← main
-↑    ↑
-origin/main (before fetch)
-
-After fetch:
-           C2 ← C4 ⟲
-          ↙        ↘
-C1 ← origin/main ← M ← main
-  ↘
-   C3 ← feature/search
-```
-
-**7. Bob rebases feature/search on the updated main:**
-```
-           C2 ← C4 ⟲
-          ↙        ↘
-C1 ← origin/main ← M ← main
-              ↘
-               C3' ← feature/search
-```
-
-**8. Bob's PR is approved and merged:**
-```
-           C2 ← C4 ⟲
-          ↙        ↘
-C1 ← origin/main ← M ← C3' ⟲
-                    ↑    ↘
-                   main ← M2
-```
-
-And the cycle continues...
+This pattern allows multiple developers to work in parallel without stepping on each other's toes.
 
 ## Key Takeaways
 
