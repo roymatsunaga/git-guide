@@ -60,10 +60,10 @@
 
   <!-- Branch labels -->
   <rect x="340" y="80" width="60" height="22" rx="3" class="branch-main label-bg"/>
-  <text x="370" y="96" text-anchor="middle" class="branch-label branch-main">main</text>
+  <text x="370" y="95" text-anchor="middle" class="branch-label branch-main">main</text>
 
   <rect x="340" y="140" width="100" height="22" rx="3" class="branch-feature label-bg"/>
-  <text x="390" y="156" text-anchor="middle" class="branch-label branch-feature">feature/auth</text>
+  <text x="390" y="155" text-anchor="middle" class="branch-label branch-feature">feature/auth</text>
 
   <!-- Annotation -->
   <text x="550" y="115" class="label-text">Both modified styles.css</text>

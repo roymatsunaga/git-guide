@@ -46,7 +46,7 @@
 
   <!-- Branch label -->
   <rect x="330" y="125" width="60" height="22" rx="3" class="branch-main label-bg"/>
-  <text x="360" y="141" text-anchor="middle" class="branch-label branch-main">main</text>
+  <text x="360" y="140" text-anchor="middle" class="branch-label branch-main">main</text>
 
   <!-- Remote (before push) -->
   <text x="600" y="55" class="section-title">Remote (before push):</text>
@@ -62,7 +62,7 @@
 
   <!-- Branch label -->
   <rect x="720" y="125" width="60" height="22" rx="3" class="branch-remote label-bg"/>
-  <text x="750" y="141" text-anchor="middle" class="branch-label branch-remote">main</text>
+  <text x="750" y="140" text-anchor="middle" class="branch-label branch-remote">main</text>
 
   <!-- AFTER PUSH section -->
   <text x="50" y="190" class="section-title">After: git push origin main</text>
@@ -89,7 +89,7 @@
 
   <!-- Branch label -->
   <rect x="330" y="275" width="60" height="22" rx="3" class="branch-main label-bg"/>
-  <text x="360" y="291" text-anchor="middle" class="branch-label branch-main">main</text>
+  <text x="360" y="290" text-anchor="middle" class="branch-label branch-main">main</text>
 
   <!-- Remote after -->
   <text x="600" y="220" class="section-label">Remote:</text>
@@ -113,7 +113,7 @@
 
   <!-- Branch label -->
   <rect x="880" y="275" width="60" height="22" rx="3" class="branch-remote label-bg"/>
-  <text x="910" y="291" text-anchor="middle" class="branch-label branch-remote">main</text>
+  <text x="910" y="290" text-anchor="middle" class="branch-label branch-remote">main</text>
 
   <!-- Annotation -->
   <text x="50" y="330" class="label-text">Both local and remote are now synchronized</text>

@@ -47,7 +47,7 @@
 
   <!-- Branch label -->
   <rect x="330" y="125" width="60" height="22" rx="3" class="branch-main label-bg"/>
-  <text x="360" y="141" text-anchor="middle" class="branch-label branch-main">main</text>
+  <text x="360" y="140" text-anchor="middle" class="branch-label branch-main">main</text>
 
   <!-- AFTER section -->
   <text x="50" y="190" class="section-title">AFTER: C4 replaced with C4' (new hash)</text>
@@ -75,7 +75,7 @@
 
   <!-- Branch label -->
   <rect x="330" y="260" width="60" height="22" rx="3" class="branch-main label-bg"/>
-  <text x="360" y="276" text-anchor="middle" class="branch-label branch-main">main</text>
+  <text x="360" y="275" text-anchor="middle" class="branch-label branch-main">main</text>
 
   <!-- Annotation -->
   <text x="550" y="235" class="label-text">Old C4 replaced (if not yet pushed)</text>
