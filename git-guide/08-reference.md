@@ -267,9 +267,9 @@ Some commands open an editor or pager. Exit with:
 ---
 
 For detailed explanations, see the other guides:
-- [Concepts](01-concepts.md) — What is Git?
-- [Basics](03-basics.md) — Day-to-day commands
-- [Branching](04-branching.md) — Working with branches
-- [Advanced](05-advanced.md) — Power user features
-- [Collaboration](06-collaboration.md) — Team workflows
-- [Troubleshooting](07-troubleshooting.md) — Fixing mistakes
+- [Concepts](01-concepts) — What is Git?
+- [Basics](03-basics) — Day-to-day commands
+- [Branching](04-branching) — Working with branches
+- [Advanced](05-advanced) — Power user features
+- [Collaboration](06-collaboration) — Team workflows
+- [Troubleshooting](07-troubleshooting) — Fixing mistakes

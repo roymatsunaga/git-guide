@@ -198,7 +198,7 @@ git reset --soft HEAD~1    # Undo the commit but keep changes
 git reset --hard HEAD~1    # Undo the commit and discard changes
 ```
 
-More on fixing mistakes: [Fixing Mistakes](07-troubleshooting.md)
+More on fixing mistakes: [Fixing Mistakes](07-troubleshooting)
 
 ### I Forgot to Add a File to My Commit
 
@@ -226,4 +226,4 @@ git stash pop              # Restore your changes
 
 ## Next Steps
 
-Ready to work with branches? Jump to [Branching & Merging](04-branching.md).
+Ready to work with branches? Jump to [Branching & Merging](04-branching).

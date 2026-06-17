@@ -12,7 +12,10 @@
       "Bash(git push *)",
       "Bash(ls -la ~/.ssh/id_*.pub 2>/dev/null | head -1)",
       "Bash(git commit -m 'Add Python requirements file for MkDocs *)",
-      "Bash(git commit -m 'Fix MkDocs configuration directory structure *)"
+      "Bash(git commit -m 'Fix MkDocs configuration directory structure *)",
+      "Bash(git fetch *)",
+      "Bash(git ls-tree *)",
+      "Bash(git commit -m 'Fix internal markdown links for MkDocs *)"
     ]
   }
 }

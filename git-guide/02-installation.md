@@ -88,4 +88,4 @@ You should see your name and email in the output.
 
 ## That's It
 
-You're ready to use Git. Next: [Basic Workflow](03-basics.md)
+You're ready to use Git. Next: [Basic Workflow](03-basics)
