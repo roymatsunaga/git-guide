@@ -91,7 +91,7 @@ Choose a convention and stick with it. It makes history readable.
 
 When you're done with a branch and want to incorporate it into `main`:
 
-**Visual learner?** Check [Visual Guide: Merging](09-visual-guide#merging-non-fast-forward) to see what happens to the commit graph.
+**Visual learner?** Check [Visual Guide: Merging](../09-visual-guide/#merging-non-fast-forward) to see what happens to the commit graph.
 
 ### Basic Merge
 
@@ -214,7 +214,7 @@ git rebase main
 
 This takes each commit from `feature/dark-mode` and replays them on top of the current `main`. The result is a linear history without merge commits.
 
-**Warning:** Don't rebase branches that other people are using. It rewrites history, which causes problems when they pull. More on this in [Advanced Features](05-advanced).
+**Warning:** Don't rebase branches that other people are using. It rewrites history, which causes problems when they pull. More on this in [Advanced Features](../05-advanced/).
 
 ## Common Situations
 
@@ -256,6 +256,6 @@ This creates a linear history: `main -> rebase changes on top`.
 
 ## Next Steps
 
-Ready to learn advanced techniques? Jump to [Advanced Features](05-advanced).
+Ready to learn advanced techniques? Jump to [Advanced Features](../05-advanced/).
 
-For team workflows, see [Collaboration Patterns](06-collaboration).
+For team workflows, see [Collaboration Patterns](../06-collaboration/).

@@ -382,4 +382,4 @@ Git's design solves real problems:
 
 ## Ready to Use It?
 
-Now that you understand the concepts, jump to [Installation](02-installation) to get Git running on your machine.
+Now that you understand the concepts, jump to [Installation](../02-installation/) to get Git running on your machine.

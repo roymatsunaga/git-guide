@@ -147,7 +147,7 @@ git switch -c recovery def456a
 
 ## I Have a Merge Conflict
 
-See [Branching & Merging](04-branching) for detailed resolution.
+See [Branching & Merging](../04-branching/) for detailed resolution.
 
 Quick version:
 1. Open conflicted files
@@ -256,6 +256,6 @@ And remember: almost nothing is permanent. Take a breath and work through it.
 
 ## Next Steps
 
-Check out [Command Reference](08-reference) for a full command lookup.
+Check out [Command Reference](../08-reference/) for a full command lookup.
 
-Or go back to [Advanced Features](05-advanced) to learn techniques for preventing mistakes.
+Or go back to [Advanced Features](../05-advanced/) to learn techniques for preventing mistakes.

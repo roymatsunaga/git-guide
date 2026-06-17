@@ -20,7 +20,7 @@ Most teams use this pattern:
 git switch -c feature/dark-mode
 ```
 
-Use clear naming (see [Branching & Merging](04-branching) for conventions).
+Use clear naming (see [Branching & Merging](../04-branching/) for conventions).
 
 ### Step 2: Make and Push Commits
 
@@ -398,6 +398,6 @@ GitHub auto-closes issues when the PR is merged.
 
 ## Next Steps
 
-Ready for disaster recovery? Jump to [Fixing Mistakes](07-troubleshooting).
+Ready for disaster recovery? Jump to [Fixing Mistakes](../07-troubleshooting/).
 
-Or check out [Command Reference](08-reference) for a quick lookup.
+Or check out [Command Reference](../08-reference/) for a quick lookup.

@@ -8,7 +8,7 @@ Master Git with these powerful techniques.
 
 Rebasing replays your commits on top of another branch, creating a linear history instead of merge commits.
 
-**Visual learner?** Check [Visual Guide: Rebasing](09-visual-guide#rebasing) to see how commits are replayed.
+**Visual learner?** Check [Visual Guide: Rebasing](../09-visual-guide/#rebasing) to see how commits are replayed.
 
 ### When to Use Rebase
 
@@ -74,7 +74,7 @@ Then change `pick` to `squash` for all commits except the first.
 
 Apply a specific commit from one branch to another without merging the entire branch.
 
-**Visual learner?** Check [Visual Guide: Cherry-Pick](09-visual-guide#cherry-pick) to see the commit graph.
+**Visual learner?** Check [Visual Guide: Cherry-Pick](../09-visual-guide/#cherry-pick) to see the commit graph.
 
 ```bash
 git cherry-pick abc123def
@@ -343,6 +343,6 @@ git reset --hard HEAD~1
 
 ## Next Steps
 
-Ready to collaborate with your team? Jump to [Collaboration Patterns](06-collaboration).
+Ready to collaborate with your team? Jump to [Collaboration Patterns](../06-collaboration/).
 
-Or dive into [Fixing Mistakes](07-troubleshooting) for disaster recovery.
+Or dive into [Fixing Mistakes](../07-troubleshooting/) for disaster recovery.
