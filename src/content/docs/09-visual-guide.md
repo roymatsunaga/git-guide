@@ -8,9 +8,7 @@ See how the commit graph evolves as you perform Git operations.
 
 Your first commit creates a single node in the graph:
 
-```
-C1 ← main
-```
+![Initial repository showing C1 with HEAD and main both pointing to it](/git-guide/diagrams/initial-repository.svg)
 
 ## Linear History
 
@@ -155,20 +153,6 @@ This pattern allows multiple developers to work in parallel without stepping on 
 
 ## Visual Patterns to Remember
 
-```
-Linear history:          C1 ← C2 ← C3 ← C4
-
-Branching:               C3 ← C4 ← feature
-                        ↙
-                       C1 ← C2 ← main
-
-Merging:                C3 ← C4 ⟲
-                       ↙        ↘
-                       C1 ← C2 ← M ← main
-
-Rebasing:              C1 ← C2 ← C3' ← C4' ← feature
-                              ↑
-                            main
-```
+![Visual patterns overview showing linear history, branching, merging, and rebasing side by side](/git-guide/diagrams/visual-patterns.svg)
 
 These patterns repeat in every Git workflow. Understanding them helps you predict what your commit graph will look like after each operation.

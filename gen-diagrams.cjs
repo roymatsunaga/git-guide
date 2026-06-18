@@ -471,8 +471,83 @@ function team_workflow() {
   return b.finalize();
 }
 
+function initial_repository() {
+  const b = builder();
+  b.title('Initial Repository (After First Commit)');
+  const cx = W/2, cy = 130;
+  b.circ(cx, cy, 'C1');
+  b.ref(cx, cy, 'main', MAIN, 0);
+  b.ref(cx, cy, 'HEAD', HEAD, 1);
+  b.note('HEAD → main → C1 (HEAD tracks the current branch; both point to the first commit)');
+  return b.finalize();
+}
+
+function visual_patterns() {
+  const b = builder();
+  b.title('Visual Patterns at a Glance');
+
+  // Inline branch label to the right of a commit — no box, no arrow
+  const lbl = (cx, cy, text, color) =>
+    b.add(`<text x="${f(cx+R+8)}" y="${f(cy+4)}" font-family="${SANS}" font-size="12"` +
+          ` font-weight="700" text-anchor="start" fill="${color}">${text}</text>`, cy + 8);
+
+  // ── 1: Linear History ──────────────────────────────────────────────────────
+  b.secLabel('Linear History', 12, 52);
+  b.chain([[85,95,'C1'],[200,95,'C2'],[315,95,'C3'],[430,95,'C4']]);
+  lbl(430, 95, 'main', MAIN);
+
+  b.divider(143);
+
+  // ── 2: Branching ───────────────────────────────────────────────────────────
+  b.secLabel('Branching', 12, 163);
+  // Draw edges/lines before circles so circles cover the endpoints
+  b.edge(195, 255, 285, 205);
+  b.seg(285+R, 205, 415-R, 205);
+  b.circ(285, 205, 'C3'); b.circ(415, 205, 'C4');
+  lbl(415, 205, 'feature', FEAT);
+  b.seg(85+R, 255, 195-R, 255);
+  b.circ(85, 255, 'C1'); b.circ(195, 255, 'C2');
+  lbl(195, 255, 'main', MAIN);
+
+  b.divider(302);
+
+  // ── 3: Merging (Non-Fast-Forward) ──────────────────────────────────────────
+  b.secLabel('Merging (Non-Fast-Forward)', 12, 322);
+  b.edge(185, 415, 270, 370);
+  b.seg(270+R, 370, 375-R, 370);
+  b.edge(375, 370, 430, 415);
+  b.circ(270, 370, 'C3'); b.circ(375, 370, 'C4');
+  lbl(375, 370, 'feature', FEAT);
+  b.seg(85+R, 415, 185-R, 415);
+  b.seg(185+R, 415, 430-R, 415);
+  b.circ(85, 415, 'C1'); b.circ(185, 415, 'C2');
+  b.circ(430, 415, 'M', 'merge');
+  lbl(430, 415, 'main', MAIN);
+
+  b.divider(463);
+
+  // ── 4: Rebasing ────────────────────────────────────────────────────────────
+  b.secLabel('Rebasing', 12, 483);
+  b.chain([
+    [85,530,'C1'],[200,530,'C2'],
+    [315,530,"C3'",'rebase'],[430,530,"C4'",'rebase'],
+  ]);
+  // Small downward tick from C2 to indicate 'main' stops here
+  b.add(
+    `<line x1="200" y1="${530+R+3}" x2="200" y2="${530+R+16}" stroke="${MAIN}" stroke-width="1.5"/>` +
+    `\n<text x="200" y="${530+R+28}" font-family="${SANS}" font-size="12" font-weight="700"` +
+    ` text-anchor="middle" fill="${MAIN}">main</text>`,
+    530+R+32
+  );
+  lbl(430, 530, 'feature', SRCH);
+
+  b.note('These 4 shapes appear in every Git workflow');
+  return b.finalize();
+}
+
 // ── Write all files ──────────────────────────────────────────────────────────
 const diagrams = {
+  'initial-repository':       initial_repository,
   'linear-history':           linear_history,
   'branching':                branching,
   'merging-fastforward':      merging_fastforward,
@@ -488,6 +563,7 @@ const diagrams = {
   'amending-commits':         amending_commits,
   'push-and-fetch':           push_and_fetch,
   'team-workflow':            team_workflow,
+  'visual-patterns':          visual_patterns,
 };
 
 Object.entries(diagrams).forEach(([name, fn]) => {
