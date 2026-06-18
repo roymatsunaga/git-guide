@@ -1,18 +1,18 @@
-<svg viewBox="0 0 700 150" xmlns="http://www.w3.org/2000/svg">
-<text x="350" y="22" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="15" font-weight="bold" text-anchor="middle" fill="#1e293b">Linear History</text>
-<circle cx="90" cy="100" r="20" fill="#FFD700" stroke="#DAA520" stroke-width="2" opacity="1"/>
-<text x="90" y="100" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#1e293b" opacity="1">C1</text>
+<svg viewBox="0 0 700 142" xmlns="http://www.w3.org/2000/svg">
+<text x="350" y="24" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="15" font-weight="bold" text-anchor="middle" fill="#1e293b">Linear History</text>
+<circle cx="90" cy="100" r="20" fill="#FFD700" stroke="#DAA520" stroke-width="2"/>
+<text x="90" y="100" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#1e293b">C1</text>
 <line x1="110" y1="100" x2="210" y2="100" stroke="#94a3b8" stroke-width="2" fill="none"/>
-<circle cx="230" cy="100" r="20" fill="#FFD700" stroke="#DAA520" stroke-width="2" opacity="1"/>
-<text x="230" y="100" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#1e293b" opacity="1">C2</text>
+<circle cx="230" cy="100" r="20" fill="#FFD700" stroke="#DAA520" stroke-width="2"/>
+<text x="230" y="100" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#1e293b">C2</text>
 <line x1="250" y1="100" x2="350" y2="100" stroke="#94a3b8" stroke-width="2" fill="none"/>
-<circle cx="370" cy="100" r="20" fill="#FFD700" stroke="#DAA520" stroke-width="2" opacity="1"/>
-<text x="370" y="100" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#1e293b" opacity="1">C3</text>
+<circle cx="370" cy="100" r="20" fill="#FFD700" stroke="#DAA520" stroke-width="2"/>
+<text x="370" y="100" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#1e293b">C3</text>
 <line x1="390" y1="100" x2="490" y2="100" stroke="#94a3b8" stroke-width="2" fill="none"/>
-<circle cx="510" cy="100" r="20" fill="#FFD700" stroke="#DAA520" stroke-width="2" opacity="1"/>
-<text x="510" y="100" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#1e293b" opacity="1">C4</text>
-<rect x="485.4" y="40.0" width="49.2" height="22" rx="4" fill="#0066CC"/>
-<text x="510" y="55.0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" font-weight="600" text-anchor="middle" fill="white">main</text>
-<line x1="510" y1="62" x2="510" y2="72.0" stroke="#0066CC" stroke-width="1.5"/>
-<polygon points="505,72.0 515,72.0 510,82.0" fill="#0066CC"/>
+<circle cx="510" cy="100" r="20" fill="#FFD700" stroke="#DAA520" stroke-width="2"/>
+<text x="510" y="100" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#1e293b">C4</text>
+<rect x="485.4" y="36" width="49.2" height="22" rx="4" fill="#0066CC"/>
+<text x="510" y="51" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" font-weight="600" text-anchor="middle" fill="white">main</text>
+<line x1="510" y1="58" x2="510" y2="70" stroke="#0066CC" stroke-width="1.5"/>
+<polygon points="505,70 515,70 510,82" fill="#0066CC"/>
 </svg>

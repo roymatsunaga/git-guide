@@ -1,63 +1,63 @@
-<svg viewBox="0 0 700 375" xmlns="http://www.w3.org/2000/svg">
-<text x="350" y="22" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="15" font-weight="bold" text-anchor="middle" fill="#1e293b">Rebasing</text>
-<text x="12" y="42" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" font-weight="600" fill="#94a3b8">Before</text>
-<line x1="0" y1="170" x2="700" y2="170" stroke="#e2e8f0" stroke-width="1.5" stroke-dasharray="5,4"/>
-<text x="12" y="192" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" font-weight="600" fill="#94a3b8">After  (git rebase main)</text>
-<circle cx="70" cy="90" r="20" fill="#FFD700" stroke="#DAA520" stroke-width="2" opacity="1"/>
-<text x="70" y="90" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#1e293b" opacity="1">C1</text>
-<line x1="90" y1="90" x2="165" y2="90" stroke="#94a3b8" stroke-width="2" fill="none"/>
-<circle cx="185" cy="90" r="20" fill="#FFD700" stroke="#DAA520" stroke-width="2" opacity="1"/>
-<text x="185" y="90" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#1e293b" opacity="1">C2</text>
-<line x1="205" y1="90" x2="275" y2="90" stroke="#94a3b8" stroke-width="2" fill="none"/>
-<circle cx="295" cy="90" r="20" fill="#FFD700" stroke="#DAA520" stroke-width="2" opacity="1"/>
-<text x="295" y="90" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#1e293b" opacity="1">C3</text>
-<line x1="315" y1="90" x2="390" y2="90" stroke="#94a3b8" stroke-width="2" fill="none"/>
-<circle cx="410" cy="90" r="20" fill="#FFD700" stroke="#DAA520" stroke-width="2" opacity="1"/>
-<text x="410" y="90" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#1e293b" opacity="1">C6</text>
-<rect x="385.4" y="30.0" width="49.2" height="22" rx="4" fill="#0066CC"/>
-<text x="410" y="45.0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" font-weight="600" text-anchor="middle" fill="white">main</text>
-<line x1="410" y1="52" x2="410" y2="62.0" stroke="#0066CC" stroke-width="1.5"/>
-<polygon points="405,62.0 415,62.0 410,72.0" fill="#0066CC"/>
-<line x1="303.5" y1="108.1" x2="321.5" y2="146.9" stroke="#94a3b8" stroke-width="2" fill="none"/>
-<line x1="350" y1="165" x2="425" y2="165" stroke="#94a3b8" stroke-width="2" fill="none"/>
-<circle cx="330" cy="165" r="20" fill="#FFD700" stroke="#DAA520" stroke-width="2" opacity="1"/>
-<text x="330" y="165" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#1e293b" opacity="1">C4</text>
-<circle cx="445" cy="165" r="20" fill="#FFD700" stroke="#DAA520" stroke-width="2" opacity="1"/>
-<text x="445" y="165" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#1e293b" opacity="1">C5</text>
-<rect x="408.7" y="105.0" width="72.6" height="22" rx="4" fill="#22C55E"/>
-<text x="445" y="120.0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" font-weight="600" text-anchor="middle" fill="white">feature</text>
-<line x1="445" y1="127" x2="445" y2="137.0" stroke="#22C55E" stroke-width="1.5"/>
-<polygon points="440,137.0 450,137.0 445,147.0" fill="#22C55E"/>
-<circle cx="70" cy="235" r="20" fill="#FFD700" stroke="#DAA520" stroke-width="2" opacity="1"/>
-<text x="70" y="235" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#1e293b" opacity="1">C1</text>
-<line x1="90" y1="235" x2="165" y2="235" stroke="#94a3b8" stroke-width="2" fill="none"/>
-<circle cx="185" cy="235" r="20" fill="#FFD700" stroke="#DAA520" stroke-width="2" opacity="1"/>
-<text x="185" y="235" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#1e293b" opacity="1">C2</text>
-<line x1="205" y1="235" x2="275" y2="235" stroke="#94a3b8" stroke-width="2" fill="none"/>
-<circle cx="295" cy="235" r="20" fill="#FFD700" stroke="#DAA520" stroke-width="2" opacity="1"/>
-<text x="295" y="235" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#1e293b" opacity="1">C3</text>
-<line x1="315" y1="235" x2="390" y2="235" stroke="#94a3b8" stroke-width="2" fill="none"/>
-<circle cx="410" cy="235" r="20" fill="#FFD700" stroke="#DAA520" stroke-width="2" opacity="1"/>
-<text x="410" y="235" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#1e293b" opacity="1">C6</text>
-<rect x="385.4" y="175.0" width="49.2" height="22" rx="4" fill="#0066CC"/>
-<text x="410" y="190.0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" font-weight="600" text-anchor="middle" fill="white">main</text>
-<line x1="410" y1="197" x2="410" y2="207.0" stroke="#0066CC" stroke-width="1.5"/>
-<polygon points="405,207.0 415,207.0 410,217.0" fill="#0066CC"/>
-<line x1="303.9" y1="252.9" x2="321.1" y2="287.1" stroke="#94a3b8" stroke-width="2" fill="none"/>
-<line x1="350" y1="305" x2="425" y2="305" stroke="#94a3b8" stroke-width="2" stroke-dasharray="6,3" fill="none"/>
-<circle cx="330" cy="305" r="20" fill="#e2e8f0" stroke="#94a3b8" stroke-width="2" opacity="1"/>
-<text x="330" y="305" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#1e293b" opacity="1">C4</text>
-<circle cx="445" cy="305" r="20" fill="#e2e8f0" stroke="#94a3b8" stroke-width="2" opacity="1"/>
-<text x="445" y="305" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#1e293b" opacity="1">C5</text>
-<line x1="430" y1="235" x2="490" y2="235" stroke="#94a3b8" stroke-width="2" fill="none"/>
-<line x1="530" y1="235" x2="590" y2="235" stroke="#94a3b8" stroke-width="2" fill="none"/>
-<circle cx="510" cy="235" r="20" fill="#9333EA" stroke="#7E22CE" stroke-width="2" opacity="1"/>
-<text x="510" y="235" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="white" opacity="1">C4'</text>
-<circle cx="610" cy="235" r="20" fill="#9333EA" stroke="#7E22CE" stroke-width="2" opacity="1"/>
-<text x="610" y="235" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="white" opacity="1">C5'</text>
-<rect x="573.7" y="175.0" width="72.6" height="22" rx="4" fill="#7C3AED"/>
-<text x="610" y="190.0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" font-weight="600" text-anchor="middle" fill="white">feature</text>
-<line x1="610" y1="197" x2="610" y2="207.0" stroke="#7C3AED" stroke-width="1.5"/>
-<polygon points="605,207.0 615,207.0 610,217.0" fill="#7C3AED"/>
-<text x="350" y="344" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" fill="#64748b" text-anchor="middle">C4' and C5' are new commits with different hashes; old C4/C5 become unreferenced</text>
+<svg viewBox="0 0 700 418" xmlns="http://www.w3.org/2000/svg">
+<text x="350" y="24" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="15" font-weight="bold" text-anchor="middle" fill="#1e293b">Rebasing</text>
+<text x="12" y="46" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" font-weight="600" fill="#94a3b8">Before</text>
+<circle cx="65" cy="95" r="20" fill="#FFD700" stroke="#DAA520" stroke-width="2"/>
+<text x="65" y="95" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#1e293b">C1</text>
+<line x1="85" y1="95" x2="160" y2="95" stroke="#94a3b8" stroke-width="2" fill="none"/>
+<circle cx="180" cy="95" r="20" fill="#FFD700" stroke="#DAA520" stroke-width="2"/>
+<text x="180" y="95" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#1e293b">C2</text>
+<line x1="200" y1="95" x2="270" y2="95" stroke="#94a3b8" stroke-width="2" fill="none"/>
+<circle cx="290" cy="95" r="20" fill="#FFD700" stroke="#DAA520" stroke-width="2"/>
+<text x="290" y="95" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#1e293b">C3</text>
+<line x1="310" y1="95" x2="385" y2="95" stroke="#94a3b8" stroke-width="2" fill="none"/>
+<circle cx="405" cy="95" r="20" fill="#FFD700" stroke="#DAA520" stroke-width="2"/>
+<text x="405" y="95" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#1e293b">C6</text>
+<rect x="380.4" y="31" width="49.2" height="22" rx="4" fill="#0066CC"/>
+<text x="405" y="46" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" font-weight="600" text-anchor="middle" fill="white">main</text>
+<line x1="405" y1="53" x2="405" y2="65" stroke="#0066CC" stroke-width="1.5"/>
+<polygon points="400,65 410,65 405,77" fill="#0066CC"/>
+<line x1="298" y1="113.3" x2="317" y2="156.7" stroke="#94a3b8" stroke-width="2" fill="none"/>
+<line x1="345" y1="175" x2="420" y2="175" stroke="#94a3b8" stroke-width="2" fill="none"/>
+<circle cx="325" cy="175" r="20" fill="#FFD700" stroke="#DAA520" stroke-width="2"/>
+<text x="325" y="175" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#1e293b">C4</text>
+<circle cx="440" cy="175" r="20" fill="#FFD700" stroke="#DAA520" stroke-width="2"/>
+<text x="440" y="175" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#1e293b">C5</text>
+<rect x="403.7" y="111" width="72.6" height="22" rx="4" fill="#22C55E"/>
+<text x="440" y="126" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" font-weight="600" text-anchor="middle" fill="white">feature</text>
+<line x1="440" y1="133" x2="440" y2="145" stroke="#22C55E" stroke-width="1.5"/>
+<polygon points="435,145 445,145 440,157" fill="#22C55E"/>
+<line x1="0" y1="210" x2="700" y2="210" stroke="#e2e8f0" stroke-width="1.5" stroke-dasharray="5,4"/>
+<text x="12" y="230" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" font-weight="600" fill="#94a3b8">After  (git rebase main)</text>
+<circle cx="65" cy="265" r="20" fill="#FFD700" stroke="#DAA520" stroke-width="2"/>
+<text x="65" y="265" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#1e293b">C1</text>
+<line x1="85" y1="265" x2="160" y2="265" stroke="#94a3b8" stroke-width="2" fill="none"/>
+<circle cx="180" cy="265" r="20" fill="#FFD700" stroke="#DAA520" stroke-width="2"/>
+<text x="180" y="265" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#1e293b">C2</text>
+<line x1="200" y1="265" x2="270" y2="265" stroke="#94a3b8" stroke-width="2" fill="none"/>
+<circle cx="290" cy="265" r="20" fill="#FFD700" stroke="#DAA520" stroke-width="2"/>
+<text x="290" y="265" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#1e293b">C3</text>
+<line x1="310" y1="265" x2="385" y2="265" stroke="#94a3b8" stroke-width="2" fill="none"/>
+<circle cx="405" cy="265" r="20" fill="#FFD700" stroke="#DAA520" stroke-width="2"/>
+<text x="405" y="265" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#1e293b">C6</text>
+<rect x="380.4" y="201" width="49.2" height="22" rx="4" fill="#0066CC"/>
+<text x="405" y="216" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" font-weight="600" text-anchor="middle" fill="white">main</text>
+<line x1="405" y1="223" x2="405" y2="235" stroke="#0066CC" stroke-width="1.5"/>
+<polygon points="400,235 410,235 405,247" fill="#0066CC"/>
+<line x1="298.5" y1="283.1" x2="316.5" y2="321.9" stroke="#94a3b8" stroke-width="2" fill="none"/>
+<line x1="345" y1="340" x2="420" y2="340" stroke="#94a3b8" stroke-width="2" stroke-dasharray="6,3" fill="none"/>
+<circle cx="325" cy="340" r="20" fill="#e2e8f0" stroke="#94a3b8" stroke-width="2"/>
+<text x="325" y="340" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#94a3b8">C4</text>
+<circle cx="440" cy="340" r="20" fill="#e2e8f0" stroke="#94a3b8" stroke-width="2"/>
+<text x="440" y="340" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#94a3b8">C5</text>
+<line x1="425" y1="265" x2="485" y2="265" stroke="#94a3b8" stroke-width="2" fill="none"/>
+<line x1="525" y1="265" x2="585" y2="265" stroke="#94a3b8" stroke-width="2" fill="none"/>
+<circle cx="505" cy="265" r="20" fill="#9333EA" stroke="#7E22CE" stroke-width="2"/>
+<text x="505" y="265" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="white">C4'</text>
+<circle cx="605" cy="265" r="20" fill="#9333EA" stroke="#7E22CE" stroke-width="2"/>
+<text x="605" y="265" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="white">C5'</text>
+<rect x="568.7" y="201" width="72.6" height="22" rx="4" fill="#7C3AED"/>
+<text x="605" y="216" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" font-weight="600" text-anchor="middle" fill="white">feature</text>
+<line x1="605" y1="223" x2="605" y2="235" stroke="#7C3AED" stroke-width="1.5"/>
+<polygon points="600,235 610,235 605,247" fill="#7C3AED"/>
+<text x="350" y="382" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" fill="#64748b" text-anchor="middle">C4' and C5' are new commits (different hashes); old C4/C5 become unreferenced</text>
 </svg>

@@ -1,29 +1,29 @@
-<svg viewBox="0 0 700 155" xmlns="http://www.w3.org/2000/svg">
-<text x="350" y="22" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="15" font-weight="bold" text-anchor="middle" fill="#1e293b">After Rebase + Fast-Forward Merge</text>
-<circle cx="70" cy="100" r="20" fill="#FFD700" stroke="#DAA520" stroke-width="2" opacity="1"/>
-<text x="70" y="100" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#1e293b" opacity="1">C1</text>
-<line x1="90" y1="100" x2="155" y2="100" stroke="#94a3b8" stroke-width="2" fill="none"/>
-<circle cx="175" cy="100" r="20" fill="#FFD700" stroke="#DAA520" stroke-width="2" opacity="1"/>
-<text x="175" y="100" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#1e293b" opacity="1">C2</text>
-<line x1="195" y1="100" x2="255" y2="100" stroke="#94a3b8" stroke-width="2" fill="none"/>
-<circle cx="275" cy="100" r="20" fill="#FFD700" stroke="#DAA520" stroke-width="2" opacity="1"/>
-<text x="275" y="100" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#1e293b" opacity="1">C3</text>
-<line x1="295" y1="100" x2="365" y2="100" stroke="#94a3b8" stroke-width="2" fill="none"/>
-<circle cx="385" cy="100" r="20" fill="#FFD700" stroke="#DAA520" stroke-width="2" opacity="1"/>
-<text x="385" y="100" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#1e293b" opacity="1">C6</text>
-<line x1="405" y1="100" x2="470" y2="100" stroke="#94a3b8" stroke-width="2" fill="none"/>
-<circle cx="490" cy="100" r="20" fill="#9333EA" stroke="#7E22CE" stroke-width="2" opacity="1"/>
-<text x="490" y="100" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="white" opacity="1">C4'</text>
-<line x1="510" y1="100" x2="575" y2="100" stroke="#94a3b8" stroke-width="2" fill="none"/>
-<circle cx="595" cy="100" r="20" fill="#9333EA" stroke="#7E22CE" stroke-width="2" opacity="1"/>
-<text x="595" y="100" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="white" opacity="1">C5'</text>
-<rect x="570.4" y="12.0" width="49.2" height="22" rx="4" fill="#0066CC"/>
-<text x="595" y="27.0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" font-weight="600" text-anchor="middle" fill="white">main</text>
-<line x1="595" y1="34" x2="595" y2="72.0" stroke="#0066CC" stroke-width="1.5"/>
-<polygon points="590,72.0 600,72.0 595,82.0" fill="#0066CC"/>
-<rect x="558.7" y="40.0" width="72.6" height="22" rx="4" fill="#7C3AED"/>
-<text x="595" y="55.0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" font-weight="600" text-anchor="middle" fill="white">feature</text>
-<line x1="595" y1="62" x2="595" y2="72.0" stroke="#7C3AED" stroke-width="1.5"/>
-<polygon points="590,72.0 600,72.0 595,82.0" fill="#7C3AED"/>
-<text x="350" y="148" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" fill="#64748b" text-anchor="middle">Clean linear history — no merge commit needed</text>
+<svg viewBox="0 0 700 178" xmlns="http://www.w3.org/2000/svg">
+<text x="350" y="24" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="15" font-weight="bold" text-anchor="middle" fill="#1e293b">After Rebase + Fast-Forward Merge</text>
+<circle cx="65" cy="100" r="20" fill="#FFD700" stroke="#DAA520" stroke-width="2"/>
+<text x="65" y="100" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#1e293b">C1</text>
+<line x1="85" y1="100" x2="150" y2="100" stroke="#94a3b8" stroke-width="2" fill="none"/>
+<circle cx="170" cy="100" r="20" fill="#FFD700" stroke="#DAA520" stroke-width="2"/>
+<text x="170" y="100" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#1e293b">C2</text>
+<line x1="190" y1="100" x2="250" y2="100" stroke="#94a3b8" stroke-width="2" fill="none"/>
+<circle cx="270" cy="100" r="20" fill="#FFD700" stroke="#DAA520" stroke-width="2"/>
+<text x="270" y="100" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#1e293b">C3</text>
+<line x1="290" y1="100" x2="355" y2="100" stroke="#94a3b8" stroke-width="2" fill="none"/>
+<circle cx="375" cy="100" r="20" fill="#FFD700" stroke="#DAA520" stroke-width="2"/>
+<text x="375" y="100" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#1e293b">C6</text>
+<line x1="395" y1="100" x2="455" y2="100" stroke="#94a3b8" stroke-width="2" fill="none"/>
+<circle cx="475" cy="100" r="20" fill="#9333EA" stroke="#7E22CE" stroke-width="2"/>
+<text x="475" y="100" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="white">C4'</text>
+<line x1="495" y1="100" x2="555" y2="100" stroke="#94a3b8" stroke-width="2" fill="none"/>
+<circle cx="575" cy="100" r="20" fill="#9333EA" stroke="#7E22CE" stroke-width="2"/>
+<text x="575" y="100" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="white">C5'</text>
+<rect x="550.4" y="6" width="49.2" height="22" rx="4" fill="#0066CC"/>
+<text x="575" y="21" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" font-weight="600" text-anchor="middle" fill="white">main</text>
+<line x1="575" y1="28" x2="575" y2="70" stroke="#0066CC" stroke-width="1.5"/>
+<polygon points="570,70 580,70 575,82" fill="#0066CC"/>
+<rect x="538.7" y="36" width="72.6" height="22" rx="4" fill="#7C3AED"/>
+<text x="575" y="51" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" font-weight="600" text-anchor="middle" fill="white">feature</text>
+<line x1="575" y1="58" x2="575" y2="70" stroke="#7C3AED" stroke-width="1.5"/>
+<polygon points="570,70 580,70 575,82" fill="#7C3AED"/>
+<text x="350" y="142" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" fill="#64748b" text-anchor="middle">Clean linear history — no merge commit needed</text>
 </svg>

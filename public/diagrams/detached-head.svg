@@ -1,46 +1,46 @@
-<svg viewBox="0 0 700 285" xmlns="http://www.w3.org/2000/svg">
-<text x="350" y="22" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="15" font-weight="bold" text-anchor="middle" fill="#1e293b">Detached HEAD</text>
-<text x="12" y="45" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" font-weight="600" fill="#94a3b8">Normal (HEAD tracks a branch)</text>
-<line x1="0" y1="158" x2="700" y2="158" stroke="#e2e8f0" stroke-width="1.5" stroke-dasharray="5,4"/>
-<text x="12" y="178" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" font-weight="600" fill="#94a3b8">Detached HEAD (HEAD points to a commit directly)</text>
-<circle cx="75" cy="105" r="20" fill="#FFD700" stroke="#DAA520" stroke-width="2" opacity="1"/>
-<text x="75" y="105" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#1e293b" opacity="1">C1</text>
-<line x1="95" y1="105" x2="175" y2="105" stroke="#94a3b8" stroke-width="2" fill="none"/>
-<circle cx="195" cy="105" r="20" fill="#FFD700" stroke="#DAA520" stroke-width="2" opacity="1"/>
-<text x="195" y="105" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#1e293b" opacity="1">C2</text>
-<line x1="215" y1="105" x2="300" y2="105" stroke="#94a3b8" stroke-width="2" fill="none"/>
-<circle cx="320" cy="105" r="20" fill="#FFD700" stroke="#DAA520" stroke-width="2" opacity="1"/>
-<text x="320" y="105" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#1e293b" opacity="1">C3</text>
-<line x1="340" y1="105" x2="425" y2="105" stroke="#94a3b8" stroke-width="2" fill="none"/>
-<circle cx="445" cy="105" r="20" fill="#FFD700" stroke="#DAA520" stroke-width="2" opacity="1"/>
-<text x="445" y="105" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#1e293b" opacity="1">C4</text>
-<rect x="420.4" y="45.0" width="49.2" height="22" rx="4" fill="#0066CC"/>
-<text x="445" y="60.0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" font-weight="600" text-anchor="middle" fill="white">main</text>
-<line x1="445" y1="67" x2="445" y2="77.0" stroke="#0066CC" stroke-width="1.5"/>
-<polygon points="440,77.0 450,77.0 445,87.0" fill="#0066CC"/>
-<rect x="420.4" y="17.0" width="49.2" height="22" rx="4" fill="#DC2626"/>
-<text x="445" y="32.0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" font-weight="600" text-anchor="middle" fill="white">HEAD</text>
-<line x1="445" y1="39" x2="445" y2="77.0" stroke="#DC2626" stroke-width="1.5"/>
-<polygon points="440,77.0 450,77.0 445,87.0" fill="#DC2626"/>
-<text x="12" y="150" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" fill="#64748b" text-anchor="start">HEAD → main → C4</text>
-<circle cx="75" cy="225" r="20" fill="#FFD700" stroke="#DAA520" stroke-width="2" opacity="1"/>
-<text x="75" y="225" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#1e293b" opacity="1">C1</text>
-<line x1="95" y1="225" x2="175" y2="225" stroke="#94a3b8" stroke-width="2" fill="none"/>
-<circle cx="195" cy="225" r="20" fill="#FFD700" stroke="#DAA520" stroke-width="2" opacity="1"/>
-<text x="195" y="225" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#1e293b" opacity="1">C2</text>
-<line x1="215" y1="225" x2="300" y2="225" stroke="#94a3b8" stroke-width="2" fill="none"/>
-<circle cx="320" cy="225" r="20" fill="#FFD700" stroke="#DAA520" stroke-width="2" opacity="1"/>
-<text x="320" y="225" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#1e293b" opacity="1">C3</text>
-<line x1="340" y1="225" x2="425" y2="225" stroke="#94a3b8" stroke-width="2" fill="none"/>
-<circle cx="445" cy="225" r="20" fill="#FFD700" stroke="#DAA520" stroke-width="2" opacity="1"/>
-<text x="445" y="225" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#1e293b" opacity="1">C4</text>
-<rect x="420.4" y="165.0" width="49.2" height="22" rx="4" fill="#0066CC"/>
-<text x="445" y="180.0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" font-weight="600" text-anchor="middle" fill="white">main</text>
-<line x1="445" y1="187" x2="445" y2="197.0" stroke="#0066CC" stroke-width="1.5"/>
-<polygon points="440,197.0 450,197.0 445,207.0" fill="#0066CC"/>
-<rect x="295.4" y="165.0" width="49.2" height="22" rx="4" fill="#DC2626"/>
-<text x="320" y="180.0" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" font-weight="600" text-anchor="middle" fill="white">HEAD</text>
-<line x1="320" y1="187" x2="320" y2="197.0" stroke="#DC2626" stroke-width="1.5"/>
-<polygon points="315,197.0 325,197.0 320,207.0" fill="#DC2626"/>
-<text x="12" y="277" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" fill="#64748b" text-anchor="start">HEAD → C3  (not via a branch — new commits here will be orphaned)</text>
+<svg viewBox="0 0 700 318" xmlns="http://www.w3.org/2000/svg">
+<text x="350" y="24" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="15" font-weight="bold" text-anchor="middle" fill="#1e293b">Detached HEAD</text>
+<text x="12" y="48" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" font-weight="600" fill="#94a3b8">Normal (HEAD tracks a branch)</text>
+<circle cx="70" cy="105" r="20" fill="#FFD700" stroke="#DAA520" stroke-width="2"/>
+<text x="70" y="105" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#1e293b">C1</text>
+<line x1="90" y1="105" x2="170" y2="105" stroke="#94a3b8" stroke-width="2" fill="none"/>
+<circle cx="190" cy="105" r="20" fill="#FFD700" stroke="#DAA520" stroke-width="2"/>
+<text x="190" y="105" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#1e293b">C2</text>
+<line x1="210" y1="105" x2="295" y2="105" stroke="#94a3b8" stroke-width="2" fill="none"/>
+<circle cx="315" cy="105" r="20" fill="#FFD700" stroke="#DAA520" stroke-width="2"/>
+<text x="315" y="105" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#1e293b">C3</text>
+<line x1="335" y1="105" x2="420" y2="105" stroke="#94a3b8" stroke-width="2" fill="none"/>
+<circle cx="440" cy="105" r="20" fill="#FFD700" stroke="#DAA520" stroke-width="2"/>
+<text x="440" y="105" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#1e293b">C4</text>
+<rect x="415.4" y="41" width="49.2" height="22" rx="4" fill="#0066CC"/>
+<text x="440" y="56" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" font-weight="600" text-anchor="middle" fill="white">main</text>
+<line x1="440" y1="63" x2="440" y2="75" stroke="#0066CC" stroke-width="1.5"/>
+<polygon points="435,75 445,75 440,87" fill="#0066CC"/>
+<rect x="415.4" y="11" width="49.2" height="22" rx="4" fill="#DC2626"/>
+<text x="440" y="26" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" font-weight="600" text-anchor="middle" fill="white">HEAD</text>
+<line x1="440" y1="33" x2="440" y2="75" stroke="#DC2626" stroke-width="1.5"/>
+<polygon points="435,75 445,75 440,87" fill="#DC2626"/>
+<text x="12" y="155" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" fill="#64748b">HEAD → main → C4</text>
+<line x1="0" y1="170" x2="700" y2="170" stroke="#e2e8f0" stroke-width="1.5" stroke-dasharray="5,4"/>
+<text x="12" y="193" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" font-weight="600" fill="#94a3b8">Detached HEAD (HEAD points directly to a commit)</text>
+<circle cx="70" cy="240" r="20" fill="#FFD700" stroke="#DAA520" stroke-width="2"/>
+<text x="70" y="240" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#1e293b">C1</text>
+<line x1="90" y1="240" x2="170" y2="240" stroke="#94a3b8" stroke-width="2" fill="none"/>
+<circle cx="190" cy="240" r="20" fill="#FFD700" stroke="#DAA520" stroke-width="2"/>
+<text x="190" y="240" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#1e293b">C2</text>
+<line x1="210" y1="240" x2="295" y2="240" stroke="#94a3b8" stroke-width="2" fill="none"/>
+<circle cx="315" cy="240" r="20" fill="#FFD700" stroke="#DAA520" stroke-width="2"/>
+<text x="315" y="240" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#1e293b">C3</text>
+<line x1="335" y1="240" x2="420" y2="240" stroke="#94a3b8" stroke-width="2" fill="none"/>
+<circle cx="440" cy="240" r="20" fill="#FFD700" stroke="#DAA520" stroke-width="2"/>
+<text x="440" y="240" font-family="monospace" font-size="12" font-weight="bold" text-anchor="middle" dominant-baseline="middle" fill="#1e293b">C4</text>
+<rect x="415.4" y="176" width="49.2" height="22" rx="4" fill="#0066CC"/>
+<text x="440" y="191" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" font-weight="600" text-anchor="middle" fill="white">main</text>
+<line x1="440" y1="198" x2="440" y2="210" stroke="#0066CC" stroke-width="1.5"/>
+<polygon points="435,210 445,210 440,222" fill="#0066CC"/>
+<rect x="290.4" y="176" width="49.2" height="22" rx="4" fill="#DC2626"/>
+<text x="315" y="191" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="12" font-weight="600" text-anchor="middle" fill="white">HEAD</text>
+<line x1="315" y1="198" x2="315" y2="210" stroke="#DC2626" stroke-width="1.5"/>
+<polygon points="310,210 320,210 315,222" fill="#DC2626"/>
+<text x="12" y="282" font-family="-apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif" font-size="11" fill="#64748b" text-anchor="start">HEAD → C3  (not via a branch — new commits here will be orphaned)</text>
 </svg>
