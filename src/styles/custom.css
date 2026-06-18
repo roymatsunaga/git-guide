@@ -19,4 +19,15 @@ figure {
 /* Code block styling */
 pre {
   overflow-x: auto;
+  text-align: left;
+  padding: 1rem 1.25rem;
+}
+
+pre code {
+  text-align: left;
+}
+
+.code {
+  text-align: left;
+  padding: 1rem 1.25rem;
 }
